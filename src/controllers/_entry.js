@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { render } from 'react-dom';
 import { Router,Route,Link,IndexRoute,browserHistory,hashHistory} from 'react-router';
@@ -30,5 +29,4 @@ const routes=(
 		<Route path="*" component={Default} />
 	</Route>
 );
-
 render(<Router routes={routes} history={hashHistory} />,document.getElementById('mx'));

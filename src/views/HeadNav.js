@@ -29,5 +29,4 @@ export default class HeadNav extends React.Component{
 			</nav>
 		);
 	}
-
 };
