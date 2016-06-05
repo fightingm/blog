@@ -1,0 +1,23 @@
+@import "./Common.css";
+
+body,html{
+	width: 100%;
+	height: 100%;
+}
+body{
+	background: url("../img/hello.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+#mx,#main-wrap{
+	height: 100%;
+}
+.hello{
+	width: 800px;
+	height: 100%;
+	margin: 0 auto;
+	text-align: center;
+	a{
+		color: #000;
+	}
+}
