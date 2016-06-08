@@ -4,7 +4,7 @@ import React from "react";
 import HeadImg from "./HeadImg";
 import HeadNav from "./HeadNav";
 import Footer from "./Footer";
-require('../css/Header.css');
+import '../css/Header.css';
 
 export default class Header extends React.Component{
 	constructor(props) {
@@ -15,7 +15,7 @@ export default class Header extends React.Component{
     }
 	render() {
 		return (
-			<header className="header">
+			<header className="Header">
 				<HeadImg />
 				<HeadNav sel={this.state.sel} />
 				<Footer />

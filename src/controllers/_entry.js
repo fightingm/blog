@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Router,Route,Link,IndexRoute,browserHistory,hashHistory} from 'react-router';
+import { Router,Route,Link,IndexRoute,hashHistory } from 'react-router';
 
 import Default from '../views/Default';
 import Hello from '../views/Hello';
@@ -9,10 +9,12 @@ import About from '../views/About';
 import Portfolio from '../views/Portfolio';
 import Photos from '../views/Photos';
 import Blog from '../views/Blog';
+import '../css/Common.css';
+import '../css/Reset.css';
 const App = React.createClass({
 	render() {
 		return(
-			<div id="main-wrap">
+			<div id="Root">
 				{this.props.children}
 			</div>
 		);

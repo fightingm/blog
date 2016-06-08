@@ -1,0 +1,195 @@
+
+@charset utf-8;
+.Default{
+	color:#888;
+	font-family: "\5FAE\8F6F\96C5\9ED1";
+	font-weight: 200;
+}
+.Hello{
+	background: url(13143feff67ab7bb9f57e9d992bf1c14.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+}
+.Hello #mx, .Hello #main-wrap{
+	height: 100%;
+}
+.Hello .hello{
+	width: 700px;
+	height: 400px;
+	position: absolute;
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	text-align: center;
+	z-index: 9;
+	color:#fff;
+}
+.Hello .hello a{
+	color: #fff;
+}
+.Hello .mask{
+	position: absolute;
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.3);
+}
+
+
+.Header{
+	width: 256px;
+	background: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+.Header .head-img-wrap{
+	padding: 64px;
+}
+.Header .head-img-wrap img{
+	border-radius: 50%;
+	width: 128px;
+	height: 128px;
+}
+.Header .head-ul{
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+.Header .head-ul li{
+	border-top:1px solid #f0f0f0;
+}
+.Header .head-ul li:hover{
+	background: #f7f7f7;
+}
+.Header .head-ul li:first-child{
+	border-top: none;
+}
+.Header .head-ul .current a{
+	border-right: 4px solid #4a90e2;
+}
+.Header .head-ul a{
+	display: block;
+	padding: 10px 20px;
+	text-decoration: none;
+	color: inherit;
+}
+.Header .footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	border-top: 1px solid #f0f0f0;
+	font-size: 14px;
+}
+
+.MainHeader{
+	height: 256px;
+	background: url(28da39729db9f45d56eb2d2cc9aae9cb.jpg)no-repeat top center;
+	background-size: 100% 100%;
+	color: #fff;
+	position: relative;
+	text-align: center;
+}
+.MainHeader .wrap{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	padding: 20px;
+}
+.MainHeader .wrap p:first-child{
+	line-height:75px;
+	font-size: 50px;
+}
+.MainHeader .wrap p:last-child{
+	line-height:55px;
+	font-size: 30px;
+}
+.AboutMain{
+	padding-left: 256px;
+	background: #f7f7f7;
+}
+.AboutMain .container{
+	width: 60%;
+	margin: 30px auto;
+}
+.AboutMain .container h1{
+	text-align: center;
+	padding-bottom: 10px;
+	position: relative;
+	font-size: 30px;
+	margin-bottom: 15px
+}
+.AboutMain .container h1:after{
+	content: '';
+	width: 128px;
+	height: 1px;
+	bottom: 0;
+	left: 50%;
+	margin-left: -64px;
+	background: #888;
+	position: absolute;
+	display: block;
+}
+.AboutMain .container p{
+	line-height: 35px;
+}
+html, body{
+    width:100%;
+    height: 100%;
+    color:#888;
+    font-family: "\5FAE\8F6F\96C5\9ED1";
+    font-weight: 200;
+}
+#mx, #Root{
+    width: 100%;
+    height: 100%;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { 
+    padding: 0;
+    margin: 0;
+}
+input{
+    border:none;
+    outline: none;
+}
+a{
+	color:#666;
+	text-decoration:none;
+	}
+fieldset, img {	
+    border: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ol, ul {
+	color:#666;
+	list-style: none;
+}
+address, caption, cite, code, dfn, em, strong, th, var, i{
+    font-weight: normal;
+    font-style: normal;
+}
+caption, th {
+    text-align: left;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-size: 100%;
+}
+abbr, acronym { 
+    border: 0;
+}
+/* html5 reset */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display:block;
+}

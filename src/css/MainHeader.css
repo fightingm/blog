@@ -1,0 +1,25 @@
+
+.MainHeader{
+	font-family: Infinity;
+	height: 256px;
+	background: url('../img/main-header.jpg')no-repeat top center;
+	background-size: 100% 100%;
+	color: #fff;
+	position: relative;
+	text-align: center;
+	.wrap{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		padding: 20px;
+		p:first-child{
+			line-height:75px;
+			font-size: 50px;
+		}
+		p:last-child{
+			line-height:55px;
+			font-size: 30px;
+		}
+	}
+}
