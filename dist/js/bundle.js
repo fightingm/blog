@@ -60,29 +60,29 @@
 
 	var _Default2 = _interopRequireDefault(_Default);
 
-	var _Hello = __webpack_require__(234);
+	var _Hello = __webpack_require__(232);
 
 	var _Hello2 = _interopRequireDefault(_Hello);
 
-	var _About = __webpack_require__(239);
+	var _About = __webpack_require__(236);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Portfolio = __webpack_require__(253);
+	var _Portfolio = __webpack_require__(247);
 
 	var _Portfolio2 = _interopRequireDefault(_Portfolio);
 
-	var _Photos = __webpack_require__(255);
+	var _Photos = __webpack_require__(249);
 
 	var _Photos2 = _interopRequireDefault(_Photos);
 
-	var _Blog = __webpack_require__(259);
+	var _Blog = __webpack_require__(252);
 
 	var _Blog2 = _interopRequireDefault(_Blog);
 
-	__webpack_require__(261);
+	__webpack_require__(254);
 
-	__webpack_require__(266);
+	__webpack_require__(258);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25763,354 +25763,13 @@
 
 /***/ },
 /* 230 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(231);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(233)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Default.css", function() {
-				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Default.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 231 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(232)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "\n@charset utf-8;\n.Default{\n\tcolor:#888;\n\tfont-family: \"\\5FAE\\8F6F\\96C5\\9ED1\";\n\tfont-weight: 200;\n}", ""]);
-
-	// exports
-
-
-/***/ },
-/* 232 */
 /***/ function(module, exports) {
 
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
+	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 233 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0,
-		styleElementsInsertedAtTop = [];
-
-	module.exports = function(list, options) {
-		if(false) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-
-		options = options || {};
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-
-		// By default, add <style> tags to the bottom of <head>.
-		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
-
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	}
-
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
-	}
-
-	function insertStyleElement(options, styleElement) {
-		var head = getHeadElement();
-		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
-		if (options.insertAt === "top") {
-			if(!lastStyleElementInsertedAtTop) {
-				head.insertBefore(styleElement, head.firstChild);
-			} else if(lastStyleElementInsertedAtTop.nextSibling) {
-				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
-			} else {
-				head.appendChild(styleElement);
-			}
-			styleElementsInsertedAtTop.push(styleElement);
-		} else if (options.insertAt === "bottom") {
-			head.appendChild(styleElement);
-		} else {
-			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-		}
-	}
-
-	function removeStyleElement(styleElement) {
-		styleElement.parentNode.removeChild(styleElement);
-		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
-		if(idx >= 0) {
-			styleElementsInsertedAtTop.splice(idx, 1);
-		}
-	}
-
-	function createStyleElement(options) {
-		var styleElement = document.createElement("style");
-		styleElement.type = "text/css";
-		insertStyleElement(options, styleElement);
-		return styleElement;
-	}
-
-	function createLinkElement(options) {
-		var linkElement = document.createElement("link");
-		linkElement.rel = "stylesheet";
-		insertStyleElement(options, linkElement);
-		return linkElement;
-	}
-
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement(options));
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else if(obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function") {
-			styleElement = createLinkElement(options);
-			update = updateLink.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-				if(styleElement.href)
-					URL.revokeObjectURL(styleElement.href);
-			};
-		} else {
-			styleElement = createStyleElement(options);
-			update = applyToTag.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-			};
-		}
-
-		update(obj);
-
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-
-	var replaceText = (function () {
-		var textStore = [];
-
-		return function (index, replacement) {
-			textStore[index] = replacement;
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-
-		if(media) {
-			styleElement.setAttribute("media", media)
-		}
-
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-
-	function updateLink(linkElement, obj) {
-		var css = obj.css;
-		var sourceMap = obj.sourceMap;
-
-		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-
-		var blob = new Blob([css], { type: "text/css" });
-
-		var oldSrc = linkElement.href;
-
-		linkElement.href = URL.createObjectURL(blob);
-
-		if(oldSrc)
-			URL.revokeObjectURL(oldSrc);
-	}
-
-
-/***/ },
-/* 234 */
+/* 231 */,
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -26127,9 +25786,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	__webpack_require__(235);
+	__webpack_require__(233);
 
-	var _jquery = __webpack_require__(238);
+	var _jquery = __webpack_require__(235);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -26181,53 +25840,14 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Hello.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
+/* 233 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 234 */,
 /* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(236);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(233)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Hello.css", function() {
-				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Hello.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(232)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "\n.Hello{\n\tfont-family: lvdou;\n\tbackground: url(" + __webpack_require__(237) + ");\n\tbackground-size: cover;\n\tbackground-repeat: no-repeat;\n\theight: 100%;\n}\n.Hello #mx, .Hello #main-wrap{\n\theight: 100%;\n}\n.Hello .hello{\n\twidth: 700px;\n\theight: 400px;\n\tposition: absolute;\n\ttop:0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tmargin: auto;\n\ttext-align: center;\n\tz-index: 9;\n\tcolor:#fff;\n}\n.Hello .hello a{\n\tcolor: #fff;\n}\n.Hello .mask{\n\tposition: absolute;\n\ttop:0;\n\tleft: 0;\n\tright: 0;\n\tbottom: 0;\n\tbackground: rgba(0,0,0,0.3);\n}\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 237 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "13143feff67ab7bb9f57e9d992bf1c14.jpg";
-
-/***/ },
-/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -36075,7 +35695,7 @@
 
 
 /***/ },
-/* 239 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36092,11 +35712,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(240);
+	var _Header = __webpack_require__(237);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _AboutMain = __webpack_require__(246);
+	var _AboutMain = __webpack_require__(242);
 
 	var _AboutMain2 = _interopRequireDefault(_AboutMain);
 
@@ -36143,7 +35763,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "About.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 240 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36160,19 +35780,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _HeadImg = __webpack_require__(241);
+	var _HeadImg = __webpack_require__(238);
 
 	var _HeadImg2 = _interopRequireDefault(_HeadImg);
 
-	var _HeadNav = __webpack_require__(242);
+	var _HeadNav = __webpack_require__(239);
 
 	var _HeadNav2 = _interopRequireDefault(_HeadNav);
 
-	var _Footer = __webpack_require__(243);
+	var _Footer = __webpack_require__(240);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
-	__webpack_require__(244);
+	__webpack_require__(241);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36217,7 +35837,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Header.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 241 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36270,7 +35890,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "HeadImg.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 242 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36360,7 +35980,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "HeadNav.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 243 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36422,47 +36042,13 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Footer.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 244 */
-/***/ function(module, exports, __webpack_require__) {
+/* 241 */
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(245);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(233)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Header.css", function() {
-				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Header.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 245 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(232)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "\n\n.Header{\n\twidth: 256px;\n\tbackground: #fff;\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\tbottom: 0;\n}\n.Header .head-img-wrap{\n\tpadding: 64px;\n}\n.Header .head-img-wrap img{\n\tborder-radius: 50%;\n\twidth: 128px;\n\theight: 128px;\n}\n.Header .head-ul{\n\tmargin:0;\n\tpadding:0;\n\tlist-style: none;\n}\n.Header .head-ul li{\n\tposition: relative;\n\tline-height: 40px;\n\tborder-top:1px solid #f0f0f0;\n}\n.Header .head-ul li .link{\n\tdisplay: block;\n\tcolor: #666;\n\tpadding: 0 10px;\n}\n.Header .head-ul li .hover{\n\tdisplay: block;\n\tbackground: #666;\n\twidth: 0;\n\tposition: absolute;\n\tpadding: 0 10px;\n\tleft: 0;\n\ttop: 0;\n\t-webkit-transition: width 0.5s,opacity 0.5s;\n\ttransition: width 0.5s,opacity 0.5s;\n\tbox-sizing:border-box;\n\ttext-align: right;\n\topacity: 0;\n\tcolor: #fff;\n}\n.Header .head-ul li:hover .hover{\n\twidth: 100%;\n\topacity: 1;\n}\n.Header .head-ul li:first-child{\n\tborder-top: none;\n}\n.Header .head-ul .current{\n\tborder-right: 4px solid #888;\n}\n.Header .footer{\n\tposition: absolute;\n\tbottom: 0;\n\tleft: 0;\n\tright: 0;\n\tpadding: 20px;\n\tborder-top: 1px solid #f0f0f0;\n\tfont-size: 14px;\n\tfont-family: lvdou;\n}\n.Header .footer .blue{\n\tfont-family: Infinity;\n\tfont-weight: bold;\n\tletter-spacing: 3px;\n\tmargin-left: 5px;\n}", ""]);
-
-	// exports
-
-
-/***/ },
-/* 246 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36479,7 +36065,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MainHeader = __webpack_require__(247);
+	var _MainHeader = __webpack_require__(243);
 
 	var _MainHeader2 = _interopRequireDefault(_MainHeader);
 
@@ -36491,7 +36077,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(251);
+	__webpack_require__(246);
 
 	var AboutMain = function (_React$Component) {
 		_inherits(AboutMain, _React$Component);
@@ -36525,7 +36111,7 @@
 						_react2.default.createElement(
 							'p',
 							null,
-							'但是还具体还没想好介绍点啥啊！！！'
+							'但是具体还没想好介绍点啥啊！！！'
 						)
 					)
 				);
@@ -36540,7 +36126,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "AboutMain.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 247 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36557,7 +36143,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	__webpack_require__(248);
+	__webpack_require__(244);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36608,93 +36194,20 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "MainHeader.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 248 */
-/***/ function(module, exports, __webpack_require__) {
+/* 244 */
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(249);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(233)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./MainHeader.css", function() {
-				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./MainHeader.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 249 */
-/***/ function(module, exports, __webpack_require__) {
+/* 245 */,
+/* 246 */
+/***/ function(module, exports) {
 
-	exports = module.exports = __webpack_require__(232)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "\r\n.MainHeader{\r\n\tfont-family: Infinity;\r\n\theight: 256px;\r\n\tbackground: url(" + __webpack_require__(250) + ")no-repeat top center;\r\n\tbackground-size: 100% 100%;\r\n\tcolor: #fff;\r\n\tposition: relative;\r\n\ttext-align: center;\r\n}\n.MainHeader .wrap{\r\n\tposition: absolute;\r\n\tleft: 0;\r\n\tbottom: 0;\r\n\tright: 0;\r\n\tpadding: 20px;\r\n}\n.MainHeader .wrap p:first-child{\r\n\tline-height:75px;\r\n\tfont-size: 50px;\r\n}\n.MainHeader .wrap p:last-child{\r\n\tline-height:55px;\r\n\tfont-size: 30px;\r\n}", ""]);
-
-	// exports
-
+	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 250 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "28da39729db9f45d56eb2d2cc9aae9cb.jpg";
-
-/***/ },
-/* 251 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(252);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(233)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./AboutMain.css", function() {
-				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./AboutMain.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 252 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(232)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "", ""]);
-
-	// exports
-
-
-/***/ },
-/* 253 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36711,11 +36224,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(240);
+	var _Header = __webpack_require__(237);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _PortfolioMain = __webpack_require__(254);
+	var _PortfolioMain = __webpack_require__(248);
 
 	var _PortfolioMain2 = _interopRequireDefault(_PortfolioMain);
 
@@ -36762,7 +36275,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Portfolio.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 254 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36779,7 +36292,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MainHeader = __webpack_require__(247);
+	var _MainHeader = __webpack_require__(243);
 
 	var _MainHeader2 = _interopRequireDefault(_MainHeader);
 
@@ -36838,7 +36351,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "PortfolioMain.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 255 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36855,11 +36368,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(240);
+	var _Header = __webpack_require__(237);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _PhotoMain = __webpack_require__(256);
+	var _PhotoMain = __webpack_require__(250);
 
 	var _PhotoMain2 = _interopRequireDefault(_PhotoMain);
 
@@ -36906,7 +36419,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Photos.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 256 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36925,11 +36438,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MainHeader = __webpack_require__(247);
+	var _MainHeader = __webpack_require__(243);
 
 	var _MainHeader2 = _interopRequireDefault(_MainHeader);
 
-	__webpack_require__(257);
+	__webpack_require__(251);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37096,47 +36609,13 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "PhotoMain.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 257 */
-/***/ function(module, exports, __webpack_require__) {
+/* 251 */
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(258);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(233)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Photo.css", function() {
-				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Photo.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 258 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(232)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "\r\n.PhotoMain .pictureWall{\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-flex-flow: row wrap;\r\n      -ms-flex-flow: row wrap;\r\n          flex-flow: row wrap;\r\n  -webkit-box-pack: start;\r\n  -webkit-justify-content: flex-start;\r\n      -ms-flex-pack: start;\r\n          justify-content: flex-start;\r\n  overflow: hidden;\r\n  padding: 10px; \r\n}\r\n.PhotoMain .pictureWall .photo{\r\n  position: relative;\r\n  width: 30%;\r\n  height: 360px;\r\n  padding: 10px;\r\n  background: #fff;\r\n  margin: 10px auto;\r\n  box-sizing:border-box; \r\n}\r\n.PhotoMain .pictureWall .photo figcaption{\r\n  opacity: 0;\r\n  -webkit-transition: opacity 0.4s ease-in-out;\r\n  transition: opacity 0.4s ease-in-out;\r\n  text-align: center;\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width:100%;\r\n  height: 100%;\r\n  padding: 30px;\r\n  background: rgba(58,52,42,0.7);\r\n  font-size: 16px;\r\n  color: #fafafa;\r\n  box-sizing:border-box; \r\n}\r\n.PhotoMain .pictureWall .photo figcaption span{\r\n  width: 100%;\r\n  height: 50px;\r\n  position: absolute;\r\n  top: 50%;\r\n  left:0;\r\n  -webkit-transition: margin 0.35s,opacity 0.35s;\r\n  transition: margin 0.35s,opacity 0.35s;\r\n  margin-top: 0px;\r\n  opacity: 0; \r\n}\r\n.PhotoMain .pictureWall .photo figcaption::before{\r\n  content: '';\r\n  position: absolute;\r\n  top: 50px;\r\n  right: 30px;\r\n  bottom: 50px;\r\n  left: 30px;\r\n  opacity: 0;\r\n  border-top: 1px solid #fff;\r\n  border-bottom: 1px solid #fff;\r\n  -webkit-transform: scale(0,1);\r\n          transform: scale(0,1);\r\n  -webkit-transform-origin: 0 0;\r\n          transform-origin: 0 0;\r\n  -webkit-transition: opacity 0.6s,-webkit-transform 0.6s;\r\n  transition: opacity 0.6s,-webkit-transform 0.6s;\r\n  transition: transform 0.6s,opacity 0.6s;\r\n  transition: transform 0.6s,opacity 0.6s,-webkit-transform 0.6s; \r\n}\r\n.PhotoMain .pictureWall .photo figcaption::after{\r\n  content: '';\r\n  position: absolute;\r\n  top: 30px;\r\n  right: 50px;\r\n  bottom: 30px;\r\n  opacity: 0;\r\n  left: 50px;\r\n  border-left: 1px solid #fff;\r\n  border-right: 1px solid #fff;\r\n  -webkit-transform: scale(1,0);\r\n          transform: scale(1,0);\r\n  -webkit-transform-origin: 100% 0;\r\n          transform-origin: 100% 0;\r\n  -webkit-transition: opacity 0.6s,-webkit-transform 0.6s;\r\n  transition: opacity 0.6s,-webkit-transform 0.6s;\r\n  transition: transform 0.6s,opacity 0.6s;\r\n  transition: transform 0.6s,opacity 0.6s,-webkit-transform 0.6s; \r\n}\r\n.PhotoMain .pictureWall .photo img{\r\n  width: 100%;\r\n  height: 100%; \r\n}\r\n.PhotoMain .pictureWall .photo:hover figcaption::before{\r\n  opacity: 1;\r\n  -webkit-transform: scale(1,1);\r\n          transform: scale(1,1); \r\n}\r\n.PhotoMain .pictureWall .photo:hover figcaption::after{\r\n  opacity: 1;\r\n  -webkit-transform: scale(1,1);\r\n          transform: scale(1,1); \r\n}\r\n.PhotoMain .pictureWall .photo:hover figcaption{\r\n  opacity: 1; \r\n}\r\n.PhotoMain .pictureWall .photo:hover figcaption span{\r\n  margin-top: -25px;\r\n  opacity: 1; \r\n}\r\n@media all and (max-width: 1056px) {\r\n  .PhotoMain .pictureWall{\r\n    \t-webkit-justify-content: space-around;\r\n    \t    -ms-flex-pack: distribute;\r\n    \t        justify-content: space-around;\r\n    }\r\n  .PhotoMain .pictureWall .photo{\r\n    width: 40%; \r\n  } \r\n}\r\n@media all and (max-width: 756px) {\r\n  .PhotoMain .pictureWall{\r\n    \t-webkit-box-orient: vertical;\r\n    \t-webkit-box-direction: normal;\r\n    \t-webkit-flex-direction: column;\r\n    \t    -ms-flex-direction: column;\r\n    \t        flex-direction: column;\r\n    }\r\n  .PhotoMain .pictureWall .photo{\r\n    width: 80%; \r\n  } \r\n}\r\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 259 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -37153,11 +36632,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(240);
+	var _Header = __webpack_require__(237);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _BlogMain = __webpack_require__(260);
+	var _BlogMain = __webpack_require__(253);
 
 	var _BlogMain2 = _interopRequireDefault(_BlogMain);
 
@@ -37204,7 +36683,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Blog.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 260 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -37221,7 +36700,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MainHeader = __webpack_require__(247);
+	var _MainHeader = __webpack_require__(243);
 
 	var _MainHeader2 = _interopRequireDefault(_MainHeader);
 
@@ -37280,102 +36759,19 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "BlogMain.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 261 */
-/***/ function(module, exports, __webpack_require__) {
+/* 254 */
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(262);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(233)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Common.css", function() {
-				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Common.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 262 */
-/***/ function(module, exports, __webpack_require__) {
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */
+/***/ function(module, exports) {
 
-	exports = module.exports = __webpack_require__(232)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "@font-face{\n    font-family: mxFont;\n    src:url(" + __webpack_require__(263) + ");\n}\n@font-face{\n    font-family: Infinity;\n    src:url(" + __webpack_require__(264) + ");\n}\n@font-face{\n    font-family: lvdou;\n    src:url(" + __webpack_require__(265) + ");\n}\nhtml, body{\n    width:100%;\n    height: 100%;\n    color:#888;\n    font-family: mxFont;\n    font-weight: 200;\n    background: #f7f7f7;\n}\n#mx, #Root{\n    width: 100%;\n    height: 100%;\n}\n\n.main-body{\n    padding-left: 256px;\n    background: #f7f7f7;   \n    font-family: lvdou; \n}\n.container{\n    width: 60%;\n    margin: 30px auto;\n}\n.container h1{\n    text-align: center;\n    padding-bottom: 10px;\n    position: relative;\n    font-size: 30px;\n    margin-bottom: 15px\n}\n.container h1:after{\n    content: '';\n    width: 128px;\n    height: 1px;\n    bottom: 0;\n    left: 50%;\n    margin-left: -64px;\n    background: #888;\n    position: absolute;\n    display: block;\n}\n.container p{\n    line-height: 30px;\n    text-indent: 2em;\n    word-break: break-all;\n    margin-top: 10px;\n}\n.blue{\n    color: #4A90E2;\n}\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 263 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "d4fa09b8e3dc2b1b2d8b0458d10a776b.ttf";
-
-/***/ },
-/* 264 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "d1c4820ee5651f08dd1b34ccd8c113f4.ttf";
-
-/***/ },
-/* 265 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "6ff617a1190d43887d4e8411c665111d.otf";
-
-/***/ },
-/* 266 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(267);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(233)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Reset.css", function() {
-				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Reset.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 267 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(232)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "\r\n\r\nbody, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { \r\n    padding: 0;\r\n    margin: 0;\r\n}\r\ninput{\r\n    border:none;\r\n    outline: none;\r\n}\r\na{\r\n\tcolor:#666;\r\n\ttext-decoration:none;\r\n\t}\r\nfieldset, img {\t\r\n    border: 0;\r\n}\r\ntable {\r\n    border-collapse: collapse;\r\n    border-spacing: 0;\r\n}\r\nol, ul {\r\n\tcolor:#666;\r\n\tlist-style: none;\r\n}\r\naddress, caption, cite, code, dfn, em, strong, th, var, i{\r\n    font-weight: normal;\r\n    font-style: normal;\r\n}\r\ncaption, th {\r\n    text-align: left;\r\n}\r\nh1, h2, h3, h4, h5, h6 {\r\n    font-weight: normal;\r\n    font-size: 100%;\r\n}\r\nabbr, acronym { \r\n    border: 0;\r\n}\r\n/* html5 reset */\r\narticle, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {\r\n    display: block;\r\n    margin: 0;\r\n    padding: 0;\r\n}", ""]);
-
-	// exports
-
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);

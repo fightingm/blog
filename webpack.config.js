@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var precss = require('precss');
 var autoprefixer = require('autoprefixer');
 var ExtracTextPlugin = require("extract-text-webpack-plugin");
-//var extractCSS=new ExtracTextPlugin('[name].css');
+var extractCSS=new ExtracTextPlugin('[name].css');
 module.exports = {
     entry: {
         bundle:'./src/controllers/_entry.js'
@@ -29,8 +29,8 @@ module.exports = {
         },{
         	test: /\.css$/,
 			//loader: 'style-loader!css-loader!postcss-loader'和下面的效果一样
-            loaders:["style","css","postcss"],
-            //loader:extractCSS.extract(["css","postcss"]),
+            //loaders:["style","css","postcss"],
+            loader:extractCSS.extract(["css","postcss"]),
             exclude:"/node_modules/"//排除node_modules文件夹下的文件
         },{
             test: /\.jpg$/,
@@ -48,7 +48,7 @@ module.exports = {
     	return [precss,autoprefixer];
     },
     plugins:[
-        //extractCSS
+        extractCSS
         //new ExtracTextPlugin("bundle.css") //打包css文件
         //new webpack.optimize.CommonsChunkPlugin("vendor","vendor.bundle.js")
     ]
