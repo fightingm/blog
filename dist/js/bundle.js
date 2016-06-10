@@ -76,13 +76,13 @@
 
 	var _Photos2 = _interopRequireDefault(_Photos);
 
-	var _Blog = __webpack_require__(252);
+	var _Blog = __webpack_require__(253);
 
 	var _Blog2 = _interopRequireDefault(_Blog);
 
-	__webpack_require__(254);
+	__webpack_require__(255);
 
-	__webpack_require__(258);
+	__webpack_require__(259);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25806,7 +25806,7 @@
 		function Hello() {
 			_classCallCheck(this, Hello);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Hello).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Hello).call(this));
 		}
 
 		_createClass(Hello, [{
@@ -36444,6 +36444,10 @@
 
 	__webpack_require__(251);
 
+	var _PhotoData = __webpack_require__(252);
+
+	var _PhotoData2 = _interopRequireDefault(_PhotoData);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36472,7 +36476,8 @@
 						'section',
 						null,
 						_react2.default.createElement(PictureWall, null)
-					)
+					),
+					_react2.default.createElement(TimeBox, null)
 				);
 			}
 		}]);
@@ -36490,70 +36495,7 @@
 
 			var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(PictureWall).call(this, props));
 
-			_this2.arr = [{
-				src: "./dist/img/p1.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p2.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p3.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p4.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p5.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p6.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p7.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p8.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p9.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p10.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p11.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p12.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p13.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p14.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p15.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p16.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p17.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p18.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p19.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p20.jpg",
-				desc: "I  ❤  U"
-			}, {
-				src: "./dist/img/p21.jpg",
-				desc: "I  ❤  U"
-			}];
+			_this2.arr = _PhotoData2.default;
 			return _this2;
 		}
 
@@ -36606,6 +36548,124 @@
 		return Picture;
 	}(_react2.default.Component);
 
+	var TimeBox = function (_React$Component4) {
+		_inherits(TimeBox, _React$Component4);
+
+		function TimeBox() {
+			_classCallCheck(this, TimeBox);
+
+			var _this4 = _possibleConstructorReturn(this, Object.getPrototypeOf(TimeBox).call(this));
+
+			_this4.state = {
+				day: "",
+				hour: "",
+				minute: "",
+				second: ""
+			};
+			_this4.startTime = new Date(2015, 8, 16, 0, 0, 0).getTime();
+			_this4.setDate = _this4.setDate.bind(_this4);
+			return _this4;
+		}
+
+		_createClass(TimeBox, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				this.timer = null;
+				this.setDate();
+			}
+		}, {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				this.timer = setInterval(this.setDate, 1000);
+			}
+		}, {
+			key: 'shouldComponentUpdate',
+			value: function shouldComponentUpdate(nextProps, nextState) {
+				return nextState.second != this.state.second;
+			}
+		}, {
+			key: 'setDate',
+			value: function setDate() {
+				var nowTime = Date.now();
+				var t = Math.floor((nowTime - this.startTime) / 1000);
+				var day = Math.floor(t / 86400) >= 10 ? Math.floor(t / 86400) : "0" + Math.floor(t / 86400);
+				var hour = Math.floor(t % 86400 / 3600) >= 10 ? Math.floor(t % 86400 / 3600) : "0" + Math.floor(t % 86400 / 3600);
+				var min = Math.floor(t % 86400 % 3600 / 60) >= 10 ? Math.floor(t % 86400 % 3600 / 60) : "0" + Math.floor(t % 86400 % 3600 / 60);
+				var sec = t % 60 >= 10 ? t % 60 : "0" + t % 60;
+				this.setState({
+					day: day,
+					hour: hour,
+					minute: min,
+					second: sec
+				});
+			}
+		}, {
+			key: 'componentWillUnmount',
+			value: function componentWillUnmount() {
+				clearInterval(this.timer);
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'footer',
+					{ className: 'timeBox' },
+					_react2.default.createElement(
+						'p',
+						null,
+						_react2.default.createElement(
+							'span',
+							{ className: 'lover' },
+							'徐开明'
+						),
+						'和',
+						_react2.default.createElement(
+							'span',
+							{ className: 'lover' },
+							'但欣欣'
+						),
+						'已经在一起'
+					),
+					_react2.default.createElement(
+						'p',
+						{ className: 'time' },
+						_react2.default.createElement(
+							'span',
+							{ className: 'del' },
+							this.state.day
+						),
+						'天',
+						_react2.default.createElement(
+							'span',
+							{ className: 'del' },
+							this.state.hour
+						),
+						'时',
+						_react2.default.createElement(
+							'span',
+							{ className: 'del' },
+							this.state.minute
+						),
+						'分',
+						_react2.default.createElement(
+							'span',
+							{ className: 'del' },
+							this.state.second
+						),
+						'秒啦'
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						'啦啦啦，真让人高兴！！！'
+					)
+				);
+			}
+		}]);
+
+		return TimeBox;
+	}(_react2.default.Component);
+
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "PhotoMain.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
@@ -36626,6 +36686,89 @@
 		value: true
 	});
 
+	var dataArr = [{
+		src: "./dist/img/1.jpg",
+		desc: "Do you have a map? Because I just keep losing in your eyes."
+	}, {
+		src: "./dist/img/2.jpg",
+		desc: "You are everything to me, and I was so blessed when god sent you here for me."
+	}, {
+		src: "./dist/img/3.jpg",
+		desc: "If I could rearrange the alphabet,I’d put Y and I together."
+	}, {
+		src: "./dist/img/4.jpg",
+		desc: "It’s not being in love that makes me happy, but is being in loving with you."
+	}, {
+		src: "./dist/img/5.jpg",
+		desc: "There are 4 steps to happiness: 1(when) you 2(to) me 3(through) our hearts 4(for) together."
+	}, {
+		src: "./dist/img/6.jpg",
+		desc: "Love you so I don`t wanna go to sleep, for reality is better than a dream."
+	}, {
+		src: "./dist/img/7.jpg",
+		desc: "When the words “I love you” were said by you for the first time, my world blossoms."
+	}, {
+		src: "./dist/img/8.jpg",
+		desc: "Love understands love, it needs no talk."
+	}, {
+		src: "./dist/img/9.jpg",
+		desc: "You are everything when you are with me, and everything is you when you are not."
+	}, {
+		src: "./dist/img/10.jpg",
+		desc: "I will make you happy when you are depressed. I will make you delighted when you are in great sorrow!"
+	}, {
+		src: "./dist/img/11.jpg",
+		desc: "I prefer having your accompanying for life-long time to the short-time tenderness."
+	}, {
+		src: "./dist/img/12.jpg",
+		desc: "I’ll think of you every step of the way."
+	}, {
+		src: "./dist/img/13.jpg",
+		desc: "Wherever you go, whatever you do, I will be right here waiting for you."
+	}, {
+		src: "./dist/img/14.jpg",
+		desc: "No words are necessary between two loving hearts."
+	}, {
+		src: "./dist/img/15.jpg",
+		desc: "I can not say how every time I ever put my arms around you I felt that I was home."
+	}, {
+		src: "./dist/img/16.jpg",
+		desc: "I wish that you and me will just like an everlasting song."
+	}, {
+		src: "./dist/img/17.jpg",
+		desc: "You are everything good in my life."
+	}, {
+		src: "./dist/img/18.jpg",
+		desc: "I can not say how every time I ever put my arms around you I felt that I was home."
+	}, {
+		src: "./dist/img/19.jpg",
+		desc: "Let me accompany you for there is a long way to go in life."
+	}, {
+		src: "./dist/img/20.jpg",
+		desc: "I can’t say how every time I ever put my arms around you I felt that I was home."
+	}, {
+		src: "./dist/img/21.jpg",
+		desc: "My needs are simple, time is still, you are still."
+	}, {
+		src: "./dist/img/22.jpg",
+		desc: "Call me when you need me,I will be with you at once."
+	}];
+	exports.default = dataArr;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "PhotoData.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
@@ -36636,7 +36779,7 @@
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _BlogMain = __webpack_require__(253);
+	var _BlogMain = __webpack_require__(254);
 
 	var _BlogMain2 = _interopRequireDefault(_BlogMain);
 
@@ -36683,7 +36826,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Blog.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36759,16 +36902,16 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "BlogMain.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 255 */,
 /* 256 */,
 /* 257 */,
-/* 258 */
+/* 258 */,
+/* 259 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

@@ -24,9 +24,9 @@ html,body{
 }
 
 .main-body{
-    padding-left: 256px;
-    background: #f7f7f7;   
-    font-family: lvdou; 
+    margin-left: 256px;
+    position: relative; 
+    font-family: lvdou;
 }
 .container{
     width: 60%;

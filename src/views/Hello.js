@@ -4,8 +4,10 @@ import '../css/Hello';
 import $ from 'jquery';
 
 export default class Hello extends React.Component{
+	constructor() {
+        super();
+    }
 	componentDidMount() {
-		
 	}
 	render() {
 		return (
