@@ -1,13 +1,16 @@
-
+@keyframes image-pulse {
+  0% {transform: scale(1.01); }
+  100% {transform: scale(1.15); } 
+}
+@keyframes fadein-images {
+  0% {opacity: 0; }
+  100% {opacity: 0.6; } 
+}
 .Hello{
 	font-family: lvdou;
-	background: url("../img/dog1.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
+	overflow: hidden;
 	height: 100%;
-	#mx,#main-wrap{
-		height: 100%;
-	}
+	position: relative;
 	.hello{
 		width: 700px;
 		height: 400px;
@@ -22,14 +25,22 @@
 		color:#fff;
 		a{
 			color: #fff;
+			font-size: 2em;
+			z-index: 3;
 		}
 	}
-	.mask{
+	.helloBg{
 		position: absolute;
-		top:0;
+		top: 0;
 		left: 0;
-		right: 0;
 		bottom: 0;
-		background: rgba(0,0,0,0.3);
+		right: 0;
+		background: url("../img/dog1.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		animation: fadein-images 1s ease-out backwards,image-pulse 8s ease-in-out infinite alternate;
+	}
+	.mask{
+		z-index: 2;
 	}
 }

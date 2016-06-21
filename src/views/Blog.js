@@ -7,6 +7,7 @@ export default class Blog extends React.Component{
 	constructor() {
 		super();
 		this.infos={
+			img:"./dist/img/yun2.jpg",
 			kilo:"Blog",
 			beta:""
 		}

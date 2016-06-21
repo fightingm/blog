@@ -10,12 +10,13 @@ export default class AboutMain extends React.Component{
 			<main className="AboutMain main-body">
 				<MainHeader {...this.props} />
 				<section className="container">
-					<h1>About Me</h1>
-					<p>这里打算放一些个人介绍.</p>
-					<p>但是具体还没想好介绍点啥啊！！！</p>
+					<h1>关于我</h1>
+					<p>我的名字：徐开明</p>
+					<p>现在就读于黑龙江大学信息管理学院电子商务专业.</p>
+					<p>喜欢睡觉,打篮球,看电影,听音乐,玩游戏...</p>
+					<p>从事Web前端开发,正在努力从一只程序猿进化成一名优秀的前端攻城狮.</p>
 				</section>
 			</main>
-			
 		);
 	}
 }

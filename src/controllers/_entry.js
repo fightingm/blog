@@ -9,6 +9,7 @@ import About from '../views/About';
 import Portfolio from '../views/Portfolio';
 import Photos from '../views/Photos';
 import Blog from '../views/Blog';
+import Article from '../views/Article';
 import '../css/Common.css';
 import '../css/Reset.css';
 const App = React.createClass({
@@ -27,6 +28,7 @@ const routes=(
 		<Route path="about" component={About} />
 		<Route path="portfolio" component={Portfolio} />
 		<Route path="blog" component={Blog} />
+		<Route path="blog/:id" component={Article} />
 		<Route path="photos" component={Photos} />
 		<Route path="*" component={Default} />
 	</Route>

@@ -1,0 +1,74 @@
+.BlogMain{
+	.MainHeader{
+		background-position: bottom center;
+		transition: 1.5s height;
+	}
+	.archive{
+		width: 80%;
+		float: left;
+	}
+	.time-box{
+		width: 20%;
+		float:right;
+		overflow:hidden;
+		display: none;
+	}
+	.time-line{
+		position: fixed;
+		.map{
+			display: block;
+			margin-bottom: 15px;
+			text-align: center;
+		}
+		ul{
+			overflow: hidden;
+		}
+		li{
+			transition: 0.7s height;
+		}
+		.time-mon{
+			text-indent: 1em;
+		}
+		a{
+			color: #ccc;
+			transition: color 0.3s;
+			&:hover{
+				color:#777;
+			}
+		}
+		.active .time-year a,.active .cur a{
+			color: #777;
+		}
+	}
+	.blog-con{
+		width: 90%;
+		position: relative;
+		h3{
+			margin: 24px 0 20px;
+			padding: 4px 0;
+			font-size: 16px;
+			position: relative;
+		}
+		ul{
+			margin: 20px;
+			padding-left: 20px;
+			list-style-type: square;
+			li{
+				margin: 2px;
+				line-height: 34px;
+				a{
+					margin-left: 20px;
+					padding: 4px;
+					color: #4a90e2;
+					border-radius: 4px;
+					font-size: 14px;
+					transition: background ease 0.4s,color ease 0.4s;
+					&:hover{
+						background:#4a90e2;
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}

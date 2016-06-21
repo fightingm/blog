@@ -2,8 +2,9 @@
 .MainHeader{
 	font-family: Infinity;
 	height: 256px;
-	background: url('../img/main-header.jpg')no-repeat top center;
-	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
 	color: #fff;
 	position: relative;
 	text-align: center;
@@ -13,6 +14,7 @@
 		bottom: 0;
 		right: 0;
 		padding: 20px;
+		z-index: 2;
 		p:first-child{
 			line-height:75px;
 			font-size: 50px;

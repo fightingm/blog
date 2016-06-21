@@ -26,11 +26,14 @@ html,body{
 .main-body{
     margin-left: 256px;
     position: relative; 
-    font-family: lvdou;
+    font-family: mxFont,lvdou;
 }
 .container{
-    width: 60%;
-    margin: 30px auto;
+    width: 70%;
+    margin: 0 auto;
+    padding: 30px 0;
+    position: relative;
+    overflow: hidden;
     h1{
         text-align: center;
         padding-bottom: 10px;
@@ -51,11 +54,24 @@ html,body{
     }
     p{
         line-height: 30px;
-        text-indent: 2em;
         word-break: break-all;
         margin-top: 10px;
     }
 }
+
 .blue{
     color: #4A90E2;
 }
+
+.mask{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+}
+.fr{
+    float: right;
+}
+

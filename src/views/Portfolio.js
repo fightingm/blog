@@ -8,6 +8,7 @@ export default class Portfolio extends React.Component{
 	constructor() {
 		super();
 		this.infos={
+			img:"./dist/img/yun3.jpg",
 			kilo:"Portfolio",
 			beta:""
 		}

@@ -38,10 +38,15 @@ module.exports = {
             exclude:"/node_modules/"
         },{
             test: /\.ttf$/,
-            loader : "file"
+            loader : "file",
+            exclude:"/node_modules/"
         },{
             test: /\.otf$/,
-            loader : "file"
+            loader : "file",
+            exclude:"/node_modules/"
+        },{
+            test:/\.json$/,
+            loader:'json'
         }]
     },
     postcss:function (){

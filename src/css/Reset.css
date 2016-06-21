@@ -32,7 +32,6 @@ caption, th {
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
-    font-size: 100%;
 }
 abbr, acronym { 
     border: 0;
@@ -43,4 +42,8 @@ footer,header,hgroup,menu,nav,section {
     display: block;
     margin: 0;
     padding: 0;
+}
+code, kbd, pre, samp {
+    font-family: Source Code Pro,Consolas,Menlo,Monaco,Courier New,monospace;
+    font-size: 12px;
 }

@@ -9,7 +9,7 @@ export default class PortfolioMain extends React.Component{
 			<main className="main-body">
 				<MainHeader {...this.props} />
 				<section className="container">
-					<h1>Portfolio</h1>
+					<h1>我的作品</h1>
 					<p>这里打算放我的一些作品.</p>
 					<p>但是技术太low，没什么好的作品呀！！！</p>
 				</section>
@@ -17,4 +17,8 @@ export default class PortfolioMain extends React.Component{
 			
 		);
 	}
+}
+
+class Gird extends React.Component{
+	
 }

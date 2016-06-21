@@ -8,6 +8,7 @@ export default class Photos extends React.Component{
 	constructor() {
 		super();
 		this.infos={
+			img:"./dist/img/14.jpg",
 			kilo:"Photos",
 			beta:""
 		}

@@ -16,6 +16,7 @@ export default class Hello extends React.Component{
 					<a href="#/about">点击进入我的小站!</a>
 				</div>
 				<div className="mask"></div>
+				<div className="helloBg"></div>
 			</div>
 			
 		);
