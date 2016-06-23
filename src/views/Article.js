@@ -3,8 +3,8 @@ import Header from "./Header";
 import ArticleMain from "./ArticleMain";
 
 export default class Article extends React.Component{
-	constructor() {
-		super();
+	componentDidMount() {
+		console.log(123);
 	}
 	render() {
 		return (

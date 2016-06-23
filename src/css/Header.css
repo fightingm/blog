@@ -9,10 +9,19 @@
 	bottom: 0;
 	.head-img-wrap{
 		padding: 64px;
-		img{
+		.author-img{
+			display: block;
 			border-radius: 50%;
 			width: 128px;
 			height: 128px;
+			background: url(../img/author.jpg);
+			background-size: cover;
+			background-position: 20% 20%;
+			transition: transform 0.5s;
+			transform: rotate(90deg);
+			&:hover{
+				transform:rotate(450deg);
+			}
 		}
 	}
 	.head-ul{
@@ -64,7 +73,6 @@
 	    font-size: 14px;
 	    font-family: lvdou;
 	    .blue{
-	    	font-family: Infinity;
 	    	font-weight: bold;
 	    	letter-spacing: 3px;
 	    	margin-left: 5px;

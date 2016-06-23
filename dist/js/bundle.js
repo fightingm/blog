@@ -60,57 +60,56 @@
 
 	var _Default2 = _interopRequireDefault(_Default);
 
-	var _Hello = __webpack_require__(232);
+	var _Hello = __webpack_require__(234);
 
 	var _Hello2 = _interopRequireDefault(_Hello);
 
-	var _About = __webpack_require__(236);
+	var _About = __webpack_require__(239);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Portfolio = __webpack_require__(246);
+	var _Portfolio = __webpack_require__(252);
 
 	var _Portfolio2 = _interopRequireDefault(_Portfolio);
 
-	var _Photos = __webpack_require__(248);
+	var _Photos = __webpack_require__(258);
 
 	var _Photos2 = _interopRequireDefault(_Photos);
 
-	var _Blog = __webpack_require__(252);
+	var _Blog = __webpack_require__(274);
 
 	var _Blog2 = _interopRequireDefault(_Blog);
 
-	var _Article = __webpack_require__(256);
+	var _Article = __webpack_require__(279);
 
 	var _Article2 = _interopRequireDefault(_Article);
 
-	__webpack_require__(444);
+	__webpack_require__(469);
 
-	__webpack_require__(448);
+	__webpack_require__(474);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var App = _react2.default.createClass({
-		displayName: 'App',
-		render: function render() {
-			return _react2.default.createElement(
-				'div',
-				{ id: 'Root' },
-				this.props.children
-			);
-		}
+	    displayName: 'App',
+	    render: function render() {
+	        return _react2.default.createElement(
+	            'div',
+	            { id: 'Root' },
+	            this.props.children
+	        );
+	    }
 	});
-
 	var routes = _react2.default.createElement(
-		_reactRouter.Route,
-		{ path: '/', component: App },
-		_react2.default.createElement(_reactRouter.IndexRoute, { component: _Hello2.default }),
-		_react2.default.createElement(_reactRouter.Route, { path: 'about', component: _About2.default }),
-		_react2.default.createElement(_reactRouter.Route, { path: 'portfolio', component: _Portfolio2.default }),
-		_react2.default.createElement(_reactRouter.Route, { path: 'blog', component: _Blog2.default }),
-		_react2.default.createElement(_reactRouter.Route, { path: 'blog/:id', component: _Article2.default }),
-		_react2.default.createElement(_reactRouter.Route, { path: 'photos', component: _Photos2.default }),
-		_react2.default.createElement(_reactRouter.Route, { path: '*', component: _Default2.default })
+	    _reactRouter.Route,
+	    { path: '/', component: App },
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Hello2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _About2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'portfolio', component: _Portfolio2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'blog', component: _Blog2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'blog/:id', component: _Article2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'photos', component: _Photos2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '*', component: _Default2.default })
 	);
 	(0, _reactDom.render)(_react2.default.createElement(_reactRouter.Router, { routes: routes, history: _reactRouter.hashHistory }), document.getElementById('mx'));
 
@@ -25768,13 +25767,354 @@
 
 /***/ },
 /* 230 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(231);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(233)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Default.css", function() {
+				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Default.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
-/* 231 */,
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(232)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\n@charset utf-8;\n.Default{\n\tcolor:#888;\n\tfont-family: \"\\5FAE\\8F6F\\96C5\\9ED1\";\n\tfont-weight: 200;\n}", ""]);
+
+	// exports
+
+
+/***/ },
 /* 232 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 233 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ },
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -25791,9 +26131,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	__webpack_require__(233);
+	__webpack_require__(235);
 
-	var _jquery = __webpack_require__(235);
+	var _jquery = __webpack_require__(238);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -25846,14 +26186,53 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Hello.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 233 */
-/***/ function(module, exports) {
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(236);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(233)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Hello.css", function() {
+				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Hello.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
-/* 234 */,
-/* 235 */
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(232)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "@-webkit-keyframes image-pulse {\n  0% {-webkit-transform: scale(1.01);transform: scale(1.01); }\n  100% {-webkit-transform: scale(1.15);transform: scale(1.15); } \n}\n@keyframes image-pulse {\n  0% {-webkit-transform: scale(1.01);transform: scale(1.01); }\n  100% {-webkit-transform: scale(1.15);transform: scale(1.15); } \n}\n@-webkit-keyframes fadein-images {\n  0% {opacity: 0; }\n  100% {opacity: 0.6; } \n}\n@keyframes fadein-images {\n  0% {opacity: 0; }\n  100% {opacity: 0.6; } \n}\n.Hello{\n\tfont-family: lvdou;\n\toverflow: hidden;\n\theight: 100%;\n\tposition: relative;\n}\n.Hello .hello{width: 700px;height: 400px;position: absolute;top:0;left: 0;right: 0;bottom: 0;margin: auto;text-align: center;z-index: 9;color:#fff; \n}\n.Hello .hello a{color: #fff;font-size: 2em;z-index: 3; \n}\n.Hello .helloBg{position: absolute;top: 0;left: 0;bottom: 0;right: 0;background: url(" + __webpack_require__(237) + ");background-size: cover;background-repeat: no-repeat;-webkit-animation: fadein-images 1s ease-out backwards,image-pulse 8s ease-in-out infinite alternate;animation: fadein-images 1s ease-out backwards,image-pulse 8s ease-in-out infinite alternate; \n}\n.Hello .mask{z-index: 2; \n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "13143feff67ab7bb9f57e9d992bf1c14.jpg";
+
+/***/ },
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -35701,7 +36080,7 @@
 
 
 /***/ },
-/* 236 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35718,11 +36097,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(237);
+	var _Header = __webpack_require__(240);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _AboutMain = __webpack_require__(242);
+	var _AboutMain = __webpack_require__(246);
 
 	var _AboutMain2 = _interopRequireDefault(_AboutMain);
 
@@ -35770,7 +36149,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "About.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 237 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35787,19 +36166,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _HeadImg = __webpack_require__(238);
+	var _HeadImg = __webpack_require__(241);
 
 	var _HeadImg2 = _interopRequireDefault(_HeadImg);
 
-	var _HeadNav = __webpack_require__(239);
+	var _HeadNav = __webpack_require__(242);
 
 	var _HeadNav2 = _interopRequireDefault(_HeadNav);
 
-	var _Footer = __webpack_require__(240);
+	var _Footer = __webpack_require__(243);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
-	__webpack_require__(241);
+	__webpack_require__(244);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35844,7 +36223,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Header.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 238 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35884,7 +36263,7 @@
 				return _react2.default.createElement(
 					'section',
 					{ className: 'head-img-wrap' },
-					_react2.default.createElement('img', { src: './dist/img/dog2.jpg' })
+					_react2.default.createElement('img', { src: './dist/img/23.jpg' })
 				);
 			}
 		}]);
@@ -35897,7 +36276,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "HeadImg.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 239 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35987,7 +36366,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "HeadNav.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 240 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36049,13 +36428,47 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Footer.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 241 */
-/***/ function(module, exports) {
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(245);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(233)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Header.css", function() {
+				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Header.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
-/* 242 */
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(232)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\n\n.Header{\n\twidth: 256px;\n\tbackground: #fff;\n\tposition: fixed;\n\ttop: 0;\n\tleft: 0;\n\tbottom: 0;\n}\n.Header .head-img-wrap{\n\tpadding: 64px;\n}\n.Header .head-img-wrap img{\n\tborder-radius: 50%;\n\twidth: 128px;\n\theight: 128px;\n}\n.Header .head-ul{\n\tmargin:0;\n\tpadding:0;\n\tlist-style: none;\n}\n.Header .head-ul li{\n\tposition: relative;\n\tline-height: 40px;\n\tborder-top:1px solid #f0f0f0;\n}\n.Header .head-ul li .link{\n\tdisplay: block;\n\tcolor: #666;\n\tpadding: 0 10px;\n}\n.Header .head-ul li .hover{\n\tdisplay: block;\n\tbackground: #666;\n\twidth: 0;\n\tposition: absolute;\n\tpadding: 0 10px;\n\tleft: 0;\n\ttop: 0;\n\t-webkit-transition: width 0.5s,opacity 0.5s;\n\ttransition: width 0.5s,opacity 0.5s;\n\tbox-sizing:border-box;\n\ttext-align: right;\n\topacity: 0;\n\tcolor: #fff;\n}\n.Header .head-ul li:hover .hover{\n\twidth: 100%;\n\topacity: 1;\n}\n.Header .head-ul li:first-child{\n\tborder-top: none;\n}\n.Header .head-ul .current{\n\tborder-right: 4px solid #888;\n}\n.Header .footer{\n\tposition: absolute;\n\tbottom: 0;\n\tleft: 0;\n\tright: 0;\n\tpadding: 20px;\n\tborder-top: 1px solid #f0f0f0;\n\tfont-size: 14px;\n\tfont-family: lvdou;\n}\n.Header .footer .blue{\n\tfont-family: Infinity;\n\tfont-weight: bold;\n\tletter-spacing: 3px;\n\tmargin-left: 5px;\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36072,7 +36485,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MainHeader = __webpack_require__(243);
+	var _MainHeader = __webpack_require__(247);
 
 	var _MainHeader2 = _interopRequireDefault(_MainHeader);
 
@@ -36084,7 +36497,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(245);
+	__webpack_require__(250);
 
 	var AboutMain = function (_React$Component) {
 		_inherits(AboutMain, _React$Component);
@@ -36143,7 +36556,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "AboutMain.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 243 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36160,7 +36573,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	__webpack_require__(244);
+	__webpack_require__(248);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36217,19 +36630,87 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "MainHeader.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 244 */
-/***/ function(module, exports) {
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(249);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(233)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./MainHeader.css", function() {
+				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./MainHeader.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
-/* 245 */
-/***/ function(module, exports) {
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	exports = module.exports = __webpack_require__(232)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\r\n.MainHeader{\r\n\tfont-family: Infinity;\r\n\theight: 256px;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: center center;\r\n\tbackground-size: cover;\r\n\tcolor: #fff;\r\n\tposition: relative;\r\n\ttext-align: center;\r\n}\n.MainHeader .wrap{\r\n\tposition: absolute;\r\n\tleft: 0;\r\n\tbottom: 0;\r\n\tright: 0;\r\n\tpadding: 20px;\r\n\tz-index: 2;\r\n}\n.MainHeader .wrap p:first-child{\r\n\tline-height:75px;\r\n\tfont-size: 50px;\r\n}\n.MainHeader .wrap p:last-child{\r\n\tline-height:55px;\r\n\tfont-size: 30px;\r\n}", ""]);
+
+	// exports
+
 
 /***/ },
-/* 246 */
+/* 250 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(251);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(233)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./AboutMain.css", function() {
+				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./AboutMain.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(232)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".AboutMain .MainHeader{\n    background-position: bottom center;\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36246,11 +36727,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(237);
+	var _Header = __webpack_require__(240);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _PortfolioMain = __webpack_require__(247);
+	var _PortfolioMain = __webpack_require__(253);
 
 	var _PortfolioMain2 = _interopRequireDefault(_PortfolioMain);
 
@@ -36298,7 +36779,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Portfolio.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 247 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36315,9 +36796,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MainHeader = __webpack_require__(243);
+	var _MainHeader = __webpack_require__(247);
 
 	var _MainHeader2 = _interopRequireDefault(_MainHeader);
+
+	var _jquery = __webpack_require__(238);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36327,21 +36812,69 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	__webpack_require__(254);
+	__webpack_require__(256);
+
 	var PortfolioMain = function (_React$Component) {
 		_inherits(PortfolioMain, _React$Component);
 
 		function PortfolioMain() {
 			_classCallCheck(this, PortfolioMain);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(PortfolioMain).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(PortfolioMain).call(this));
+
+			_this.state = {
+				works: [{
+					tit: '仿京东页面',
+					dir: '模仿京东的pc端页面',
+					img: './dist/img/21.jpg',
+					link: 'https://github.com/fightingm/jd'
+				}, {
+					tit: '智能推荐云音乐',
+					dir: '一个音乐网站',
+					img: './dist/img/22.jpg',
+					link: 'http://www.brickworkers.com:8080/wymusic/index.html'
+				}]
+			};
+			return _this;
 		}
 
 		_createClass(PortfolioMain, [{
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				(function () {
+
+					function init() {
+						var speed = 250,
+						    easing = mina.backout;
+
+						[].slice.call(document.querySelectorAll('#grid > a')).forEach(function (el) {
+							var s = Snap(el.querySelector('svg')),
+							    path = s.select('path'),
+							    pathConfig = {
+								from: path.attr('d'),
+								to: el.getAttribute('data-path-hover')
+							};
+
+							el.addEventListener('mouseenter', function () {
+								path.animate({ 'path': pathConfig.to }, speed, easing);
+							});
+
+							el.addEventListener('mouseleave', function () {
+								path.animate({ 'path': pathConfig.from }, speed, easing);
+							});
+						});
+					}
+
+					init();
+				})();
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
 					'main',
-					{ className: 'main-body' },
+					{ className: 'PortfolioMain main-body' },
 					_react2.default.createElement(_MainHeader2.default, this.props),
 					_react2.default.createElement(
 						'section',
@@ -36351,16 +36884,7 @@
 							null,
 							'我的作品'
 						),
-						_react2.default.createElement(
-							'p',
-							null,
-							'这里打算放我的一些作品.'
-						),
-						_react2.default.createElement(
-							'p',
-							null,
-							'但是技术太low，没什么好的作品呀！！！'
-						)
+						_react2.default.createElement(Gird, this.state)
 					)
 				);
 			}
@@ -36380,13 +36904,139 @@
 			return _possibleConstructorReturn(this, Object.getPrototypeOf(Gird).apply(this, arguments));
 		}
 
+		_createClass(Gird, [{
+			key: 'render',
+			value: function render() {
+				var workCom = this.props.works.map(function (key, index) {
+					return _react2.default.createElement(
+						'a',
+						{ key: index, href: key.link, target: '_blank', 'data-path-hover': 'm 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z' },
+						_react2.default.createElement(
+							'figure',
+							null,
+							_react2.default.createElement('img', { src: key.img }),
+							_react2.default.createElement(
+								'svg',
+								{ id: 'svg', viewBox: '0 0 180 320', preserveAspectRatio: 'none' },
+								_react2.default.createElement('path', { d: 'M0,0C0,0,0,171.14385,0,171.14385C24.580441,186.61523,55.897012,195.90157,90,195.90157C124.10299,195.90157,155.41956,186.61523,180,171.14385C180,171.14385,180,0,180,0C180,0,0,0,0,0C0,0,0,0,0,0' })
+							),
+							_react2.default.createElement(
+								'figcaption',
+								null,
+								_react2.default.createElement(
+									'h2',
+									null,
+									key.tit
+								),
+								_react2.default.createElement(
+									'p',
+									null,
+									key.dir
+								),
+								_react2.default.createElement(
+									'button',
+									null,
+									'View'
+								)
+							)
+						)
+					);
+				});
+				return _react2.default.createElement(
+					'section',
+					{ id: 'grid', className: 'grid' },
+					workCom
+				);
+			}
+		}]);
+
 		return Gird;
 	}(_react2.default.Component);
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "PortfolioMain.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 248 */
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(255);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(233)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./PortfolioMain.css", function() {
+				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./PortfolioMain.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(232)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".PortfolioMain .container{\n    width: 90%;\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(257);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(233)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Gard.css", function() {
+				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Gard.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(232)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".grid{\r\n\tmargin: 40px auto 120px;\r\n    max-width: 1000px;\r\n    width: 100%; \r\n    display: table;\r\n}\r\n\r\n.grid a {\r\n\tfloat: left;\r\n\twidth: 25%;\r\n\tmax-width: 250px;\r\n\tcolor: #333\r\n}\r\n\r\n.grid a:hover figure img{\r\n\topacity: 1;\r\n}\r\n\r\n.grid a:hover figure button{\r\n\t-webkit-transition-timing-function: ease-out;\r\n\t        transition-timing-function: ease-out;\r\n\t-webkit-transform: translateY(0);\r\n\t        transform: translateY(0);\r\n\theight: auto;\r\n}\r\n\r\n.grid a:hover figcaption h2, .grid a:hover figcaption p{\r\n\t-webkit-transform: translateY(0);\r\n\t        transform: translateY(0);\r\n}\r\n\r\n.grid a:hover figcaption p{\r\n\t-webkit-transition-delay: 0s;\r\n\t        transition-delay: 0s;\r\n\t-webkit-transition-duration: 0.1s;\r\n\t        transition-duration: 0.1s;\r\n\topacity: 0;\r\n}\r\n\r\n.grid figure {\r\n\tposition: relative;\r\n\toverflow: hidden;\r\n\tmargin: 5px;\r\n\tbackground: -webkit-linear-gradient(45deg, #22682a 0%,#9b4a1b 40%,#3a342a 100%);\r\n\tbackground: linear-gradient(45deg, #22682a 0%,#9b4a1b 40%,#3a342a 100%);\r\n}\r\n\r\n.grid figure img {\r\n\tposition: relative;\r\n\tdisplay: block;\r\n\twidth: 100%;\r\n\topacity: 0.7;\r\n\t-webkit-transition: opacity 0.3s;\r\n\ttransition: opacity 0.3s;\r\n\tmin-height: 420px;\r\n}\r\n\r\n.grid figure button {\r\n\tposition: absolute;\r\n\tbottom: 0;\r\n\tleft: 0;\r\n\tpadding:15px;\r\n\twidth: 100%;\r\n\tbackground: #fff;\r\n\tcolor: #333;\r\n\tborder: none;\r\n\ttext-transform: uppercase;\r\n\tletter-spacing: 1px;\r\n\tfont-weight: 300;\r\n\t-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;\r\n\ttransition: opacity 0.3s, -webkit-transform 0.3s;\r\n\ttransition: opacity 0.3s, transform 0.3s;\r\n\ttransition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;\r\n\t-webkit-backface-visibility: hidden;\r\n\t        backface-visibility: hidden;\r\n\t-webkit-transform: translateY(100%);\r\n\t        transform: translateY(100%);\r\n\tcursor: pointer;\r\n\theight: 0;\r\n}\r\n\r\n.grid figcaption {\r\n\tbox-sizing:border-box;\r\n\tposition: absolute;\r\n\ttop: 0;\r\n\tz-index: 11;\r\n\tpadding: 10px;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\ttext-align: center;\r\n\t-webkit-backface-visibility: hidden;\r\n\t        backface-visibility: hidden;\r\n}\r\n\r\n.grid figcaption h2 {\r\n\tmargin: 0 0 20px 0;\r\n\tcolor: #e74c3c;\r\n\ttext-transform: uppercase;\r\n\tletter-spacing: 1px;\r\n\tfont-weight: 300;\r\n\tfont-size: 130%;\r\n\t-webkit-transition: -webkit-transform 0.3s;\r\n\ttransition: -webkit-transform 0.3s;\r\n\ttransition: transform 0.3s;\r\n\ttransition: transform 0.3s, -webkit-transform 0.3s;\r\n\t-webkit-transform: translateY(50px);\r\n\t        transform: translateY(50px);\r\n\t-webkit-backface-visibility: hidden;\r\n\t        backface-visibility: hidden;\r\n\ttiming-function: cubic-bezier(0.250, 0.250, 0.115, 1.445);\r\n}\r\n\r\n.grid figcaption p {\r\n\tpadding: 0 20px;\r\n\tcolor: #aaa;\r\n\tfont-weight: 300;\r\n\t-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;\r\n\ttransition: opacity 0.3s, -webkit-transform 0.3s;\r\n\ttransition: opacity 0.3s, transform 0.3s;\r\n\ttransition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;\r\n\t-webkit-transform: translateY(50px);\r\n\t        transform: translateY(50px);\r\n\t-webkit-backface-visibility: hidden;\r\n\t        backface-visibility: hidden;\r\n\t-webkit-transition-delay: 0.05s;\r\n\t        transition-delay: 0.05s;\r\n\ttiming-function: cubic-bezier(0.250, 0.250, 0.115, 1.445);\r\n}\r\n\r\n.grid svg {\r\n\tposition: absolute;\r\n\ttop: -1px;\r\n\t/* fixes rendering issue in FF */\r\n\tz-index: 10;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n}\r\n\r\n.grid svg path {\r\n\tfill: #fff;\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n    .grid a {\r\n        width: 33.333%;\r\n    }\r\n}\r\n \r\n@media screen and (max-width: 980px) {\r\n    .grid {\r\n        max-width: 500px;\r\n    }\r\n \r\n    .grid a {\r\n        width: 50%;\r\n    }\r\n \r\n    .grid figcaption h2 {\r\n        margin-bottom: 0px;\r\n        -webkit-transform: translateY(30px);\r\n                transform: translateY(30px);\r\n    }\r\n \r\n    .grid figcaption p {\r\n        margin: 0;\r\n        padding: 0 10px;\r\n    }\r\n}\r\n \r\n@media screen and (max-width: 750px) {\r\n    .grid {\r\n        max-width: 250px;\r\n    }\r\n \r\n    .grid a {\r\n        width: 100%;\r\n    }\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36403,11 +37053,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(237);
+	var _Header = __webpack_require__(240);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _PhotoMain = __webpack_require__(249);
+	var _PhotoMain = __webpack_require__(259);
 
 	var _PhotoMain2 = _interopRequireDefault(_PhotoMain);
 
@@ -36455,7 +37105,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Photos.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 249 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36466,21 +37116,19 @@
 		value: true
 	});
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MainHeader = __webpack_require__(243);
+	var _MainHeader = __webpack_require__(247);
 
 	var _MainHeader2 = _interopRequireDefault(_MainHeader);
 
-	__webpack_require__(250);
+	__webpack_require__(260);
 
-	var _PhotoData = __webpack_require__(251);
+	var _PhotoData = __webpack_require__(262);
 
 	var _PhotoData2 = _interopRequireDefault(_PhotoData);
 
@@ -36492,28 +37140,29 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var Gallery = __webpack_require__(263);
+
 	var PhotoMain = function (_React$Component) {
 		_inherits(PhotoMain, _React$Component);
 
 		function PhotoMain() {
 			_classCallCheck(this, PhotoMain);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(PhotoMain).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(PhotoMain).call(this));
 		}
 
 		_createClass(PhotoMain, [{
+			key: 'componentDidMount',
+			value: function componentDidMount() {}
+		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
 					'main',
 					{ className: 'PhotoMain main-body' },
 					_react2.default.createElement(_MainHeader2.default, this.props),
-					_react2.default.createElement(
-						'section',
-						null,
-						_react2.default.createElement(PictureWall, null)
-					),
-					_react2.default.createElement(TimeBox, null)
+					_react2.default.createElement(TimeBox, null),
+					_react2.default.createElement(Gallery, { elements: _PhotoData2.default })
 				);
 			}
 		}]);
@@ -36523,84 +37172,23 @@
 
 	exports.default = PhotoMain;
 
-	var PictureWall = function (_React$Component2) {
-		_inherits(PictureWall, _React$Component2);
-
-		function PictureWall(props) {
-			_classCallCheck(this, PictureWall);
-
-			var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(PictureWall).call(this, props));
-
-			_this2.arr = _PhotoData2.default;
-			return _this2;
-		}
-
-		_createClass(PictureWall, [{
-			key: 'render',
-			value: function render() {
-				var list = this.arr.map(function (key, index) {
-					return _react2.default.createElement(Picture, _extends({ key: index }, key));
-				});
-				return _react2.default.createElement(
-					'div',
-					{ className: 'pictureWall' },
-					list
-				);
-			}
-		}]);
-
-		return PictureWall;
-	}(_react2.default.Component);
-
-	var Picture = function (_React$Component3) {
-		_inherits(Picture, _React$Component3);
-
-		function Picture() {
-			_classCallCheck(this, Picture);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Picture).apply(this, arguments));
-		}
-
-		_createClass(Picture, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'figure',
-					{ className: 'photo' },
-					_react2.default.createElement('img', { src: this.props.src }),
-					_react2.default.createElement(
-						'figcaption',
-						null,
-						_react2.default.createElement(
-							'span',
-							null,
-							this.props.desc
-						)
-					)
-				);
-			}
-		}]);
-
-		return Picture;
-	}(_react2.default.Component);
-
-	var TimeBox = function (_React$Component4) {
-		_inherits(TimeBox, _React$Component4);
+	var TimeBox = function (_React$Component2) {
+		_inherits(TimeBox, _React$Component2);
 
 		function TimeBox() {
 			_classCallCheck(this, TimeBox);
 
-			var _this4 = _possibleConstructorReturn(this, Object.getPrototypeOf(TimeBox).call(this));
+			var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(TimeBox).call(this));
 
-			_this4.state = {
+			_this2.state = {
 				day: "",
 				hour: "",
 				minute: "",
 				second: ""
 			};
-			_this4.startTime = new Date(2015, 8, 16, 0, 0, 0).getTime();
-			_this4.setDate = _this4.setDate.bind(_this4);
-			return _this4;
+			_this2.startTime = new Date(2015, 8, 16, 0, 0, 0).getTime();
+			_this2.setDate = _this2.setDate.bind(_this2);
+			return _this2;
 		}
 
 		_createClass(TimeBox, [{
@@ -36705,13 +37293,47 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "PhotoMain.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 250 */
-/***/ function(module, exports) {
+/* 260 */
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(261);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(233)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Photo.css", function() {
+				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Photo.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
-/* 251 */
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(232)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\r\n.PhotoMain{\r\n\tbackground: #FF82AB;\r\n\tpadding-bottom: 115px;\r\n}\n.PhotoMain .photo{\r\n\tposition: relative;\r\n}\n.PhotoMain .photo figcaption{\r\n\topacity: 0;\r\n\t-webkit-transition: opacity 0.4s ease-in-out;\r\n\ttransition: opacity 0.4s ease-in-out;\r\n\tposition: absolute;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\ttop: 0;\r\n\tleft: 0;\r\n\tpadding: 3em;\r\n\tbackground: rgba(255,255,255,0.8);\r\n\tfont-size: 16px;\r\n\tcolor: #333;\r\n\tbox-sizing:border-box;\r\n}\n.PhotoMain .photo figcaption p{\r\n\tpadding-top: 15%;\r\n\tpadding-left: 15px;\r\n\tpadding-right: 15px;\r\n\t-webkit-transition: opacity 0.35s,-webkit-transform 0.35s;\r\n\ttransition: opacity 0.35s,-webkit-transform 0.35s;\r\n\ttransition: opacity 0.35s,transform 0.35s;\r\n\ttransition: opacity 0.35s,transform 0.35s,-webkit-transform 0.35s;\r\n\topacity: 0;\r\n\tbox-sizing:border-box;\r\n\t-webkit-transform: translateY(25px) scale(0.5,0.5);\r\n\t        transform: translateY(25px) scale(0.5,0.5);\r\n}\n.PhotoMain .photo figcaption::before{\r\n\tcontent: '';\r\n\tposition: absolute;\r\n\ttop: 50px;\r\n\tright: 30px;\r\n\tbottom: 50px;\r\n\tleft: 30px;\r\n\topacity: 0;\r\n\tborder-top: 1px solid #333;\r\n\tborder-bottom: 1px solid #333;\r\n\t-webkit-transform: scale(0,1);\r\n\t        transform: scale(0,1);\r\n\t-webkit-transform-origin: 0 0;\r\n\t        transform-origin: 0 0;\r\n\t-webkit-transition: opacity 0.6s,-webkit-transform 0.6s;\r\n\ttransition: opacity 0.6s,-webkit-transform 0.6s;\r\n\ttransition: transform 0.6s,opacity 0.6s;\r\n\ttransition: transform 0.6s,opacity 0.6s,-webkit-transform 0.6s;\r\n}\n.PhotoMain .photo figcaption::after{\r\n\tcontent: '';\r\n\tposition: absolute;\r\n\ttop: 30px;\r\n\tright: 50px;\r\n\tbottom: 30px;\r\n\topacity: 0;\r\n\tleft: 50px;\r\n\tborder-left: 1px solid #333;\r\n\tborder-right: 1px solid #333;\r\n\t-webkit-transform: scale(1,0);\r\n\t        transform: scale(1,0);\r\n\t-webkit-transform-origin: 100% 0;\r\n\t        transform-origin: 100% 0;\r\n\t-webkit-transition: opacity 0.6s,-webkit-transform 0.6s;\r\n\ttransition: opacity 0.6s,-webkit-transform 0.6s;\r\n\ttransition: transform 0.6s,opacity 0.6s;\r\n\ttransition: transform 0.6s,opacity 0.6s,-webkit-transform 0.6s;\r\n}\n.PhotoMain .photo:hover figcaption::before{\r\n\topacity: 1;\r\n\t-webkit-transform: scale(1,1);\r\n\t        transform: scale(1,1);\r\n}\n.PhotoMain .photo:hover figcaption::after{\r\n\topacity: 1;\r\n\t-webkit-transform: scale(1,1);\r\n\t        transform: scale(1,1);\r\n}\n.PhotoMain .photo:hover figcaption{\r\n\topacity: 1;\r\n}\n.PhotoMain .photo:hover figcaption p{\r\n\t-webkit-transform: translateY(0) scale(1,1);\r\n\t        transform: translateY(0) scale(1,1);\r\n\topacity: 1;\r\n}\n.PhotoMain .timeBox{\r\n\twidth: 100%;\r\n\theight: 105px;\r\n\tbackground: #ffffee;\r\n\tborder: 1px solid #eee;\r\n\tposition:absolute;\r\n\tbottom: 0;\r\n\tleft:0;\r\n\tbox-sizing: border-box;\r\n\ttext-align: center;\r\n\tfont-size: 20px;\r\n}\n.PhotoMain .timeBox .del{\r\n\tcolor: #FF82AB;\r\n}\n.PhotoMain .timeBox .lover{\r\n\tcolor:#4A90E2;\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36794,7 +37416,3101 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "PhotoData.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 252 */
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var Masonry = __webpack_require__(264);
+
+	var masonryOptions = {
+	    transitionDuration: 0
+	};
+
+	var Gallery = React.createClass({
+	    displayName: 'Gallery',
+
+	    render: function render() {
+	        var childElements = this.props.elements.map(function (element, index) {
+	            return React.createElement(
+	                'figure',
+	                { key: index, className: 'photo image-element-class' },
+	                React.createElement(
+	                    'div',
+	                    { className: 'ele-wrap' },
+	                    React.createElement('img', { src: element.src }),
+	                    React.createElement(
+	                        'figcaption',
+	                        null,
+	                        React.createElement(
+	                            'p',
+	                            null,
+	                            element.desc
+	                        )
+	                    )
+	                )
+	            );
+	        });
+
+	        return React.createElement(
+	            Masonry,
+	            {
+	                className: 'my-gallery-class' // default ''
+	                , elementType: 'div' // default 'div'
+	                , options: masonryOptions // default {}
+	                , disableImagesLoaded: false // default false
+	                , updateOnEachImageLoad: false // default false and works only if disableImagesLoaded is false
+	            },
+	            childElements
+	        );
+	    }
+	});
+
+	module.exports = Gallery;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Gallery.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var isBrowser = typeof window !== 'undefined';
+	var Masonry = isBrowser ? window.Masonry || __webpack_require__(265) : null;
+	var imagesloaded = isBrowser ? __webpack_require__(272) : null;
+	var React = __webpack_require__(1);
+	var refName = 'masonryContainer';
+
+	function extend() {
+	    var result = {};
+	    for (var i = 0; i < arguments.length; i++) {
+	        var keys = Object.keys(arguments[i]);
+	        for (var j = 0; j < keys.length; j++) {
+	            result[keys[j]] = arguments[i][keys[j]];
+	        }
+	    }
+	    return result;
+	}
+
+
+	var MasonryComponent = React.createClass({
+	    masonry: false,
+
+	    domChildren: [],
+
+	    displayName: 'MasonryComponent',
+
+	    propTypes: {
+	        disableImagesLoaded: React.PropTypes.bool,
+	        options: React.PropTypes.object
+	    },
+
+	    getDefaultProps: function() {
+	        return {
+	            disableImagesLoaded: false,
+	            options: {},
+	            className: '',
+	            elementType: 'div'
+	        };
+	    },
+
+	    initializeMasonry: function(force) {
+	        if (!this.masonry || force) {
+	            this.masonry = new Masonry(
+	                this.refs[refName],
+	                this.props.options
+	            );
+
+	            this.domChildren = this.getNewDomChildren();
+	        }
+	    },
+
+	    getNewDomChildren: function() {
+	        var node = this.refs[refName];
+	        var children = this.props.options.itemSelector ? node.querySelectorAll(this.props.options.itemSelector) : node.children;
+	        return Array.prototype.slice.call(children);
+	    },
+
+	    diffDomChildren: function() {
+	        var oldChildren = this.domChildren.filter(function(element) {
+	            /*
+	             * take only elements attached to DOM
+	             * (aka the parent is the masonry container, not null)
+	             */
+	            return !!element.parentNode;
+	        });
+
+	        var newChildren = this.getNewDomChildren();
+
+	        var removed = oldChildren.filter(function(oldChild) {
+	            return !~newChildren.indexOf(oldChild);
+	        });
+
+	        var domDiff = newChildren.filter(function(newChild) {
+	            return !~oldChildren.indexOf(newChild);
+	        });
+
+	        var beginningIndex = 0;
+
+	        // get everything added to the beginning of the DOMNode list
+	        var prepended = domDiff.filter(function(newChild, i) {
+	            var prepend = (beginningIndex === newChildren.indexOf(newChild));
+
+	            if (prepend) {
+	                // increase the index
+	                beginningIndex++;
+	            }
+
+	            return prepend;
+	        });
+
+	        // we assume that everything else is appended
+	        var appended = domDiff.filter(function(el) {
+	            return prepended.indexOf(el) === -1;
+	        });
+
+	        /*
+	         * otherwise we reverse it because so we're going through the list picking off the items that
+	         * have been added at the end of the list. this complex logic is preserved in case it needs to be
+	         * invoked
+	         *
+	         * var endingIndex = newChildren.length - 1;
+	         *
+	         * domDiff.reverse().filter(function(newChild, i){
+	         *     var append = endingIndex == newChildren.indexOf(newChild);
+	         *
+	         *     if (append) {
+	         *         endingIndex--;
+	         *     }
+	         *
+	         *     return append;
+	         * });
+	         */
+
+	        // get everything added to the end of the DOMNode list
+	        var moved = [];
+
+	        if (removed.length === 0) {
+	            moved = oldChildren.filter(function(child, index) {
+	                return index !== newChildren.indexOf(child);
+	            });
+	        }
+
+	        this.domChildren = newChildren;
+
+	        return {
+	            old: oldChildren,
+	            new: newChildren,
+	            removed: removed,
+	            appended: appended,
+	            prepended: prepended,
+	            moved: moved
+	        };
+	    },
+
+	    performLayout: function() {
+	        var diff = this.diffDomChildren();
+
+	        if (diff.removed.length > 0) {
+	            this.masonry.remove(diff.removed);
+	            this.masonry.reloadItems();
+	        }
+
+	        if (diff.appended.length > 0) {
+	            this.masonry.appended(diff.appended);
+	            if (diff.prepended.length === 0) {
+	                this.masonry.reloadItems();
+	            }
+	        }
+
+	        if (diff.prepended.length > 0) {
+	            this.masonry.prepended(diff.prepended);
+	        }
+
+	        if (diff.moved.length > 0) {
+	            this.masonry.reloadItems();
+	        }
+
+	        this.masonry.layout();
+	    },
+
+	    imagesLoaded: function() {
+	        if (this.props.disableImagesLoaded) return;
+
+	        imagesloaded(
+	            this.refs[refName],
+	            function(instance) {
+	                this.masonry.layout();
+	            }.bind(this)
+	        );
+	    },
+
+	    componentDidMount: function() {
+	        this.initializeMasonry();
+	        this.imagesLoaded();
+	    },
+
+	    componentDidUpdate: function() {
+	        this.performLayout();
+	        this.imagesLoaded();
+	    },
+
+	    componentWillReceiveProps: function() {
+	        this._timer = setTimeout(function() {
+	            this.masonry.reloadItems();
+	            this.isMounted && this.isMounted() && this.forceUpdate();
+	        }.bind(this), 0);
+	    },
+
+	    componentWillUnmount: function() {
+	        clearTimeout(this._timer);
+	        this.masonry.destroy();
+	    },
+
+	    render: function() {
+	        return React.createElement(this.props.elementType, extend(this.props, {ref: refName}), this.props.children);
+	    }
+	});
+
+	module.exports = MasonryComponent;
+
+
+/***/ },
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Masonry v4.1.0
+	 * Cascading grid layout library
+	 * http://masonry.desandro.com
+	 * MIT License
+	 * by David DeSandro
+	 */
+
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */ /*globals define, module, require */
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	        __webpack_require__(266),
+	        __webpack_require__(268)
+	      ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      require('outlayer'),
+	      require('get-size')
+	    );
+	  } else {
+	    // browser global
+	    window.Masonry = factory(
+	      window.Outlayer,
+	      window.getSize
+	    );
+	  }
+
+	}( window, function factory( Outlayer, getSize ) {
+
+	'use strict';
+
+	// -------------------------- masonryDefinition -------------------------- //
+
+	  // create an Outlayer layout class
+	  var Masonry = Outlayer.create('masonry');
+	  // isFitWidth -> fitWidth
+	  Masonry.compatOptions.fitWidth = 'isFitWidth';
+
+	  Masonry.prototype._resetLayout = function() {
+	    this.getSize();
+	    this._getMeasurement( 'columnWidth', 'outerWidth' );
+	    this._getMeasurement( 'gutter', 'outerWidth' );
+	    this.measureColumns();
+
+	    // reset column Y
+	    this.colYs = [];
+	    for ( var i=0; i < this.cols; i++ ) {
+	      this.colYs.push( 0 );
+	    }
+
+	    this.maxY = 0;
+	  };
+
+	  Masonry.prototype.measureColumns = function() {
+	    this.getContainerWidth();
+	    // if columnWidth is 0, default to outerWidth of first item
+	    if ( !this.columnWidth ) {
+	      var firstItem = this.items[0];
+	      var firstItemElem = firstItem && firstItem.element;
+	      // columnWidth fall back to item of first element
+	      this.columnWidth = firstItemElem && getSize( firstItemElem ).outerWidth ||
+	        // if first elem has no width, default to size of container
+	        this.containerWidth;
+	    }
+
+	    var columnWidth = this.columnWidth += this.gutter;
+
+	    // calculate columns
+	    var containerWidth = this.containerWidth + this.gutter;
+	    var cols = containerWidth / columnWidth;
+	    // fix rounding errors, typically with gutters
+	    var excess = columnWidth - containerWidth % columnWidth;
+	    // if overshoot is less than a pixel, round up, otherwise floor it
+	    var mathMethod = excess && excess < 1 ? 'round' : 'floor';
+	    cols = Math[ mathMethod ]( cols );
+	    this.cols = Math.max( cols, 1 );
+	  };
+
+	  Masonry.prototype.getContainerWidth = function() {
+	    // container is parent if fit width
+	    var isFitWidth = this._getOption('fitWidth');
+	    var container = isFitWidth ? this.element.parentNode : this.element;
+	    // check that this.size and size are there
+	    // IE8 triggers resize on body size change, so they might not be
+	    var size = getSize( container );
+	    this.containerWidth = size && size.innerWidth;
+	  };
+
+	  Masonry.prototype._getItemLayoutPosition = function( item ) {
+	    item.getSize();
+	    // how many columns does this brick span
+	    var remainder = item.size.outerWidth % this.columnWidth;
+	    var mathMethod = remainder && remainder < 1 ? 'round' : 'ceil';
+	    // round if off by 1 pixel, otherwise use ceil
+	    var colSpan = Math[ mathMethod ]( item.size.outerWidth / this.columnWidth );
+	    colSpan = Math.min( colSpan, this.cols );
+
+	    var colGroup = this._getColGroup( colSpan );
+	    // get the minimum Y value from the columns
+	    var minimumY = Math.min.apply( Math, colGroup );
+	    var shortColIndex = colGroup.indexOf( minimumY );
+
+	    // position the brick
+	    var position = {
+	      x: this.columnWidth * shortColIndex,
+	      y: minimumY
+	    };
+
+	    // apply setHeight to necessary columns
+	    var setHeight = minimumY + item.size.outerHeight;
+	    var setSpan = this.cols + 1 - colGroup.length;
+	    for ( var i = 0; i < setSpan; i++ ) {
+	      this.colYs[ shortColIndex + i ] = setHeight;
+	    }
+
+	    return position;
+	  };
+
+	  /**
+	   * @param {Number} colSpan - number of columns the element spans
+	   * @returns {Array} colGroup
+	   */
+	  Masonry.prototype._getColGroup = function( colSpan ) {
+	    if ( colSpan < 2 ) {
+	      // if brick spans only one column, use all the column Ys
+	      return this.colYs;
+	    }
+
+	    var colGroup = [];
+	    // how many different places could this brick fit horizontally
+	    var groupCount = this.cols + 1 - colSpan;
+	    // for each group potential horizontal position
+	    for ( var i = 0; i < groupCount; i++ ) {
+	      // make an array of colY values for that one group
+	      var groupColYs = this.colYs.slice( i, i + colSpan );
+	      // and get the max value of the array
+	      colGroup[i] = Math.max.apply( Math, groupColYs );
+	    }
+	    return colGroup;
+	  };
+
+	  Masonry.prototype._manageStamp = function( stamp ) {
+	    var stampSize = getSize( stamp );
+	    var offset = this._getElementOffset( stamp );
+	    // get the columns that this stamp affects
+	    var isOriginLeft = this._getOption('originLeft');
+	    var firstX = isOriginLeft ? offset.left : offset.right;
+	    var lastX = firstX + stampSize.outerWidth;
+	    var firstCol = Math.floor( firstX / this.columnWidth );
+	    firstCol = Math.max( 0, firstCol );
+	    var lastCol = Math.floor( lastX / this.columnWidth );
+	    // lastCol should not go over if multiple of columnWidth #425
+	    lastCol -= lastX % this.columnWidth ? 0 : 1;
+	    lastCol = Math.min( this.cols - 1, lastCol );
+	    // set colYs to bottom of the stamp
+
+	    var isOriginTop = this._getOption('originTop');
+	    var stampMaxY = ( isOriginTop ? offset.top : offset.bottom ) +
+	      stampSize.outerHeight;
+	    for ( var i = firstCol; i <= lastCol; i++ ) {
+	      this.colYs[i] = Math.max( stampMaxY, this.colYs[i] );
+	    }
+	  };
+
+	  Masonry.prototype._getContainerSize = function() {
+	    this.maxY = Math.max.apply( Math, this.colYs );
+	    var size = {
+	      height: this.maxY
+	    };
+
+	    if ( this._getOption('fitWidth') ) {
+	      size.width = this._getContainerFitWidth();
+	    }
+
+	    return size;
+	  };
+
+	  Masonry.prototype._getContainerFitWidth = function() {
+	    var unusedCols = 0;
+	    // count unused columns
+	    var i = this.cols;
+	    while ( --i ) {
+	      if ( this.colYs[i] !== 0 ) {
+	        break;
+	      }
+	      unusedCols++;
+	    }
+	    // fit container to columns that have been used
+	    return ( this.cols - unusedCols ) * this.columnWidth - this.gutter;
+	  };
+
+	  Masonry.prototype.needsResizeLayout = function() {
+	    var previousWidth = this.containerWidth;
+	    this.getContainerWidth();
+	    return previousWidth != this.containerWidth;
+	  };
+
+	  return Masonry;
+
+	}));
+
+
+/***/ },
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * Outlayer v2.1.0
+	 * the brains and guts of a layout library
+	 * MIT license
+	 */
+
+	( function( window, factory ) {
+	  'use strict';
+	  // universal module definition
+	  /* jshint strict: false */ /* globals define, module, require */
+	  if ( true ) {
+	    // AMD - RequireJS
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	        __webpack_require__(267),
+	        __webpack_require__(268),
+	        __webpack_require__(269),
+	        __webpack_require__(271)
+	      ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, getSize, utils, Item ) {
+	        return factory( window, EvEmitter, getSize, utils, Item);
+	      }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS - Browserify, Webpack
+	    module.exports = factory(
+	      window,
+	      require('ev-emitter'),
+	      require('get-size'),
+	      require('fizzy-ui-utils'),
+	      require('./item')
+	    );
+	  } else {
+	    // browser global
+	    window.Outlayer = factory(
+	      window,
+	      window.EvEmitter,
+	      window.getSize,
+	      window.fizzyUIUtils,
+	      window.Outlayer.Item
+	    );
+	  }
+
+	}( window, function factory( window, EvEmitter, getSize, utils, Item ) {
+	'use strict';
+
+	// ----- vars ----- //
+
+	var console = window.console;
+	var jQuery = window.jQuery;
+	var noop = function() {};
+
+	// -------------------------- Outlayer -------------------------- //
+
+	// globally unique identifiers
+	var GUID = 0;
+	// internal store of all Outlayer intances
+	var instances = {};
+
+
+	/**
+	 * @param {Element, String} element
+	 * @param {Object} options
+	 * @constructor
+	 */
+	function Outlayer( element, options ) {
+	  var queryElement = utils.getQueryElement( element );
+	  if ( !queryElement ) {
+	    if ( console ) {
+	      console.error( 'Bad element for ' + this.constructor.namespace +
+	        ': ' + ( queryElement || element ) );
+	    }
+	    return;
+	  }
+	  this.element = queryElement;
+	  // add jQuery
+	  if ( jQuery ) {
+	    this.$element = jQuery( this.element );
+	  }
+
+	  // options
+	  this.options = utils.extend( {}, this.constructor.defaults );
+	  this.option( options );
+
+	  // add id for Outlayer.getFromElement
+	  var id = ++GUID;
+	  this.element.outlayerGUID = id; // expando
+	  instances[ id ] = this; // associate via id
+
+	  // kick it off
+	  this._create();
+
+	  var isInitLayout = this._getOption('initLayout');
+	  if ( isInitLayout ) {
+	    this.layout();
+	  }
+	}
+
+	// settings are for internal use only
+	Outlayer.namespace = 'outlayer';
+	Outlayer.Item = Item;
+
+	// default options
+	Outlayer.defaults = {
+	  containerStyle: {
+	    position: 'relative'
+	  },
+	  initLayout: true,
+	  originLeft: true,
+	  originTop: true,
+	  resize: true,
+	  resizeContainer: true,
+	  // item options
+	  transitionDuration: '0.4s',
+	  hiddenStyle: {
+	    opacity: 0,
+	    transform: 'scale(0.001)'
+	  },
+	  visibleStyle: {
+	    opacity: 1,
+	    transform: 'scale(1)'
+	  }
+	};
+
+	var proto = Outlayer.prototype;
+	// inherit EvEmitter
+	utils.extend( proto, EvEmitter.prototype );
+
+	/**
+	 * set options
+	 * @param {Object} opts
+	 */
+	proto.option = function( opts ) {
+	  utils.extend( this.options, opts );
+	};
+
+	/**
+	 * get backwards compatible option value, check old name
+	 */
+	proto._getOption = function( option ) {
+	  var oldOption = this.constructor.compatOptions[ option ];
+	  return oldOption && this.options[ oldOption ] !== undefined ?
+	    this.options[ oldOption ] : this.options[ option ];
+	};
+
+	Outlayer.compatOptions = {
+	  // currentName: oldName
+	  initLayout: 'isInitLayout',
+	  horizontal: 'isHorizontal',
+	  layoutInstant: 'isLayoutInstant',
+	  originLeft: 'isOriginLeft',
+	  originTop: 'isOriginTop',
+	  resize: 'isResizeBound',
+	  resizeContainer: 'isResizingContainer'
+	};
+
+	proto._create = function() {
+	  // get items from children
+	  this.reloadItems();
+	  // elements that affect layout, but are not laid out
+	  this.stamps = [];
+	  this.stamp( this.options.stamp );
+	  // set container style
+	  utils.extend( this.element.style, this.options.containerStyle );
+
+	  // bind resize method
+	  var canBindResize = this._getOption('resize');
+	  if ( canBindResize ) {
+	    this.bindResize();
+	  }
+	};
+
+	// goes through all children again and gets bricks in proper order
+	proto.reloadItems = function() {
+	  // collection of item elements
+	  this.items = this._itemize( this.element.children );
+	};
+
+
+	/**
+	 * turn elements into Outlayer.Items to be used in layout
+	 * @param {Array or NodeList or HTMLElement} elems
+	 * @returns {Array} items - collection of new Outlayer Items
+	 */
+	proto._itemize = function( elems ) {
+
+	  var itemElems = this._filterFindItemElements( elems );
+	  var Item = this.constructor.Item;
+
+	  // create new Outlayer Items for collection
+	  var items = [];
+	  for ( var i=0; i < itemElems.length; i++ ) {
+	    var elem = itemElems[i];
+	    var item = new Item( elem, this );
+	    items.push( item );
+	  }
+
+	  return items;
+	};
+
+	/**
+	 * get item elements to be used in layout
+	 * @param {Array or NodeList or HTMLElement} elems
+	 * @returns {Array} items - item elements
+	 */
+	proto._filterFindItemElements = function( elems ) {
+	  return utils.filterFindElements( elems, this.options.itemSelector );
+	};
+
+	/**
+	 * getter method for getting item elements
+	 * @returns {Array} elems - collection of item elements
+	 */
+	proto.getItemElements = function() {
+	  return this.items.map( function( item ) {
+	    return item.element;
+	  });
+	};
+
+	// ----- init & layout ----- //
+
+	/**
+	 * lays out all items
+	 */
+	proto.layout = function() {
+	  this._resetLayout();
+	  this._manageStamps();
+
+	  // don't animate first layout
+	  var layoutInstant = this._getOption('layoutInstant');
+	  var isInstant = layoutInstant !== undefined ?
+	    layoutInstant : !this._isLayoutInited;
+	  this.layoutItems( this.items, isInstant );
+
+	  // flag for initalized
+	  this._isLayoutInited = true;
+	};
+
+	// _init is alias for layout
+	proto._init = proto.layout;
+
+	/**
+	 * logic before any new layout
+	 */
+	proto._resetLayout = function() {
+	  this.getSize();
+	};
+
+
+	proto.getSize = function() {
+	  this.size = getSize( this.element );
+	};
+
+	/**
+	 * get measurement from option, for columnWidth, rowHeight, gutter
+	 * if option is String -> get element from selector string, & get size of element
+	 * if option is Element -> get size of element
+	 * else use option as a number
+	 *
+	 * @param {String} measurement
+	 * @param {String} size - width or height
+	 * @private
+	 */
+	proto._getMeasurement = function( measurement, size ) {
+	  var option = this.options[ measurement ];
+	  var elem;
+	  if ( !option ) {
+	    // default to 0
+	    this[ measurement ] = 0;
+	  } else {
+	    // use option as an element
+	    if ( typeof option == 'string' ) {
+	      elem = this.element.querySelector( option );
+	    } else if ( option instanceof HTMLElement ) {
+	      elem = option;
+	    }
+	    // use size of element, if element
+	    this[ measurement ] = elem ? getSize( elem )[ size ] : option;
+	  }
+	};
+
+	/**
+	 * layout a collection of item elements
+	 * @api public
+	 */
+	proto.layoutItems = function( items, isInstant ) {
+	  items = this._getItemsForLayout( items );
+
+	  this._layoutItems( items, isInstant );
+
+	  this._postLayout();
+	};
+
+	/**
+	 * get the items to be laid out
+	 * you may want to skip over some items
+	 * @param {Array} items
+	 * @returns {Array} items
+	 */
+	proto._getItemsForLayout = function( items ) {
+	  return items.filter( function( item ) {
+	    return !item.isIgnored;
+	  });
+	};
+
+	/**
+	 * layout items
+	 * @param {Array} items
+	 * @param {Boolean} isInstant
+	 */
+	proto._layoutItems = function( items, isInstant ) {
+	  this._emitCompleteOnItems( 'layout', items );
+
+	  if ( !items || !items.length ) {
+	    // no items, emit event with empty array
+	    return;
+	  }
+
+	  var queue = [];
+
+	  items.forEach( function( item ) {
+	    // get x/y object from method
+	    var position = this._getItemLayoutPosition( item );
+	    // enqueue
+	    position.item = item;
+	    position.isInstant = isInstant || item.isLayoutInstant;
+	    queue.push( position );
+	  }, this );
+
+	  this._processLayoutQueue( queue );
+	};
+
+	/**
+	 * get item layout position
+	 * @param {Outlayer.Item} item
+	 * @returns {Object} x and y position
+	 */
+	proto._getItemLayoutPosition = function( /* item */ ) {
+	  return {
+	    x: 0,
+	    y: 0
+	  };
+	};
+
+	/**
+	 * iterate over array and position each item
+	 * Reason being - separating this logic prevents 'layout invalidation'
+	 * thx @paul_irish
+	 * @param {Array} queue
+	 */
+	proto._processLayoutQueue = function( queue ) {
+	  this.updateStagger();
+	  queue.forEach( function( obj, i ) {
+	    this._positionItem( obj.item, obj.x, obj.y, obj.isInstant, i );
+	  }, this );
+	};
+
+	// set stagger from option in milliseconds number
+	proto.updateStagger = function() {
+	  var stagger = this.options.stagger;
+	  if ( stagger === null || stagger === undefined ) {
+	    this.stagger = 0;
+	    return;
+	  }
+	  this.stagger = getMilliseconds( stagger );
+	  return this.stagger;
+	};
+
+	/**
+	 * Sets position of item in DOM
+	 * @param {Outlayer.Item} item
+	 * @param {Number} x - horizontal position
+	 * @param {Number} y - vertical position
+	 * @param {Boolean} isInstant - disables transitions
+	 */
+	proto._positionItem = function( item, x, y, isInstant, i ) {
+	  if ( isInstant ) {
+	    // if not transition, just set CSS
+	    item.goTo( x, y );
+	  } else {
+	    item.stagger( i * this.stagger );
+	    item.moveTo( x, y );
+	  }
+	};
+
+	/**
+	 * Any logic you want to do after each layout,
+	 * i.e. size the container
+	 */
+	proto._postLayout = function() {
+	  this.resizeContainer();
+	};
+
+	proto.resizeContainer = function() {
+	  var isResizingContainer = this._getOption('resizeContainer');
+	  if ( !isResizingContainer ) {
+	    return;
+	  }
+	  var size = this._getContainerSize();
+	  if ( size ) {
+	    this._setContainerMeasure( size.width, true );
+	    this._setContainerMeasure( size.height, false );
+	  }
+	};
+
+	/**
+	 * Sets width or height of container if returned
+	 * @returns {Object} size
+	 *   @param {Number} width
+	 *   @param {Number} height
+	 */
+	proto._getContainerSize = noop;
+
+	/**
+	 * @param {Number} measure - size of width or height
+	 * @param {Boolean} isWidth
+	 */
+	proto._setContainerMeasure = function( measure, isWidth ) {
+	  if ( measure === undefined ) {
+	    return;
+	  }
+
+	  var elemSize = this.size;
+	  // add padding and border width if border box
+	  if ( elemSize.isBorderBox ) {
+	    measure += isWidth ? elemSize.paddingLeft + elemSize.paddingRight +
+	      elemSize.borderLeftWidth + elemSize.borderRightWidth :
+	      elemSize.paddingBottom + elemSize.paddingTop +
+	      elemSize.borderTopWidth + elemSize.borderBottomWidth;
+	  }
+
+	  measure = Math.max( measure, 0 );
+	  this.element.style[ isWidth ? 'width' : 'height' ] = measure + 'px';
+	};
+
+	/**
+	 * emit eventComplete on a collection of items events
+	 * @param {String} eventName
+	 * @param {Array} items - Outlayer.Items
+	 */
+	proto._emitCompleteOnItems = function( eventName, items ) {
+	  var _this = this;
+	  function onComplete() {
+	    _this.dispatchEvent( eventName + 'Complete', null, [ items ] );
+	  }
+
+	  var count = items.length;
+	  if ( !items || !count ) {
+	    onComplete();
+	    return;
+	  }
+
+	  var doneCount = 0;
+	  function tick() {
+	    doneCount++;
+	    if ( doneCount == count ) {
+	      onComplete();
+	    }
+	  }
+
+	  // bind callback
+	  items.forEach( function( item ) {
+	    item.once( eventName, tick );
+	  });
+	};
+
+	/**
+	 * emits events via EvEmitter and jQuery events
+	 * @param {String} type - name of event
+	 * @param {Event} event - original event
+	 * @param {Array} args - extra arguments
+	 */
+	proto.dispatchEvent = function( type, event, args ) {
+	  // add original event to arguments
+	  var emitArgs = event ? [ event ].concat( args ) : args;
+	  this.emitEvent( type, emitArgs );
+
+	  if ( jQuery ) {
+	    // set this.$element
+	    this.$element = this.$element || jQuery( this.element );
+	    if ( event ) {
+	      // create jQuery event
+	      var $event = jQuery.Event( event );
+	      $event.type = type;
+	      this.$element.trigger( $event, args );
+	    } else {
+	      // just trigger with type if no event available
+	      this.$element.trigger( type, args );
+	    }
+	  }
+	};
+
+	// -------------------------- ignore & stamps -------------------------- //
+
+
+	/**
+	 * keep item in collection, but do not lay it out
+	 * ignored items do not get skipped in layout
+	 * @param {Element} elem
+	 */
+	proto.ignore = function( elem ) {
+	  var item = this.getItem( elem );
+	  if ( item ) {
+	    item.isIgnored = true;
+	  }
+	};
+
+	/**
+	 * return item to layout collection
+	 * @param {Element} elem
+	 */
+	proto.unignore = function( elem ) {
+	  var item = this.getItem( elem );
+	  if ( item ) {
+	    delete item.isIgnored;
+	  }
+	};
+
+	/**
+	 * adds elements to stamps
+	 * @param {NodeList, Array, Element, or String} elems
+	 */
+	proto.stamp = function( elems ) {
+	  elems = this._find( elems );
+	  if ( !elems ) {
+	    return;
+	  }
+
+	  this.stamps = this.stamps.concat( elems );
+	  // ignore
+	  elems.forEach( this.ignore, this );
+	};
+
+	/**
+	 * removes elements to stamps
+	 * @param {NodeList, Array, or Element} elems
+	 */
+	proto.unstamp = function( elems ) {
+	  elems = this._find( elems );
+	  if ( !elems ){
+	    return;
+	  }
+
+	  elems.forEach( function( elem ) {
+	    // filter out removed stamp elements
+	    utils.removeFrom( this.stamps, elem );
+	    this.unignore( elem );
+	  }, this );
+	};
+
+	/**
+	 * finds child elements
+	 * @param {NodeList, Array, Element, or String} elems
+	 * @returns {Array} elems
+	 */
+	proto._find = function( elems ) {
+	  if ( !elems ) {
+	    return;
+	  }
+	  // if string, use argument as selector string
+	  if ( typeof elems == 'string' ) {
+	    elems = this.element.querySelectorAll( elems );
+	  }
+	  elems = utils.makeArray( elems );
+	  return elems;
+	};
+
+	proto._manageStamps = function() {
+	  if ( !this.stamps || !this.stamps.length ) {
+	    return;
+	  }
+
+	  this._getBoundingRect();
+
+	  this.stamps.forEach( this._manageStamp, this );
+	};
+
+	// update boundingLeft / Top
+	proto._getBoundingRect = function() {
+	  // get bounding rect for container element
+	  var boundingRect = this.element.getBoundingClientRect();
+	  var size = this.size;
+	  this._boundingRect = {
+	    left: boundingRect.left + size.paddingLeft + size.borderLeftWidth,
+	    top: boundingRect.top + size.paddingTop + size.borderTopWidth,
+	    right: boundingRect.right - ( size.paddingRight + size.borderRightWidth ),
+	    bottom: boundingRect.bottom - ( size.paddingBottom + size.borderBottomWidth )
+	  };
+	};
+
+	/**
+	 * @param {Element} stamp
+	**/
+	proto._manageStamp = noop;
+
+	/**
+	 * get x/y position of element relative to container element
+	 * @param {Element} elem
+	 * @returns {Object} offset - has left, top, right, bottom
+	 */
+	proto._getElementOffset = function( elem ) {
+	  var boundingRect = elem.getBoundingClientRect();
+	  var thisRect = this._boundingRect;
+	  var size = getSize( elem );
+	  var offset = {
+	    left: boundingRect.left - thisRect.left - size.marginLeft,
+	    top: boundingRect.top - thisRect.top - size.marginTop,
+	    right: thisRect.right - boundingRect.right - size.marginRight,
+	    bottom: thisRect.bottom - boundingRect.bottom - size.marginBottom
+	  };
+	  return offset;
+	};
+
+	// -------------------------- resize -------------------------- //
+
+	// enable event handlers for listeners
+	// i.e. resize -> onresize
+	proto.handleEvent = utils.handleEvent;
+
+	/**
+	 * Bind layout to window resizing
+	 */
+	proto.bindResize = function() {
+	  window.addEventListener( 'resize', this );
+	  this.isResizeBound = true;
+	};
+
+	/**
+	 * Unbind layout to window resizing
+	 */
+	proto.unbindResize = function() {
+	  window.removeEventListener( 'resize', this );
+	  this.isResizeBound = false;
+	};
+
+	proto.onresize = function() {
+	  this.resize();
+	};
+
+	utils.debounceMethod( Outlayer, 'onresize', 100 );
+
+	proto.resize = function() {
+	  // don't trigger if size did not change
+	  // or if resize was unbound. See #9
+	  if ( !this.isResizeBound || !this.needsResizeLayout() ) {
+	    return;
+	  }
+
+	  this.layout();
+	};
+
+	/**
+	 * check if layout is needed post layout
+	 * @returns Boolean
+	 */
+	proto.needsResizeLayout = function() {
+	  var size = getSize( this.element );
+	  // check that this.size and size are there
+	  // IE8 triggers resize on body size change, so they might not be
+	  var hasSizes = this.size && size;
+	  return hasSizes && size.innerWidth !== this.size.innerWidth;
+	};
+
+	// -------------------------- methods -------------------------- //
+
+	/**
+	 * add items to Outlayer instance
+	 * @param {Array or NodeList or Element} elems
+	 * @returns {Array} items - Outlayer.Items
+	**/
+	proto.addItems = function( elems ) {
+	  var items = this._itemize( elems );
+	  // add items to collection
+	  if ( items.length ) {
+	    this.items = this.items.concat( items );
+	  }
+	  return items;
+	};
+
+	/**
+	 * Layout newly-appended item elements
+	 * @param {Array or NodeList or Element} elems
+	 */
+	proto.appended = function( elems ) {
+	  var items = this.addItems( elems );
+	  if ( !items.length ) {
+	    return;
+	  }
+	  // layout and reveal just the new items
+	  this.layoutItems( items, true );
+	  this.reveal( items );
+	};
+
+	/**
+	 * Layout prepended elements
+	 * @param {Array or NodeList or Element} elems
+	 */
+	proto.prepended = function( elems ) {
+	  var items = this._itemize( elems );
+	  if ( !items.length ) {
+	    return;
+	  }
+	  // add items to beginning of collection
+	  var previousItems = this.items.slice(0);
+	  this.items = items.concat( previousItems );
+	  // start new layout
+	  this._resetLayout();
+	  this._manageStamps();
+	  // layout new stuff without transition
+	  this.layoutItems( items, true );
+	  this.reveal( items );
+	  // layout previous items
+	  this.layoutItems( previousItems );
+	};
+
+	/**
+	 * reveal a collection of items
+	 * @param {Array of Outlayer.Items} items
+	 */
+	proto.reveal = function( items ) {
+	  this._emitCompleteOnItems( 'reveal', items );
+	  if ( !items || !items.length ) {
+	    return;
+	  }
+	  var stagger = this.updateStagger();
+	  items.forEach( function( item, i ) {
+	    item.stagger( i * stagger );
+	    item.reveal();
+	  });
+	};
+
+	/**
+	 * hide a collection of items
+	 * @param {Array of Outlayer.Items} items
+	 */
+	proto.hide = function( items ) {
+	  this._emitCompleteOnItems( 'hide', items );
+	  if ( !items || !items.length ) {
+	    return;
+	  }
+	  var stagger = this.updateStagger();
+	  items.forEach( function( item, i ) {
+	    item.stagger( i * stagger );
+	    item.hide();
+	  });
+	};
+
+	/**
+	 * reveal item elements
+	 * @param {Array}, {Element}, {NodeList} items
+	 */
+	proto.revealItemElements = function( elems ) {
+	  var items = this.getItems( elems );
+	  this.reveal( items );
+	};
+
+	/**
+	 * hide item elements
+	 * @param {Array}, {Element}, {NodeList} items
+	 */
+	proto.hideItemElements = function( elems ) {
+	  var items = this.getItems( elems );
+	  this.hide( items );
+	};
+
+	/**
+	 * get Outlayer.Item, given an Element
+	 * @param {Element} elem
+	 * @param {Function} callback
+	 * @returns {Outlayer.Item} item
+	 */
+	proto.getItem = function( elem ) {
+	  // loop through items to get the one that matches
+	  for ( var i=0; i < this.items.length; i++ ) {
+	    var item = this.items[i];
+	    if ( item.element == elem ) {
+	      // return item
+	      return item;
+	    }
+	  }
+	};
+
+	/**
+	 * get collection of Outlayer.Items, given Elements
+	 * @param {Array} elems
+	 * @returns {Array} items - Outlayer.Items
+	 */
+	proto.getItems = function( elems ) {
+	  elems = utils.makeArray( elems );
+	  var items = [];
+	  elems.forEach( function( elem ) {
+	    var item = this.getItem( elem );
+	    if ( item ) {
+	      items.push( item );
+	    }
+	  }, this );
+
+	  return items;
+	};
+
+	/**
+	 * remove element(s) from instance and DOM
+	 * @param {Array or NodeList or Element} elems
+	 */
+	proto.remove = function( elems ) {
+	  var removeItems = this.getItems( elems );
+
+	  this._emitCompleteOnItems( 'remove', removeItems );
+
+	  // bail if no items to remove
+	  if ( !removeItems || !removeItems.length ) {
+	    return;
+	  }
+
+	  removeItems.forEach( function( item ) {
+	    item.remove();
+	    // remove item from collection
+	    utils.removeFrom( this.items, item );
+	  }, this );
+	};
+
+	// ----- destroy ----- //
+
+	// remove and disable Outlayer instance
+	proto.destroy = function() {
+	  // clean up dynamic styles
+	  var style = this.element.style;
+	  style.height = '';
+	  style.position = '';
+	  style.width = '';
+	  // destroy items
+	  this.items.forEach( function( item ) {
+	    item.destroy();
+	  });
+
+	  this.unbindResize();
+
+	  var id = this.element.outlayerGUID;
+	  delete instances[ id ]; // remove reference to instance by id
+	  delete this.element.outlayerGUID;
+	  // remove data for jQuery
+	  if ( jQuery ) {
+	    jQuery.removeData( this.element, this.constructor.namespace );
+	  }
+
+	};
+
+	// -------------------------- data -------------------------- //
+
+	/**
+	 * get Outlayer instance from element
+	 * @param {Element} elem
+	 * @returns {Outlayer}
+	 */
+	Outlayer.data = function( elem ) {
+	  elem = utils.getQueryElement( elem );
+	  var id = elem && elem.outlayerGUID;
+	  return id && instances[ id ];
+	};
+
+
+	// -------------------------- create Outlayer class -------------------------- //
+
+	/**
+	 * create a layout class
+	 * @param {String} namespace
+	 */
+	Outlayer.create = function( namespace, options ) {
+	  // sub-class Outlayer
+	  var Layout = subclass( Outlayer );
+	  // apply new options and compatOptions
+	  Layout.defaults = utils.extend( {}, Outlayer.defaults );
+	  utils.extend( Layout.defaults, options );
+	  Layout.compatOptions = utils.extend( {}, Outlayer.compatOptions  );
+
+	  Layout.namespace = namespace;
+
+	  Layout.data = Outlayer.data;
+
+	  // sub-class Item
+	  Layout.Item = subclass( Item );
+
+	  // -------------------------- declarative -------------------------- //
+
+	  utils.htmlInit( Layout, namespace );
+
+	  // -------------------------- jQuery bridge -------------------------- //
+
+	  // make into jQuery plugin
+	  if ( jQuery && jQuery.bridget ) {
+	    jQuery.bridget( namespace, Layout );
+	  }
+
+	  return Layout;
+	};
+
+	function subclass( Parent ) {
+	  function SubClass() {
+	    Parent.apply( this, arguments );
+	  }
+
+	  SubClass.prototype = Object.create( Parent.prototype );
+	  SubClass.prototype.constructor = SubClass;
+
+	  return SubClass;
+	}
+
+	// ----- helpers ----- //
+
+	// how many milliseconds are in each unit
+	var msUnits = {
+	  ms: 1,
+	  s: 1000
+	};
+
+	// munge time-like parameter into millisecond number
+	// '0.4s' -> 40
+	function getMilliseconds( time ) {
+	  if ( typeof time == 'number' ) {
+	    return time;
+	  }
+	  var matches = time.match( /(^\d*\.?\d*)(\w*)/ );
+	  var num = matches && matches[1];
+	  var unit = matches && matches[2];
+	  if ( !num.length ) {
+	    return 0;
+	  }
+	  num = parseFloat( num );
+	  var mult = msUnits[ unit ] || 1;
+	  return num * mult;
+	}
+
+	// ----- fin ----- //
+
+	// back in global
+	Outlayer.Item = Item;
+
+	return Outlayer;
+
+	}));
+
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * EvEmitter v1.0.3
+	 * Lil' event emitter
+	 * MIT License
+	 */
+
+	/* jshint unused: true, undef: true, strict: true */
+
+	( function( global, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */ /* globals define, module, window */
+	  if ( true ) {
+	    // AMD - RequireJS
+	    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS - Browserify, Webpack
+	    module.exports = factory();
+	  } else {
+	    // Browser globals
+	    global.EvEmitter = factory();
+	  }
+
+	}( typeof window != 'undefined' ? window : this, function() {
+
+	"use strict";
+
+	function EvEmitter() {}
+
+	var proto = EvEmitter.prototype;
+
+	proto.on = function( eventName, listener ) {
+	  if ( !eventName || !listener ) {
+	    return;
+	  }
+	  // set events hash
+	  var events = this._events = this._events || {};
+	  // set listeners array
+	  var listeners = events[ eventName ] = events[ eventName ] || [];
+	  // only add once
+	  if ( listeners.indexOf( listener ) == -1 ) {
+	    listeners.push( listener );
+	  }
+
+	  return this;
+	};
+
+	proto.once = function( eventName, listener ) {
+	  if ( !eventName || !listener ) {
+	    return;
+	  }
+	  // add event
+	  this.on( eventName, listener );
+	  // set once flag
+	  // set onceEvents hash
+	  var onceEvents = this._onceEvents = this._onceEvents || {};
+	  // set onceListeners object
+	  var onceListeners = onceEvents[ eventName ] = onceEvents[ eventName ] || {};
+	  // set flag
+	  onceListeners[ listener ] = true;
+
+	  return this;
+	};
+
+	proto.off = function( eventName, listener ) {
+	  var listeners = this._events && this._events[ eventName ];
+	  if ( !listeners || !listeners.length ) {
+	    return;
+	  }
+	  var index = listeners.indexOf( listener );
+	  if ( index != -1 ) {
+	    listeners.splice( index, 1 );
+	  }
+
+	  return this;
+	};
+
+	proto.emitEvent = function( eventName, args ) {
+	  var listeners = this._events && this._events[ eventName ];
+	  if ( !listeners || !listeners.length ) {
+	    return;
+	  }
+	  var i = 0;
+	  var listener = listeners[i];
+	  args = args || [];
+	  // once stuff
+	  var onceListeners = this._onceEvents && this._onceEvents[ eventName ];
+
+	  while ( listener ) {
+	    var isOnce = onceListeners && onceListeners[ listener ];
+	    if ( isOnce ) {
+	      // remove listener
+	      // remove before trigger to prevent recursion
+	      this.off( eventName, listener );
+	      // unset once flag
+	      delete onceListeners[ listener ];
+	    }
+	    // trigger listener
+	    listener.apply( this, args );
+	    // get next listener
+	    i += isOnce ? 0 : 1;
+	    listener = listeners[i];
+	  }
+
+	  return this;
+	};
+
+	return EvEmitter;
+
+	}));
+
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * getSize v2.0.2
+	 * measure size of elements
+	 * MIT license
+	 */
+
+	/*jshint browser: true, strict: true, undef: true, unused: true */
+	/*global define: false, module: false, console: false */
+
+	( function( window, factory ) {
+	  'use strict';
+
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
+	      return factory();
+	    }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory();
+	  } else {
+	    // browser global
+	    window.getSize = factory();
+	  }
+
+	})( window, function factory() {
+	'use strict';
+
+	// -------------------------- helpers -------------------------- //
+
+	// get a number from a string, not a percentage
+	function getStyleSize( value ) {
+	  var num = parseFloat( value );
+	  // not a percent like '100%', and a number
+	  var isValid = value.indexOf('%') == -1 && !isNaN( num );
+	  return isValid && num;
+	}
+
+	function noop() {}
+
+	var logError = typeof console == 'undefined' ? noop :
+	  function( message ) {
+	    console.error( message );
+	  };
+
+	// -------------------------- measurements -------------------------- //
+
+	var measurements = [
+	  'paddingLeft',
+	  'paddingRight',
+	  'paddingTop',
+	  'paddingBottom',
+	  'marginLeft',
+	  'marginRight',
+	  'marginTop',
+	  'marginBottom',
+	  'borderLeftWidth',
+	  'borderRightWidth',
+	  'borderTopWidth',
+	  'borderBottomWidth'
+	];
+
+	var measurementsLength = measurements.length;
+
+	function getZeroSize() {
+	  var size = {
+	    width: 0,
+	    height: 0,
+	    innerWidth: 0,
+	    innerHeight: 0,
+	    outerWidth: 0,
+	    outerHeight: 0
+	  };
+	  for ( var i=0; i < measurementsLength; i++ ) {
+	    var measurement = measurements[i];
+	    size[ measurement ] = 0;
+	  }
+	  return size;
+	}
+
+	// -------------------------- getStyle -------------------------- //
+
+	/**
+	 * getStyle, get style of element, check for Firefox bug
+	 * https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+	 */
+	function getStyle( elem ) {
+	  var style = getComputedStyle( elem );
+	  if ( !style ) {
+	    logError( 'Style returned ' + style +
+	      '. Are you running this code in a hidden iframe on Firefox? ' +
+	      'See http://bit.ly/getsizebug1' );
+	  }
+	  return style;
+	}
+
+	// -------------------------- setup -------------------------- //
+
+	var isSetup = false;
+
+	var isBoxSizeOuter;
+
+	/**
+	 * setup
+	 * check isBoxSizerOuter
+	 * do on first getSize() rather than on page load for Firefox bug
+	 */
+	function setup() {
+	  // setup once
+	  if ( isSetup ) {
+	    return;
+	  }
+	  isSetup = true;
+
+	  // -------------------------- box sizing -------------------------- //
+
+	  /**
+	   * WebKit measures the outer-width on style.width on border-box elems
+	   * IE & Firefox<29 measures the inner-width
+	   */
+	  var div = document.createElement('div');
+	  div.style.width = '200px';
+	  div.style.padding = '1px 2px 3px 4px';
+	  div.style.borderStyle = 'solid';
+	  div.style.borderWidth = '1px 2px 3px 4px';
+	  div.style.boxSizing = 'border-box';
+
+	  var body = document.body || document.documentElement;
+	  body.appendChild( div );
+	  var style = getStyle( div );
+
+	  getSize.isBoxSizeOuter = isBoxSizeOuter = getStyleSize( style.width ) == 200;
+	  body.removeChild( div );
+
+	}
+
+	// -------------------------- getSize -------------------------- //
+
+	function getSize( elem ) {
+	  setup();
+
+	  // use querySeletor if elem is string
+	  if ( typeof elem == 'string' ) {
+	    elem = document.querySelector( elem );
+	  }
+
+	  // do not proceed on non-objects
+	  if ( !elem || typeof elem != 'object' || !elem.nodeType ) {
+	    return;
+	  }
+
+	  var style = getStyle( elem );
+
+	  // if hidden, everything is 0
+	  if ( style.display == 'none' ) {
+	    return getZeroSize();
+	  }
+
+	  var size = {};
+	  size.width = elem.offsetWidth;
+	  size.height = elem.offsetHeight;
+
+	  var isBorderBox = size.isBorderBox = style.boxSizing == 'border-box';
+
+	  // get all measurements
+	  for ( var i=0; i < measurementsLength; i++ ) {
+	    var measurement = measurements[i];
+	    var value = style[ measurement ];
+	    var num = parseFloat( value );
+	    // any 'auto', 'medium' value will be 0
+	    size[ measurement ] = !isNaN( num ) ? num : 0;
+	  }
+
+	  var paddingWidth = size.paddingLeft + size.paddingRight;
+	  var paddingHeight = size.paddingTop + size.paddingBottom;
+	  var marginWidth = size.marginLeft + size.marginRight;
+	  var marginHeight = size.marginTop + size.marginBottom;
+	  var borderWidth = size.borderLeftWidth + size.borderRightWidth;
+	  var borderHeight = size.borderTopWidth + size.borderBottomWidth;
+
+	  var isBorderBoxSizeOuter = isBorderBox && isBoxSizeOuter;
+
+	  // overwrite width and height if we can get it from style
+	  var styleWidth = getStyleSize( style.width );
+	  if ( styleWidth !== false ) {
+	    size.width = styleWidth +
+	      // add padding and border unless it's already including it
+	      ( isBorderBoxSizeOuter ? 0 : paddingWidth + borderWidth );
+	  }
+
+	  var styleHeight = getStyleSize( style.height );
+	  if ( styleHeight !== false ) {
+	    size.height = styleHeight +
+	      // add padding and border unless it's already including it
+	      ( isBorderBoxSizeOuter ? 0 : paddingHeight + borderHeight );
+	  }
+
+	  size.innerWidth = size.width - ( paddingWidth + borderWidth );
+	  size.innerHeight = size.height - ( paddingHeight + borderHeight );
+
+	  size.outerWidth = size.width + marginWidth;
+	  size.outerHeight = size.height + marginHeight;
+
+	  return size;
+	}
+
+	return getSize;
+
+	});
+
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * Fizzy UI utils v2.0.2
+	 * MIT license
+	 */
+
+	/*jshint browser: true, undef: true, unused: true, strict: true */
+
+	( function( window, factory ) {
+	  // universal module definition
+	  /*jshint strict: false */ /*globals define, module, require */
+
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(270)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( matchesSelector ) {
+	      return factory( window, matchesSelector );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('desandro-matches-selector')
+	    );
+	  } else {
+	    // browser global
+	    window.fizzyUIUtils = factory(
+	      window,
+	      window.matchesSelector
+	    );
+	  }
+
+	}( window, function factory( window, matchesSelector ) {
+
+	'use strict';
+
+	var utils = {};
+
+	// ----- extend ----- //
+
+	// extends objects
+	utils.extend = function( a, b ) {
+	  for ( var prop in b ) {
+	    a[ prop ] = b[ prop ];
+	  }
+	  return a;
+	};
+
+	// ----- modulo ----- //
+
+	utils.modulo = function( num, div ) {
+	  return ( ( num % div ) + div ) % div;
+	};
+
+	// ----- makeArray ----- //
+
+	// turn element or nodeList into an array
+	utils.makeArray = function( obj ) {
+	  var ary = [];
+	  if ( Array.isArray( obj ) ) {
+	    // use object if already an array
+	    ary = obj;
+	  } else if ( obj && typeof obj.length == 'number' ) {
+	    // convert nodeList to array
+	    for ( var i=0; i < obj.length; i++ ) {
+	      ary.push( obj[i] );
+	    }
+	  } else {
+	    // array of single index
+	    ary.push( obj );
+	  }
+	  return ary;
+	};
+
+	// ----- removeFrom ----- //
+
+	utils.removeFrom = function( ary, obj ) {
+	  var index = ary.indexOf( obj );
+	  if ( index != -1 ) {
+	    ary.splice( index, 1 );
+	  }
+	};
+
+	// ----- getParent ----- //
+
+	utils.getParent = function( elem, selector ) {
+	  while ( elem != document.body ) {
+	    elem = elem.parentNode;
+	    if ( matchesSelector( elem, selector ) ) {
+	      return elem;
+	    }
+	  }
+	};
+
+	// ----- getQueryElement ----- //
+
+	// use element as selector string
+	utils.getQueryElement = function( elem ) {
+	  if ( typeof elem == 'string' ) {
+	    return document.querySelector( elem );
+	  }
+	  return elem;
+	};
+
+	// ----- handleEvent ----- //
+
+	// enable .ontype to trigger from .addEventListener( elem, 'type' )
+	utils.handleEvent = function( event ) {
+	  var method = 'on' + event.type;
+	  if ( this[ method ] ) {
+	    this[ method ]( event );
+	  }
+	};
+
+	// ----- filterFindElements ----- //
+
+	utils.filterFindElements = function( elems, selector ) {
+	  // make array of elems
+	  elems = utils.makeArray( elems );
+	  var ffElems = [];
+
+	  elems.forEach( function( elem ) {
+	    // check that elem is an actual element
+	    if ( !( elem instanceof HTMLElement ) ) {
+	      return;
+	    }
+	    // add elem if no selector
+	    if ( !selector ) {
+	      ffElems.push( elem );
+	      return;
+	    }
+	    // filter & find items if we have a selector
+	    // filter
+	    if ( matchesSelector( elem, selector ) ) {
+	      ffElems.push( elem );
+	    }
+	    // find children
+	    var childElems = elem.querySelectorAll( selector );
+	    // concat childElems to filterFound array
+	    for ( var i=0; i < childElems.length; i++ ) {
+	      ffElems.push( childElems[i] );
+	    }
+	  });
+
+	  return ffElems;
+	};
+
+	// ----- debounceMethod ----- //
+
+	utils.debounceMethod = function( _class, methodName, threshold ) {
+	  // original method
+	  var method = _class.prototype[ methodName ];
+	  var timeoutName = methodName + 'Timeout';
+
+	  _class.prototype[ methodName ] = function() {
+	    var timeout = this[ timeoutName ];
+	    if ( timeout ) {
+	      clearTimeout( timeout );
+	    }
+	    var args = arguments;
+
+	    var _this = this;
+	    this[ timeoutName ] = setTimeout( function() {
+	      method.apply( _this, args );
+	      delete _this[ timeoutName ];
+	    }, threshold || 100 );
+	  };
+	};
+
+	// ----- docReady ----- //
+
+	utils.docReady = function( callback ) {
+	  var readyState = document.readyState;
+	  if ( readyState == 'complete' || readyState == 'interactive' ) {
+	    callback();
+	  } else {
+	    document.addEventListener( 'DOMContentLoaded', callback );
+	  }
+	};
+
+	// ----- htmlInit ----- //
+
+	// http://jamesroberts.name/blog/2010/02/22/string-functions-for-javascript-trim-to-camel-case-to-dashed-and-to-underscore/
+	utils.toDashed = function( str ) {
+	  return str.replace( /(.)([A-Z])/g, function( match, $1, $2 ) {
+	    return $1 + '-' + $2;
+	  }).toLowerCase();
+	};
+
+	var console = window.console;
+	/**
+	 * allow user to initialize classes via [data-namespace] or .js-namespace class
+	 * htmlInit( Widget, 'widgetName' )
+	 * options are parsed from data-namespace-options
+	 */
+	utils.htmlInit = function( WidgetClass, namespace ) {
+	  utils.docReady( function() {
+	    var dashedNamespace = utils.toDashed( namespace );
+	    var dataAttr = 'data-' + dashedNamespace;
+	    var dataAttrElems = document.querySelectorAll( '[' + dataAttr + ']' );
+	    var jsDashElems = document.querySelectorAll( '.js-' + dashedNamespace );
+	    var elems = utils.makeArray( dataAttrElems )
+	      .concat( utils.makeArray( jsDashElems ) );
+	    var dataOptionsAttr = dataAttr + '-options';
+	    var jQuery = window.jQuery;
+
+	    elems.forEach( function( elem ) {
+	      var attr = elem.getAttribute( dataAttr ) ||
+	        elem.getAttribute( dataOptionsAttr );
+	      var options;
+	      try {
+	        options = attr && JSON.parse( attr );
+	      } catch ( error ) {
+	        // log error, do not initialize
+	        if ( console ) {
+	          console.error( 'Error parsing ' + dataAttr + ' on ' + elem.className +
+	          ': ' + error );
+	        }
+	        return;
+	      }
+	      // initialize
+	      var instance = new WidgetClass( elem, options );
+	      // make available via $().data('layoutname')
+	      if ( jQuery ) {
+	        jQuery.data( elem, namespace, instance );
+	      }
+	    });
+
+	  });
+	};
+
+	// -----  ----- //
+
+	return utils;
+
+	}));
+
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * matchesSelector v2.0.1
+	 * matchesSelector( element, '.selector' )
+	 * MIT license
+	 */
+
+	/*jshint browser: true, strict: true, undef: true, unused: true */
+
+	( function( window, factory ) {
+	  /*global define: false, module: false */
+	  'use strict';
+	  // universal module definition
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory();
+	  } else {
+	    // browser global
+	    window.matchesSelector = factory();
+	  }
+
+	}( window, function factory() {
+	  'use strict';
+
+	  var matchesMethod = ( function() {
+	    var ElemProto = Element.prototype;
+	    // check for the standard method name first
+	    if ( ElemProto.matches ) {
+	      return 'matches';
+	    }
+	    // check un-prefixed
+	    if ( ElemProto.matchesSelector ) {
+	      return 'matchesSelector';
+	    }
+	    // check vendor prefixes
+	    var prefixes = [ 'webkit', 'moz', 'ms', 'o' ];
+
+	    for ( var i=0; i < prefixes.length; i++ ) {
+	      var prefix = prefixes[i];
+	      var method = prefix + 'MatchesSelector';
+	      if ( ElemProto[ method ] ) {
+	        return method;
+	      }
+	    }
+	  })();
+
+	  return function matchesSelector( elem, selector ) {
+	    return elem[ matchesMethod ]( selector );
+	  };
+
+	}));
+
+
+/***/ },
+/* 271 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * Outlayer Item
+	 */
+
+	( function( window, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */ /* globals define, module, require */
+	  if ( true ) {
+	    // AMD - RequireJS
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	        __webpack_require__(267),
+	        __webpack_require__(268)
+	      ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS - Browserify, Webpack
+	    module.exports = factory(
+	      require('ev-emitter'),
+	      require('get-size')
+	    );
+	  } else {
+	    // browser global
+	    window.Outlayer = {};
+	    window.Outlayer.Item = factory(
+	      window.EvEmitter,
+	      window.getSize
+	    );
+	  }
+
+	}( window, function factory( EvEmitter, getSize ) {
+	'use strict';
+
+	// ----- helpers ----- //
+
+	function isEmptyObj( obj ) {
+	  for ( var prop in obj ) {
+	    return false;
+	  }
+	  prop = null;
+	  return true;
+	}
+
+	// -------------------------- CSS3 support -------------------------- //
+
+
+	var docElemStyle = document.documentElement.style;
+
+	var transitionProperty = typeof docElemStyle.transition == 'string' ?
+	  'transition' : 'WebkitTransition';
+	var transformProperty = typeof docElemStyle.transform == 'string' ?
+	  'transform' : 'WebkitTransform';
+
+	var transitionEndEvent = {
+	  WebkitTransition: 'webkitTransitionEnd',
+	  transition: 'transitionend'
+	}[ transitionProperty ];
+
+	// cache all vendor properties that could have vendor prefix
+	var vendorProperties = {
+	  transform: transformProperty,
+	  transition: transitionProperty,
+	  transitionDuration: transitionProperty + 'Duration',
+	  transitionProperty: transitionProperty + 'Property',
+	  transitionDelay: transitionProperty + 'Delay'
+	};
+
+	// -------------------------- Item -------------------------- //
+
+	function Item( element, layout ) {
+	  if ( !element ) {
+	    return;
+	  }
+
+	  this.element = element;
+	  // parent layout class, i.e. Masonry, Isotope, or Packery
+	  this.layout = layout;
+	  this.position = {
+	    x: 0,
+	    y: 0
+	  };
+
+	  this._create();
+	}
+
+	// inherit EvEmitter
+	var proto = Item.prototype = Object.create( EvEmitter.prototype );
+	proto.constructor = Item;
+
+	proto._create = function() {
+	  // transition objects
+	  this._transn = {
+	    ingProperties: {},
+	    clean: {},
+	    onEnd: {}
+	  };
+
+	  this.css({
+	    position: 'absolute'
+	  });
+	};
+
+	// trigger specified handler for event type
+	proto.handleEvent = function( event ) {
+	  var method = 'on' + event.type;
+	  if ( this[ method ] ) {
+	    this[ method ]( event );
+	  }
+	};
+
+	proto.getSize = function() {
+	  this.size = getSize( this.element );
+	};
+
+	/**
+	 * apply CSS styles to element
+	 * @param {Object} style
+	 */
+	proto.css = function( style ) {
+	  var elemStyle = this.element.style;
+
+	  for ( var prop in style ) {
+	    // use vendor property if available
+	    var supportedProp = vendorProperties[ prop ] || prop;
+	    elemStyle[ supportedProp ] = style[ prop ];
+	  }
+	};
+
+	 // measure position, and sets it
+	proto.getPosition = function() {
+	  var style = getComputedStyle( this.element );
+	  var isOriginLeft = this.layout._getOption('originLeft');
+	  var isOriginTop = this.layout._getOption('originTop');
+	  var xValue = style[ isOriginLeft ? 'left' : 'right' ];
+	  var yValue = style[ isOriginTop ? 'top' : 'bottom' ];
+	  // convert percent to pixels
+	  var layoutSize = this.layout.size;
+	  var x = xValue.indexOf('%') != -1 ?
+	    ( parseFloat( xValue ) / 100 ) * layoutSize.width : parseInt( xValue, 10 );
+	  var y = yValue.indexOf('%') != -1 ?
+	    ( parseFloat( yValue ) / 100 ) * layoutSize.height : parseInt( yValue, 10 );
+
+	  // clean up 'auto' or other non-integer values
+	  x = isNaN( x ) ? 0 : x;
+	  y = isNaN( y ) ? 0 : y;
+	  // remove padding from measurement
+	  x -= isOriginLeft ? layoutSize.paddingLeft : layoutSize.paddingRight;
+	  y -= isOriginTop ? layoutSize.paddingTop : layoutSize.paddingBottom;
+
+	  this.position.x = x;
+	  this.position.y = y;
+	};
+
+	// set settled position, apply padding
+	proto.layoutPosition = function() {
+	  var layoutSize = this.layout.size;
+	  var style = {};
+	  var isOriginLeft = this.layout._getOption('originLeft');
+	  var isOriginTop = this.layout._getOption('originTop');
+
+	  // x
+	  var xPadding = isOriginLeft ? 'paddingLeft' : 'paddingRight';
+	  var xProperty = isOriginLeft ? 'left' : 'right';
+	  var xResetProperty = isOriginLeft ? 'right' : 'left';
+
+	  var x = this.position.x + layoutSize[ xPadding ];
+	  // set in percentage or pixels
+	  style[ xProperty ] = this.getXValue( x );
+	  // reset other property
+	  style[ xResetProperty ] = '';
+
+	  // y
+	  var yPadding = isOriginTop ? 'paddingTop' : 'paddingBottom';
+	  var yProperty = isOriginTop ? 'top' : 'bottom';
+	  var yResetProperty = isOriginTop ? 'bottom' : 'top';
+
+	  var y = this.position.y + layoutSize[ yPadding ];
+	  // set in percentage or pixels
+	  style[ yProperty ] = this.getYValue( y );
+	  // reset other property
+	  style[ yResetProperty ] = '';
+
+	  this.css( style );
+	  this.emitEvent( 'layout', [ this ] );
+	};
+
+	proto.getXValue = function( x ) {
+	  var isHorizontal = this.layout._getOption('horizontal');
+	  return this.layout.options.percentPosition && !isHorizontal ?
+	    ( ( x / this.layout.size.width ) * 100 ) + '%' : x + 'px';
+	};
+
+	proto.getYValue = function( y ) {
+	  var isHorizontal = this.layout._getOption('horizontal');
+	  return this.layout.options.percentPosition && isHorizontal ?
+	    ( ( y / this.layout.size.height ) * 100 ) + '%' : y + 'px';
+	};
+
+	proto._transitionTo = function( x, y ) {
+	  this.getPosition();
+	  // get current x & y from top/left
+	  var curX = this.position.x;
+	  var curY = this.position.y;
+
+	  var compareX = parseInt( x, 10 );
+	  var compareY = parseInt( y, 10 );
+	  var didNotMove = compareX === this.position.x && compareY === this.position.y;
+
+	  // save end position
+	  this.setPosition( x, y );
+
+	  // if did not move and not transitioning, just go to layout
+	  if ( didNotMove && !this.isTransitioning ) {
+	    this.layoutPosition();
+	    return;
+	  }
+
+	  var transX = x - curX;
+	  var transY = y - curY;
+	  var transitionStyle = {};
+	  transitionStyle.transform = this.getTranslate( transX, transY );
+
+	  this.transition({
+	    to: transitionStyle,
+	    onTransitionEnd: {
+	      transform: this.layoutPosition
+	    },
+	    isCleaning: true
+	  });
+	};
+
+	proto.getTranslate = function( x, y ) {
+	  // flip cooridinates if origin on right or bottom
+	  var isOriginLeft = this.layout._getOption('originLeft');
+	  var isOriginTop = this.layout._getOption('originTop');
+	  x = isOriginLeft ? x : -x;
+	  y = isOriginTop ? y : -y;
+	  return 'translate3d(' + x + 'px, ' + y + 'px, 0)';
+	};
+
+	// non transition + transform support
+	proto.goTo = function( x, y ) {
+	  this.setPosition( x, y );
+	  this.layoutPosition();
+	};
+
+	proto.moveTo = proto._transitionTo;
+
+	proto.setPosition = function( x, y ) {
+	  this.position.x = parseInt( x, 10 );
+	  this.position.y = parseInt( y, 10 );
+	};
+
+	// ----- transition ----- //
+
+	/**
+	 * @param {Object} style - CSS
+	 * @param {Function} onTransitionEnd
+	 */
+
+	// non transition, just trigger callback
+	proto._nonTransition = function( args ) {
+	  this.css( args.to );
+	  if ( args.isCleaning ) {
+	    this._removeStyles( args.to );
+	  }
+	  for ( var prop in args.onTransitionEnd ) {
+	    args.onTransitionEnd[ prop ].call( this );
+	  }
+	};
+
+	/**
+	 * proper transition
+	 * @param {Object} args - arguments
+	 *   @param {Object} to - style to transition to
+	 *   @param {Object} from - style to start transition from
+	 *   @param {Boolean} isCleaning - removes transition styles after transition
+	 *   @param {Function} onTransitionEnd - callback
+	 */
+	proto.transition = function( args ) {
+	  // redirect to nonTransition if no transition duration
+	  if ( !parseFloat( this.layout.options.transitionDuration ) ) {
+	    this._nonTransition( args );
+	    return;
+	  }
+
+	  var _transition = this._transn;
+	  // keep track of onTransitionEnd callback by css property
+	  for ( var prop in args.onTransitionEnd ) {
+	    _transition.onEnd[ prop ] = args.onTransitionEnd[ prop ];
+	  }
+	  // keep track of properties that are transitioning
+	  for ( prop in args.to ) {
+	    _transition.ingProperties[ prop ] = true;
+	    // keep track of properties to clean up when transition is done
+	    if ( args.isCleaning ) {
+	      _transition.clean[ prop ] = true;
+	    }
+	  }
+
+	  // set from styles
+	  if ( args.from ) {
+	    this.css( args.from );
+	    // force redraw. http://blog.alexmaccaw.com/css-transitions
+	    var h = this.element.offsetHeight;
+	    // hack for JSHint to hush about unused var
+	    h = null;
+	  }
+	  // enable transition
+	  this.enableTransition( args.to );
+	  // set styles that are transitioning
+	  this.css( args.to );
+
+	  this.isTransitioning = true;
+
+	};
+
+	// dash before all cap letters, including first for
+	// WebkitTransform => -webkit-transform
+	function toDashedAll( str ) {
+	  return str.replace( /([A-Z])/g, function( $1 ) {
+	    return '-' + $1.toLowerCase();
+	  });
+	}
+
+	var transitionProps = 'opacity,' + toDashedAll( transformProperty );
+
+	proto.enableTransition = function(/* style */) {
+	  // HACK changing transitionProperty during a transition
+	  // will cause transition to jump
+	  if ( this.isTransitioning ) {
+	    return;
+	  }
+
+	  // make `transition: foo, bar, baz` from style object
+	  // HACK un-comment this when enableTransition can work
+	  // while a transition is happening
+	  // var transitionValues = [];
+	  // for ( var prop in style ) {
+	  //   // dash-ify camelCased properties like WebkitTransition
+	  //   prop = vendorProperties[ prop ] || prop;
+	  //   transitionValues.push( toDashedAll( prop ) );
+	  // }
+	  // munge number to millisecond, to match stagger
+	  var duration = this.layout.options.transitionDuration;
+	  duration = typeof duration == 'number' ? duration + 'ms' : duration;
+	  // enable transition styles
+	  this.css({
+	    transitionProperty: transitionProps,
+	    transitionDuration: duration,
+	    transitionDelay: this.staggerDelay || 0
+	  });
+	  // listen for transition end event
+	  this.element.addEventListener( transitionEndEvent, this, false );
+	};
+
+	// ----- events ----- //
+
+	proto.onwebkitTransitionEnd = function( event ) {
+	  this.ontransitionend( event );
+	};
+
+	proto.onotransitionend = function( event ) {
+	  this.ontransitionend( event );
+	};
+
+	// properties that I munge to make my life easier
+	var dashedVendorProperties = {
+	  '-webkit-transform': 'transform'
+	};
+
+	proto.ontransitionend = function( event ) {
+	  // disregard bubbled events from children
+	  if ( event.target !== this.element ) {
+	    return;
+	  }
+	  var _transition = this._transn;
+	  // get property name of transitioned property, convert to prefix-free
+	  var propertyName = dashedVendorProperties[ event.propertyName ] || event.propertyName;
+
+	  // remove property that has completed transitioning
+	  delete _transition.ingProperties[ propertyName ];
+	  // check if any properties are still transitioning
+	  if ( isEmptyObj( _transition.ingProperties ) ) {
+	    // all properties have completed transitioning
+	    this.disableTransition();
+	  }
+	  // clean style
+	  if ( propertyName in _transition.clean ) {
+	    // clean up style
+	    this.element.style[ event.propertyName ] = '';
+	    delete _transition.clean[ propertyName ];
+	  }
+	  // trigger onTransitionEnd callback
+	  if ( propertyName in _transition.onEnd ) {
+	    var onTransitionEnd = _transition.onEnd[ propertyName ];
+	    onTransitionEnd.call( this );
+	    delete _transition.onEnd[ propertyName ];
+	  }
+
+	  this.emitEvent( 'transitionEnd', [ this ] );
+	};
+
+	proto.disableTransition = function() {
+	  this.removeTransitionStyles();
+	  this.element.removeEventListener( transitionEndEvent, this, false );
+	  this.isTransitioning = false;
+	};
+
+	/**
+	 * removes style property from element
+	 * @param {Object} style
+	**/
+	proto._removeStyles = function( style ) {
+	  // clean up transition styles
+	  var cleanStyle = {};
+	  for ( var prop in style ) {
+	    cleanStyle[ prop ] = '';
+	  }
+	  this.css( cleanStyle );
+	};
+
+	var cleanTransitionStyle = {
+	  transitionProperty: '',
+	  transitionDuration: '',
+	  transitionDelay: ''
+	};
+
+	proto.removeTransitionStyles = function() {
+	  // remove transition
+	  this.css( cleanTransitionStyle );
+	};
+
+	// ----- stagger ----- //
+
+	proto.stagger = function( delay ) {
+	  delay = isNaN( delay ) ? 0 : delay;
+	  this.staggerDelay = delay + 'ms';
+	};
+
+	// ----- show/hide/remove ----- //
+
+	// remove element from DOM
+	proto.removeElem = function() {
+	  this.element.parentNode.removeChild( this.element );
+	  // remove display: none
+	  this.css({ display: '' });
+	  this.emitEvent( 'remove', [ this ] );
+	};
+
+	proto.remove = function() {
+	  // just remove element if no transition support or no transition
+	  if ( !transitionProperty || !parseFloat( this.layout.options.transitionDuration ) ) {
+	    this.removeElem();
+	    return;
+	  }
+
+	  // start transition
+	  this.once( 'transitionEnd', function() {
+	    this.removeElem();
+	  });
+	  this.hide();
+	};
+
+	proto.reveal = function() {
+	  delete this.isHidden;
+	  // remove display: none
+	  this.css({ display: '' });
+
+	  var options = this.layout.options;
+
+	  var onTransitionEnd = {};
+	  var transitionEndProperty = this.getHideRevealTransitionEndProperty('visibleStyle');
+	  onTransitionEnd[ transitionEndProperty ] = this.onRevealTransitionEnd;
+
+	  this.transition({
+	    from: options.hiddenStyle,
+	    to: options.visibleStyle,
+	    isCleaning: true,
+	    onTransitionEnd: onTransitionEnd
+	  });
+	};
+
+	proto.onRevealTransitionEnd = function() {
+	  // check if still visible
+	  // during transition, item may have been hidden
+	  if ( !this.isHidden ) {
+	    this.emitEvent('reveal');
+	  }
+	};
+
+	/**
+	 * get style property use for hide/reveal transition end
+	 * @param {String} styleProperty - hiddenStyle/visibleStyle
+	 * @returns {String}
+	 */
+	proto.getHideRevealTransitionEndProperty = function( styleProperty ) {
+	  var optionStyle = this.layout.options[ styleProperty ];
+	  // use opacity
+	  if ( optionStyle.opacity ) {
+	    return 'opacity';
+	  }
+	  // get first property
+	  for ( var prop in optionStyle ) {
+	    return prop;
+	  }
+	};
+
+	proto.hide = function() {
+	  // set flag
+	  this.isHidden = true;
+	  // remove display: none
+	  this.css({ display: '' });
+
+	  var options = this.layout.options;
+
+	  var onTransitionEnd = {};
+	  var transitionEndProperty = this.getHideRevealTransitionEndProperty('hiddenStyle');
+	  onTransitionEnd[ transitionEndProperty ] = this.onHideTransitionEnd;
+
+	  this.transition({
+	    from: options.visibleStyle,
+	    to: options.hiddenStyle,
+	    // keep hidden stuff hidden
+	    isCleaning: true,
+	    onTransitionEnd: onTransitionEnd
+	  });
+	};
+
+	proto.onHideTransitionEnd = function() {
+	  // check if still hidden
+	  // during transition, item may have been un-hidden
+	  if ( this.isHidden ) {
+	    this.css({ display: 'none' });
+	    this.emitEvent('hide');
+	  }
+	};
+
+	proto.destroy = function() {
+	  this.css({
+	    position: '',
+	    left: '',
+	    right: '',
+	    top: '',
+	    bottom: '',
+	    transition: '',
+	    transform: ''
+	  });
+	};
+
+	return Item;
+
+	}));
+
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * imagesLoaded v4.1.0
+	 * JavaScript is all like "You images are done yet or what?"
+	 * MIT License
+	 */
+
+	( function( window, factory ) { 'use strict';
+	  // universal module definition
+
+	  /*global define: false, module: false, require: false */
+
+	  if ( true ) {
+	    // AMD
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+	      __webpack_require__(273)
+	    ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter ) {
+	      return factory( window, EvEmitter );
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS
+	    module.exports = factory(
+	      window,
+	      require('ev-emitter')
+	    );
+	  } else {
+	    // browser global
+	    window.imagesLoaded = factory(
+	      window,
+	      window.EvEmitter
+	    );
+	  }
+
+	})( window,
+
+	// --------------------------  factory -------------------------- //
+
+	function factory( window, EvEmitter ) {
+
+	'use strict';
+
+	var $ = window.jQuery;
+	var console = window.console;
+
+	// -------------------------- helpers -------------------------- //
+
+	// extend objects
+	function extend( a, b ) {
+	  for ( var prop in b ) {
+	    a[ prop ] = b[ prop ];
+	  }
+	  return a;
+	}
+
+	// turn element or nodeList into an array
+	function makeArray( obj ) {
+	  var ary = [];
+	  if ( Array.isArray( obj ) ) {
+	    // use object if already an array
+	    ary = obj;
+	  } else if ( typeof obj.length == 'number' ) {
+	    // convert nodeList to array
+	    for ( var i=0; i < obj.length; i++ ) {
+	      ary.push( obj[i] );
+	    }
+	  } else {
+	    // array of single index
+	    ary.push( obj );
+	  }
+	  return ary;
+	}
+
+	// -------------------------- imagesLoaded -------------------------- //
+
+	/**
+	 * @param {Array, Element, NodeList, String} elem
+	 * @param {Object or Function} options - if function, use as callback
+	 * @param {Function} onAlways - callback function
+	 */
+	function ImagesLoaded( elem, options, onAlways ) {
+	  // coerce ImagesLoaded() without new, to be new ImagesLoaded()
+	  if ( !( this instanceof ImagesLoaded ) ) {
+	    return new ImagesLoaded( elem, options, onAlways );
+	  }
+	  // use elem as selector string
+	  if ( typeof elem == 'string' ) {
+	    elem = document.querySelectorAll( elem );
+	  }
+
+	  this.elements = makeArray( elem );
+	  this.options = extend( {}, this.options );
+
+	  if ( typeof options == 'function' ) {
+	    onAlways = options;
+	  } else {
+	    extend( this.options, options );
+	  }
+
+	  if ( onAlways ) {
+	    this.on( 'always', onAlways );
+	  }
+
+	  this.getImages();
+
+	  if ( $ ) {
+	    // add jQuery Deferred object
+	    this.jqDeferred = new $.Deferred();
+	  }
+
+	  // HACK check async to allow time to bind listeners
+	  setTimeout( function() {
+	    this.check();
+	  }.bind( this ));
+	}
+
+	ImagesLoaded.prototype = Object.create( EvEmitter.prototype );
+
+	ImagesLoaded.prototype.options = {};
+
+	ImagesLoaded.prototype.getImages = function() {
+	  this.images = [];
+
+	  // filter & find items if we have an item selector
+	  this.elements.forEach( this.addElementImages, this );
+	};
+
+	/**
+	 * @param {Node} element
+	 */
+	ImagesLoaded.prototype.addElementImages = function( elem ) {
+	  // filter siblings
+	  if ( elem.nodeName == 'IMG' ) {
+	    this.addImage( elem );
+	  }
+	  // get background image on element
+	  if ( this.options.background === true ) {
+	    this.addElementBackgroundImages( elem );
+	  }
+
+	  // find children
+	  // no non-element nodes, #143
+	  var nodeType = elem.nodeType;
+	  if ( !nodeType || !elementNodeTypes[ nodeType ] ) {
+	    return;
+	  }
+	  var childImgs = elem.querySelectorAll('img');
+	  // concat childElems to filterFound array
+	  for ( var i=0; i < childImgs.length; i++ ) {
+	    var img = childImgs[i];
+	    this.addImage( img );
+	  }
+
+	  // get child background images
+	  if ( typeof this.options.background == 'string' ) {
+	    var children = elem.querySelectorAll( this.options.background );
+	    for ( i=0; i < children.length; i++ ) {
+	      var child = children[i];
+	      this.addElementBackgroundImages( child );
+	    }
+	  }
+	};
+
+	var elementNodeTypes = {
+	  1: true,
+	  9: true,
+	  11: true
+	};
+
+	ImagesLoaded.prototype.addElementBackgroundImages = function( elem ) {
+	  var style = getComputedStyle( elem );
+	  if ( !style ) {
+	    // Firefox returns null if in a hidden iframe https://bugzil.la/548397
+	    return;
+	  }
+	  // get url inside url("...")
+	  var reURL = /url\((['"])?(.*?)\1\)/gi;
+	  var matches = reURL.exec( style.backgroundImage );
+	  while ( matches !== null ) {
+	    var url = matches && matches[2];
+	    if ( url ) {
+	      this.addBackground( url, elem );
+	    }
+	    matches = reURL.exec( style.backgroundImage );
+	  }
+	};
+
+	/**
+	 * @param {Image} img
+	 */
+	ImagesLoaded.prototype.addImage = function( img ) {
+	  var loadingImage = new LoadingImage( img );
+	  this.images.push( loadingImage );
+	};
+
+	ImagesLoaded.prototype.addBackground = function( url, elem ) {
+	  var background = new Background( url, elem );
+	  this.images.push( background );
+	};
+
+	ImagesLoaded.prototype.check = function() {
+	  var _this = this;
+	  this.progressedCount = 0;
+	  this.hasAnyBroken = false;
+	  // complete if no images
+	  if ( !this.images.length ) {
+	    this.complete();
+	    return;
+	  }
+
+	  function onProgress( image, elem, message ) {
+	    // HACK - Chrome triggers event before object properties have changed. #83
+	    setTimeout( function() {
+	      _this.progress( image, elem, message );
+	    });
+	  }
+
+	  this.images.forEach( function( loadingImage ) {
+	    loadingImage.once( 'progress', onProgress );
+	    loadingImage.check();
+	  });
+	};
+
+	ImagesLoaded.prototype.progress = function( image, elem, message ) {
+	  this.progressedCount++;
+	  this.hasAnyBroken = this.hasAnyBroken || !image.isLoaded;
+	  // progress event
+	  this.emitEvent( 'progress', [ this, image, elem ] );
+	  if ( this.jqDeferred && this.jqDeferred.notify ) {
+	    this.jqDeferred.notify( this, image );
+	  }
+	  // check if completed
+	  if ( this.progressedCount == this.images.length ) {
+	    this.complete();
+	  }
+
+	  if ( this.options.debug && console ) {
+	    console.log( 'progress: ' + message, image, elem );
+	  }
+	};
+
+	ImagesLoaded.prototype.complete = function() {
+	  var eventName = this.hasAnyBroken ? 'fail' : 'done';
+	  this.isComplete = true;
+	  this.emitEvent( eventName, [ this ] );
+	  this.emitEvent( 'always', [ this ] );
+	  if ( this.jqDeferred ) {
+	    var jqMethod = this.hasAnyBroken ? 'reject' : 'resolve';
+	    this.jqDeferred[ jqMethod ]( this );
+	  }
+	};
+
+	// --------------------------  -------------------------- //
+
+	function LoadingImage( img ) {
+	  this.img = img;
+	}
+
+	LoadingImage.prototype = Object.create( EvEmitter.prototype );
+
+	LoadingImage.prototype.check = function() {
+	  // If complete is true and browser supports natural sizes,
+	  // try to check for image status manually.
+	  var isComplete = this.getIsImageComplete();
+	  if ( isComplete ) {
+	    // report based on naturalWidth
+	    this.confirm( this.img.naturalWidth !== 0, 'naturalWidth' );
+	    return;
+	  }
+
+	  // If none of the checks above matched, simulate loading on detached element.
+	  this.proxyImage = new Image();
+	  this.proxyImage.addEventListener( 'load', this );
+	  this.proxyImage.addEventListener( 'error', this );
+	  // bind to image as well for Firefox. #191
+	  this.img.addEventListener( 'load', this );
+	  this.img.addEventListener( 'error', this );
+	  this.proxyImage.src = this.img.src;
+	};
+
+	LoadingImage.prototype.getIsImageComplete = function() {
+	  return this.img.complete && this.img.naturalWidth !== undefined;
+	};
+
+	LoadingImage.prototype.confirm = function( isLoaded, message ) {
+	  this.isLoaded = isLoaded;
+	  this.emitEvent( 'progress', [ this, this.img, message ] );
+	};
+
+	// ----- events ----- //
+
+	// trigger specified handler for event type
+	LoadingImage.prototype.handleEvent = function( event ) {
+	  var method = 'on' + event.type;
+	  if ( this[ method ] ) {
+	    this[ method ]( event );
+	  }
+	};
+
+	LoadingImage.prototype.onload = function() {
+	  this.confirm( true, 'onload' );
+	  this.unbindEvents();
+	};
+
+	LoadingImage.prototype.onerror = function() {
+	  this.confirm( false, 'onerror' );
+	  this.unbindEvents();
+	};
+
+	LoadingImage.prototype.unbindEvents = function() {
+	  this.proxyImage.removeEventListener( 'load', this );
+	  this.proxyImage.removeEventListener( 'error', this );
+	  this.img.removeEventListener( 'load', this );
+	  this.img.removeEventListener( 'error', this );
+	};
+
+	// -------------------------- Background -------------------------- //
+
+	function Background( url, element ) {
+	  this.url = url;
+	  this.element = element;
+	  this.img = new Image();
+	}
+
+	// inherit LoadingImage prototype
+	Background.prototype = Object.create( LoadingImage.prototype );
+
+	Background.prototype.check = function() {
+	  this.img.addEventListener( 'load', this );
+	  this.img.addEventListener( 'error', this );
+	  this.img.src = this.url;
+	  // check if image is already complete
+	  var isComplete = this.getIsImageComplete();
+	  if ( isComplete ) {
+	    this.confirm( this.img.naturalWidth !== 0, 'naturalWidth' );
+	    this.unbindEvents();
+	  }
+	};
+
+	Background.prototype.unbindEvents = function() {
+	  this.img.removeEventListener( 'load', this );
+	  this.img.removeEventListener( 'error', this );
+	};
+
+	Background.prototype.confirm = function( isLoaded, message ) {
+	  this.isLoaded = isLoaded;
+	  this.emitEvent( 'progress', [ this, this.element, message ] );
+	};
+
+	// -------------------------- jQuery -------------------------- //
+
+	ImagesLoaded.makeJQueryPlugin = function( jQuery ) {
+	  jQuery = jQuery || window.jQuery;
+	  if ( !jQuery ) {
+	    return;
+	  }
+	  // set local variable
+	  $ = jQuery;
+	  // $().imagesLoaded()
+	  $.fn.imagesLoaded = function( options, callback ) {
+	    var instance = new ImagesLoaded( this, options, callback );
+	    return instance.jqDeferred.promise( $(this) );
+	  };
+	};
+	// try making plugin
+	ImagesLoaded.makeJQueryPlugin();
+
+	// --------------------------  -------------------------- //
+
+	return ImagesLoaded;
+
+	});
+
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * EvEmitter v1.0.3
+	 * Lil' event emitter
+	 * MIT License
+	 */
+
+	/* jshint unused: true, undef: true, strict: true */
+
+	( function( global, factory ) {
+	  // universal module definition
+	  /* jshint strict: false */ /* globals define, module, window */
+	  if ( true ) {
+	    // AMD - RequireJS
+	    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if ( typeof module == 'object' && module.exports ) {
+	    // CommonJS - Browserify, Webpack
+	    module.exports = factory();
+	  } else {
+	    // Browser globals
+	    global.EvEmitter = factory();
+	  }
+
+	}( typeof window != 'undefined' ? window : this, function() {
+
+	"use strict";
+
+	function EvEmitter() {}
+
+	var proto = EvEmitter.prototype;
+
+	proto.on = function( eventName, listener ) {
+	  if ( !eventName || !listener ) {
+	    return;
+	  }
+	  // set events hash
+	  var events = this._events = this._events || {};
+	  // set listeners array
+	  var listeners = events[ eventName ] = events[ eventName ] || [];
+	  // only add once
+	  if ( listeners.indexOf( listener ) == -1 ) {
+	    listeners.push( listener );
+	  }
+
+	  return this;
+	};
+
+	proto.once = function( eventName, listener ) {
+	  if ( !eventName || !listener ) {
+	    return;
+	  }
+	  // add event
+	  this.on( eventName, listener );
+	  // set once flag
+	  // set onceEvents hash
+	  var onceEvents = this._onceEvents = this._onceEvents || {};
+	  // set onceListeners object
+	  var onceListeners = onceEvents[ eventName ] = onceEvents[ eventName ] || {};
+	  // set flag
+	  onceListeners[ listener ] = true;
+
+	  return this;
+	};
+
+	proto.off = function( eventName, listener ) {
+	  var listeners = this._events && this._events[ eventName ];
+	  if ( !listeners || !listeners.length ) {
+	    return;
+	  }
+	  var index = listeners.indexOf( listener );
+	  if ( index != -1 ) {
+	    listeners.splice( index, 1 );
+	  }
+
+	  return this;
+	};
+
+	proto.emitEvent = function( eventName, args ) {
+	  var listeners = this._events && this._events[ eventName ];
+	  if ( !listeners || !listeners.length ) {
+	    return;
+	  }
+	  var i = 0;
+	  var listener = listeners[i];
+	  args = args || [];
+	  // once stuff
+	  var onceListeners = this._onceEvents && this._onceEvents[ eventName ];
+
+	  while ( listener ) {
+	    var isOnce = onceListeners && onceListeners[ listener ];
+	    if ( isOnce ) {
+	      // remove listener
+	      // remove before trigger to prevent recursion
+	      this.off( eventName, listener );
+	      // unset once flag
+	      delete onceListeners[ listener ];
+	    }
+	    // trigger listener
+	    listener.apply( this, args );
+	    // get next listener
+	    i += isOnce ? 0 : 1;
+	    listener = listeners[i];
+	  }
+
+	  return this;
+	};
+
+	return EvEmitter;
+
+	}));
+
+
+/***/ },
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36811,11 +40527,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(237);
+	var _Header = __webpack_require__(240);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _BlogMain = __webpack_require__(253);
+	var _BlogMain = __webpack_require__(275);
 
 	var _BlogMain2 = _interopRequireDefault(_BlogMain);
 
@@ -36863,7 +40579,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Blog.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 253 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36880,13 +40596,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MainHeader = __webpack_require__(243);
+	var _MainHeader = __webpack_require__(247);
 
 	var _MainHeader2 = _interopRequireDefault(_MainHeader);
 
-	__webpack_require__(254);
+	__webpack_require__(276);
 
-	var _ArticleData = __webpack_require__(255);
+	var _ArticleData = __webpack_require__(278);
 
 	var _ArticleData2 = _interopRequireDefault(_ArticleData);
 
@@ -37106,13 +40822,47 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "BlogMain.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 254 */
-/***/ function(module, exports) {
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(277);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(233)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./BlogMain.css", function() {
+				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./BlogMain.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
-/* 255 */
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(232)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".BlogMain .MainHeader{\n    background-position: bottom center;\n    -webkit-transition: 1.5s height;\n    transition: 1.5s height;\n}\n.BlogMain .archive{\n    width: 80%;\n    float: left;\n}\n.BlogMain .time-box{\n    width: 20%;\n    float:right;\n    overflow:hidden;\n    display: none;\n}\n.BlogMain .time-line{\n    position: fixed;\n}\n.BlogMain .time-line .map{\n    display: block;\n    margin-bottom: 15px;\n    text-align: center;\n}\n.BlogMain .time-line ul{\n    overflow: hidden;\n}\n.BlogMain .time-line li{\n    -webkit-transition: 0.7s height;\n    transition: 0.7s height;\n}\n.BlogMain .time-line .time-mon{\n    text-indent: 1em;\n}\n.BlogMain .time-line a{\n    color: #ccc;\n    -webkit-transition: color 0.3s;\n    transition: color 0.3s\n}\n.BlogMain .time-line a:hover{\n    color: #777;\n}\n.BlogMain .time-line .active .time-year a, .BlogMain .time-line .active .cur a{\n    color: #777;\n}\n.BlogMain .blog-con{\n    width: 90%;\n    position: relative;\n}\n.BlogMain .blog-con h3{\n    margin: 24px 0 20px;\n    padding: 4px 0;\n    font-size: 16px;\n    position: relative;\n}\n.BlogMain .blog-con ul{\n    margin: 20px;\n    padding-left: 20px;\n    list-style-type: square;\n}\n.BlogMain .blog-con ul li{\n    margin: 2px;\n    line-height: 34px;\n}\n.BlogMain .blog-con ul li a{\n    margin-left: 20px;\n    padding: 4px;\n    color: #4a90e2;\n    border-radius: 4px;\n    font-size: 14px;\n    -webkit-transition: background ease 0.4s,color ease 0.4s;\n    transition: background ease 0.4s,color ease 0.4s\n}\n.BlogMain .blog-con ul li a:hover{\n    background: #4a90e2;\n    color: #fff;\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -37139,7 +40889,7 @@
 			}, {
 				day: 18,
 				tit: 'React 相关网站',
-				con: ['# React 相关网站\n\n*****\n\n', '>React官网：[React](http://facebook.github.io/react/)  \n中文版：[React](http://reactjs.cn/react/index.html)\n\n', '>Redux文档：[Redux](http://redux.js.org/)  \n中文版：[Redux](http://cn.redux.js.org/)\n\n', '>React中文社区：[React中文社区](http://react-china.org/)\n\n', '>Webpack文档：[Webpack](http://webpack.github.io/docs/)  \n中文指南：[Webpack](http://webpackdoc.com/)\n\n', '>React Webpack 小书：[React Webpack 小书](https://fakefish.github.io/react-webpack-cookbook/)\n\n', '>survivejs官网：[survivejs](http://survivejs.com/)\n\n', '>js插件：[js插件](https://js.coach/)\n\n'].join('')
+				con: ['# React 相关网站\n\n*****\n\n', '>React官网：[React](http://facebook.github.io/react/)  \n中文版：[React](http://reactjs.cn/react/index.html)\n\n', '>React-Router文档：[React-Router](https://github.com/reactjs/react-router) \n 中文版：[React-Router](http://react-guide.github.io/react-router-cn/index.html)\n\n', '>Redux文档：[Redux](http://redux.js.org/)  \n中文版：[Redux](http://cn.redux.js.org/)\n\n', '>React中文社区：[React中文社区](http://react-china.org/)\n\n', '>Webpack文档：[Webpack](http://webpack.github.io/docs/)  \n中文指南：[Webpack](http://webpackdoc.com/)\n\n', '>React Webpack 小书：[React Webpack 小书](https://fakefish.github.io/react-webpack-cookbook/)\n\n', '>survivejs官网：[survivejs](http://survivejs.com/)\n\n', '>js插件：[js插件](https://js.coach/)\n\n'].join('')
 			}, {
 				day: 17,
 				tit: 'Markdown Demo',
@@ -37157,7 +40907,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ArticleData.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 256 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -37174,11 +40924,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(237);
+	var _Header = __webpack_require__(240);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _ArticleMain = __webpack_require__(257);
+	var _ArticleMain = __webpack_require__(280);
 
 	var _ArticleMain2 = _interopRequireDefault(_ArticleMain);
 
@@ -37196,10 +40946,15 @@
 		function Article() {
 			_classCallCheck(this, Article);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Article).call(this));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Article).apply(this, arguments));
 		}
 
 		_createClass(Article, [{
+			key: "componentDidMount",
+			value: function componentDidMount() {
+				console.log(123);
+			}
+		}, {
 			key: "render",
 			value: function render() {
 				return _react2.default.createElement(
@@ -37219,7 +40974,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Article.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 257 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-api\\0.4.7\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -37236,19 +40991,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactMarkdown = __webpack_require__(258);
+	var _reactMarkdown = __webpack_require__(281);
 
 	var _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);
 
-	var _ArticleData = __webpack_require__(255);
+	var _ArticleData = __webpack_require__(278);
 
 	var _ArticleData2 = _interopRequireDefault(_ArticleData);
 
-	var _jquery = __webpack_require__(235);
+	var _jquery = __webpack_require__(238);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _highlight = __webpack_require__(285);
+	var _highlight = __webpack_require__(308);
 
 	var _highlight2 = _interopRequireDefault(_highlight);
 
@@ -37260,8 +41015,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(442);
-	__webpack_require__(443);
+	__webpack_require__(465);
+	__webpack_require__(467);
 
 	var ArticleMain = function (_React$Component) {
 		_inherits(ArticleMain, _React$Component);
@@ -37348,14 +41103,14 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("E:\\mygit\\blog\\node_modules\\.npminstall\\react-hot-loader\\1.3.0\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ArticleMain.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 258 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var Parser = __webpack_require__(259).Parser;
-	var ReactRenderer = __webpack_require__(279);
+	var Parser = __webpack_require__(282).Parser;
+	var ReactRenderer = __webpack_require__(302);
 
 	var parser = new Parser();
 	var propTypes = React.PropTypes;
@@ -37424,7 +41179,7 @@
 
 
 /***/ },
-/* 259 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -37441,14 +41196,14 @@
 	// console.log(renderer.render(parser.parse('Hello *world*')));
 
 	module.exports.version = '0.24.0'
-	module.exports.Node = __webpack_require__(260);
-	module.exports.Parser = __webpack_require__(261);
-	module.exports.HtmlRenderer = __webpack_require__(277);
-	module.exports.XmlRenderer = __webpack_require__(278);
+	module.exports.Node = __webpack_require__(283);
+	module.exports.Parser = __webpack_require__(284);
+	module.exports.HtmlRenderer = __webpack_require__(300);
+	module.exports.XmlRenderer = __webpack_require__(301);
 
 
 /***/ },
-/* 260 */
+/* 283 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -37725,15 +41480,15 @@
 
 
 /***/ },
-/* 261 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var Node = __webpack_require__(260);
-	var unescapeString = __webpack_require__(262).unescapeString;
-	var OPENTAG = __webpack_require__(262).OPENTAG;
-	var CLOSETAG = __webpack_require__(262).CLOSETAG;
+	var Node = __webpack_require__(283);
+	var unescapeString = __webpack_require__(285).unescapeString;
+	var OPENTAG = __webpack_require__(285).OPENTAG;
+	var CLOSETAG = __webpack_require__(285).CLOSETAG;
 
 	var CODE_INDENT = 4;
 
@@ -37744,7 +41499,7 @@
 	var C_SPACE = 32;
 	var C_OPEN_BRACKET = 91;
 
-	var InlineParser = __webpack_require__(273);
+	var InlineParser = __webpack_require__(296);
 
 	var reHtmlBlockOpen = [
 	   /./, // dummy for 0
@@ -38601,17 +42356,17 @@
 
 
 /***/ },
-/* 262 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var encode = __webpack_require__(263);
-	var decode = __webpack_require__(264);
+	var encode = __webpack_require__(286);
+	var decode = __webpack_require__(287);
 
 	var C_BACKSLASH = 92;
 
-	var decodeHTML = __webpack_require__(265).decodeHTML;
+	var decodeHTML = __webpack_require__(288).decodeHTML;
 
 	var ENTITY = "&(?:#x[a-f0-9]{1,8}|#[0-9]{1,8}|[a-z][a-z0-9]{1,31});";
 
@@ -38710,7 +42465,7 @@
 
 
 /***/ },
-/* 263 */
+/* 286 */
 /***/ function(module, exports) {
 
 	
@@ -38814,7 +42569,7 @@
 
 
 /***/ },
-/* 264 */
+/* 287 */
 /***/ function(module, exports) {
 
 	
@@ -38942,11 +42697,11 @@
 
 
 /***/ },
-/* 265 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var encode = __webpack_require__(266),
-	    decode = __webpack_require__(269);
+	var encode = __webpack_require__(289),
+	    decode = __webpack_require__(292);
 
 	exports.decode = function(data, level){
 		return (!level || level <= 0 ? decode.XML : decode.HTML)(data);
@@ -38981,15 +42736,15 @@
 
 
 /***/ },
-/* 266 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var inverseXML = getInverseObj(__webpack_require__(267)),
+	var inverseXML = getInverseObj(__webpack_require__(290)),
 	    xmlReplacer = getInverseReplacer(inverseXML);
 
 	exports.XML = getInverse(inverseXML, xmlReplacer);
 
-	var inverseHTML = getInverseObj(__webpack_require__(268)),
+	var inverseHTML = getInverseObj(__webpack_require__(291)),
 	    htmlReplacer = getInverseReplacer(inverseHTML);
 
 	exports.HTML = getInverse(inverseHTML, htmlReplacer);
@@ -39060,7 +42815,7 @@
 
 
 /***/ },
-/* 267 */
+/* 290 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -39072,7 +42827,7 @@
 	};
 
 /***/ },
-/* 268 */
+/* 291 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -41204,13 +44959,13 @@
 	};
 
 /***/ },
-/* 269 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var entityMap = __webpack_require__(268),
-	    legacyMap = __webpack_require__(270),
-	    xmlMap    = __webpack_require__(267),
-	    decodeCodePoint = __webpack_require__(271);
+	var entityMap = __webpack_require__(291),
+	    legacyMap = __webpack_require__(293),
+	    xmlMap    = __webpack_require__(290),
+	    decodeCodePoint = __webpack_require__(294);
 
 	var decodeXMLStrict  = getStrictDecoder(xmlMap),
 	    decodeHTMLStrict = getStrictDecoder(entityMap);
@@ -41281,7 +45036,7 @@
 	};
 
 /***/ },
-/* 270 */
+/* 293 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -41394,10 +45149,10 @@
 	};
 
 /***/ },
-/* 271 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var decodeMap = __webpack_require__(272);
+	var decodeMap = __webpack_require__(295);
 
 	module.exports = decodeCodePoint;
 
@@ -41426,7 +45181,7 @@
 
 
 /***/ },
-/* 272 */
+/* 295 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -41461,20 +45216,20 @@
 	};
 
 /***/ },
-/* 273 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var Node = __webpack_require__(260);
-	var common = __webpack_require__(262);
-	var normalizeReference = __webpack_require__(274);
+	var Node = __webpack_require__(283);
+	var common = __webpack_require__(285);
+	var normalizeReference = __webpack_require__(297);
 
 	var normalizeURI = common.normalizeURI;
 	var unescapeString = common.unescapeString;
-	var fromCodePoint = __webpack_require__(275);
-	var decodeHTML = __webpack_require__(265).decodeHTML;
-	__webpack_require__(276); // Polyfill for String.prototype.repeat
+	var fromCodePoint = __webpack_require__(298);
+	var decodeHTML = __webpack_require__(288).decodeHTML;
+	__webpack_require__(299); // Polyfill for String.prototype.repeat
 
 	// Constants for character codes:
 
@@ -42398,7 +46153,7 @@
 
 
 /***/ },
-/* 274 */
+/* 297 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -42446,7 +46201,7 @@
 
 
 /***/ },
-/* 275 */
+/* 298 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -42511,7 +46266,7 @@
 
 
 /***/ },
-/* 276 */
+/* 299 */
 /***/ function(module, exports) {
 
 	/*! http://mths.be/repeat v0.2.0 by @mathias */
@@ -42567,12 +46322,12 @@
 
 
 /***/ },
-/* 277 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var escapeXml = __webpack_require__(262).escapeXml;
+	var escapeXml = __webpack_require__(285).escapeXml;
 
 	// Helper function to produce an HTML tag.
 	var tag = function(name, attrs, selfclosing) {
@@ -42859,12 +46614,12 @@
 
 
 /***/ },
-/* 278 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var escapeXml = __webpack_require__(262).escapeXml;
+	var escapeXml = __webpack_require__(285).escapeXml;
 
 	// Helper function to produce an XML tag.
 	var tag = function(name, attrs, selfclosing) {
@@ -43042,15 +46797,15 @@
 
 
 /***/ },
-/* 279 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var assign = __webpack_require__(280);
-	var isPlainObject = __webpack_require__(283);
-	var xssFilters = __webpack_require__(284);
+	var assign = __webpack_require__(303);
+	var isPlainObject = __webpack_require__(306);
+	var xssFilters = __webpack_require__(307);
 
 	var defaultRenderers = {
 	    BlockQuote: 'blockquote',
@@ -43374,7 +47129,7 @@
 
 
 /***/ },
-/* 280 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -43385,8 +47140,8 @@
 	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
 	 * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 */
-	var keys = __webpack_require__(281),
-	    rest = __webpack_require__(282);
+	var keys = __webpack_require__(304),
+	    rest = __webpack_require__(305);
 
 	/** Used as references for various `Number` constants. */
 	var MAX_SAFE_INTEGER = 9007199254740991;
@@ -43776,7 +47531,7 @@
 
 
 /***/ },
-/* 281 */
+/* 304 */
 /***/ function(module, exports) {
 
 	/**
@@ -44250,7 +48005,7 @@
 
 
 /***/ },
-/* 282 */
+/* 305 */
 /***/ function(module, exports) {
 
 	/**
@@ -44601,7 +48356,7 @@
 
 
 /***/ },
-/* 283 */
+/* 306 */
 /***/ function(module, exports) {
 
 	/**
@@ -44742,7 +48497,7 @@
 
 
 /***/ },
-/* 284 */
+/* 307 */
 /***/ function(module, exports) {
 
 	/*
@@ -45845,171 +49600,171 @@
 
 
 /***/ },
-/* 285 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hljs = __webpack_require__(286);
+	var hljs = __webpack_require__(309);
 
-	hljs.registerLanguage('1c', __webpack_require__(287));
-	hljs.registerLanguage('accesslog', __webpack_require__(288));
-	hljs.registerLanguage('actionscript', __webpack_require__(289));
-	hljs.registerLanguage('ada', __webpack_require__(290));
-	hljs.registerLanguage('apache', __webpack_require__(291));
-	hljs.registerLanguage('applescript', __webpack_require__(292));
-	hljs.registerLanguage('cpp', __webpack_require__(293));
-	hljs.registerLanguage('arduino', __webpack_require__(294));
-	hljs.registerLanguage('armasm', __webpack_require__(295));
-	hljs.registerLanguage('xml', __webpack_require__(296));
-	hljs.registerLanguage('asciidoc', __webpack_require__(297));
-	hljs.registerLanguage('aspectj', __webpack_require__(298));
-	hljs.registerLanguage('autohotkey', __webpack_require__(299));
-	hljs.registerLanguage('autoit', __webpack_require__(300));
-	hljs.registerLanguage('avrasm', __webpack_require__(301));
-	hljs.registerLanguage('axapta', __webpack_require__(302));
-	hljs.registerLanguage('bash', __webpack_require__(303));
-	hljs.registerLanguage('basic', __webpack_require__(304));
-	hljs.registerLanguage('bnf', __webpack_require__(305));
-	hljs.registerLanguage('brainfuck', __webpack_require__(306));
-	hljs.registerLanguage('cal', __webpack_require__(307));
-	hljs.registerLanguage('capnproto', __webpack_require__(308));
-	hljs.registerLanguage('ceylon', __webpack_require__(309));
-	hljs.registerLanguage('clojure', __webpack_require__(310));
-	hljs.registerLanguage('clojure-repl', __webpack_require__(311));
-	hljs.registerLanguage('cmake', __webpack_require__(312));
-	hljs.registerLanguage('coffeescript', __webpack_require__(313));
-	hljs.registerLanguage('cos', __webpack_require__(314));
-	hljs.registerLanguage('crmsh', __webpack_require__(315));
-	hljs.registerLanguage('crystal', __webpack_require__(316));
-	hljs.registerLanguage('cs', __webpack_require__(317));
-	hljs.registerLanguage('csp', __webpack_require__(318));
-	hljs.registerLanguage('css', __webpack_require__(319));
-	hljs.registerLanguage('d', __webpack_require__(320));
-	hljs.registerLanguage('markdown', __webpack_require__(321));
-	hljs.registerLanguage('dart', __webpack_require__(322));
-	hljs.registerLanguage('delphi', __webpack_require__(323));
-	hljs.registerLanguage('diff', __webpack_require__(324));
-	hljs.registerLanguage('django', __webpack_require__(325));
-	hljs.registerLanguage('dns', __webpack_require__(326));
-	hljs.registerLanguage('dockerfile', __webpack_require__(327));
-	hljs.registerLanguage('dos', __webpack_require__(328));
-	hljs.registerLanguage('dts', __webpack_require__(329));
-	hljs.registerLanguage('dust', __webpack_require__(330));
-	hljs.registerLanguage('elixir', __webpack_require__(331));
-	hljs.registerLanguage('elm', __webpack_require__(332));
-	hljs.registerLanguage('ruby', __webpack_require__(333));
-	hljs.registerLanguage('erb', __webpack_require__(334));
-	hljs.registerLanguage('erlang-repl', __webpack_require__(335));
-	hljs.registerLanguage('erlang', __webpack_require__(336));
-	hljs.registerLanguage('fix', __webpack_require__(337));
-	hljs.registerLanguage('fortran', __webpack_require__(338));
-	hljs.registerLanguage('fsharp', __webpack_require__(339));
-	hljs.registerLanguage('gams', __webpack_require__(340));
-	hljs.registerLanguage('gauss', __webpack_require__(341));
-	hljs.registerLanguage('gcode', __webpack_require__(342));
-	hljs.registerLanguage('gherkin', __webpack_require__(343));
-	hljs.registerLanguage('glsl', __webpack_require__(344));
-	hljs.registerLanguage('go', __webpack_require__(345));
-	hljs.registerLanguage('golo', __webpack_require__(346));
-	hljs.registerLanguage('gradle', __webpack_require__(347));
-	hljs.registerLanguage('groovy', __webpack_require__(348));
-	hljs.registerLanguage('haml', __webpack_require__(349));
-	hljs.registerLanguage('handlebars', __webpack_require__(350));
-	hljs.registerLanguage('haskell', __webpack_require__(351));
-	hljs.registerLanguage('haxe', __webpack_require__(352));
-	hljs.registerLanguage('hsp', __webpack_require__(353));
-	hljs.registerLanguage('htmlbars', __webpack_require__(354));
-	hljs.registerLanguage('http', __webpack_require__(355));
-	hljs.registerLanguage('inform7', __webpack_require__(356));
-	hljs.registerLanguage('ini', __webpack_require__(357));
-	hljs.registerLanguage('irpf90', __webpack_require__(358));
-	hljs.registerLanguage('java', __webpack_require__(359));
-	hljs.registerLanguage('javascript', __webpack_require__(360));
-	hljs.registerLanguage('json', __webpack_require__(361));
-	hljs.registerLanguage('julia', __webpack_require__(362));
-	hljs.registerLanguage('kotlin', __webpack_require__(363));
-	hljs.registerLanguage('lasso', __webpack_require__(364));
-	hljs.registerLanguage('less', __webpack_require__(365));
-	hljs.registerLanguage('lisp', __webpack_require__(366));
-	hljs.registerLanguage('livecodeserver', __webpack_require__(367));
-	hljs.registerLanguage('livescript', __webpack_require__(368));
-	hljs.registerLanguage('lua', __webpack_require__(369));
-	hljs.registerLanguage('makefile', __webpack_require__(370));
-	hljs.registerLanguage('mathematica', __webpack_require__(371));
-	hljs.registerLanguage('matlab', __webpack_require__(372));
-	hljs.registerLanguage('maxima', __webpack_require__(373));
-	hljs.registerLanguage('mel', __webpack_require__(374));
-	hljs.registerLanguage('mercury', __webpack_require__(375));
-	hljs.registerLanguage('mipsasm', __webpack_require__(376));
-	hljs.registerLanguage('mizar', __webpack_require__(377));
-	hljs.registerLanguage('perl', __webpack_require__(378));
-	hljs.registerLanguage('mojolicious', __webpack_require__(379));
-	hljs.registerLanguage('monkey', __webpack_require__(380));
-	hljs.registerLanguage('moonscript', __webpack_require__(381));
-	hljs.registerLanguage('nginx', __webpack_require__(382));
-	hljs.registerLanguage('nimrod', __webpack_require__(383));
-	hljs.registerLanguage('nix', __webpack_require__(384));
-	hljs.registerLanguage('nsis', __webpack_require__(385));
-	hljs.registerLanguage('objectivec', __webpack_require__(386));
-	hljs.registerLanguage('ocaml', __webpack_require__(387));
-	hljs.registerLanguage('openscad', __webpack_require__(388));
-	hljs.registerLanguage('oxygene', __webpack_require__(389));
-	hljs.registerLanguage('parser3', __webpack_require__(390));
-	hljs.registerLanguage('pf', __webpack_require__(391));
-	hljs.registerLanguage('php', __webpack_require__(392));
-	hljs.registerLanguage('powershell', __webpack_require__(393));
-	hljs.registerLanguage('processing', __webpack_require__(394));
-	hljs.registerLanguage('profile', __webpack_require__(395));
-	hljs.registerLanguage('prolog', __webpack_require__(396));
-	hljs.registerLanguage('protobuf', __webpack_require__(397));
-	hljs.registerLanguage('puppet', __webpack_require__(398));
-	hljs.registerLanguage('purebasic', __webpack_require__(399));
-	hljs.registerLanguage('python', __webpack_require__(400));
-	hljs.registerLanguage('q', __webpack_require__(401));
-	hljs.registerLanguage('qml', __webpack_require__(402));
-	hljs.registerLanguage('r', __webpack_require__(403));
-	hljs.registerLanguage('rib', __webpack_require__(404));
-	hljs.registerLanguage('roboconf', __webpack_require__(405));
-	hljs.registerLanguage('rsl', __webpack_require__(406));
-	hljs.registerLanguage('ruleslanguage', __webpack_require__(407));
-	hljs.registerLanguage('rust', __webpack_require__(408));
-	hljs.registerLanguage('scala', __webpack_require__(409));
-	hljs.registerLanguage('scheme', __webpack_require__(410));
-	hljs.registerLanguage('scilab', __webpack_require__(411));
-	hljs.registerLanguage('scss', __webpack_require__(412));
-	hljs.registerLanguage('smali', __webpack_require__(413));
-	hljs.registerLanguage('smalltalk', __webpack_require__(414));
-	hljs.registerLanguage('sml', __webpack_require__(415));
-	hljs.registerLanguage('sqf', __webpack_require__(416));
-	hljs.registerLanguage('sql', __webpack_require__(417));
-	hljs.registerLanguage('stan', __webpack_require__(418));
-	hljs.registerLanguage('stata', __webpack_require__(419));
-	hljs.registerLanguage('step21', __webpack_require__(420));
-	hljs.registerLanguage('stylus', __webpack_require__(421));
-	hljs.registerLanguage('swift', __webpack_require__(422));
-	hljs.registerLanguage('taggerscript', __webpack_require__(423));
-	hljs.registerLanguage('tcl', __webpack_require__(424));
-	hljs.registerLanguage('tex', __webpack_require__(425));
-	hljs.registerLanguage('thrift', __webpack_require__(426));
-	hljs.registerLanguage('tp', __webpack_require__(427));
-	hljs.registerLanguage('twig', __webpack_require__(428));
-	hljs.registerLanguage('typescript', __webpack_require__(429));
-	hljs.registerLanguage('vala', __webpack_require__(430));
-	hljs.registerLanguage('vbnet', __webpack_require__(431));
-	hljs.registerLanguage('vbscript', __webpack_require__(432));
-	hljs.registerLanguage('vbscript-html', __webpack_require__(433));
-	hljs.registerLanguage('verilog', __webpack_require__(434));
-	hljs.registerLanguage('vhdl', __webpack_require__(435));
-	hljs.registerLanguage('vim', __webpack_require__(436));
-	hljs.registerLanguage('x86asm', __webpack_require__(437));
-	hljs.registerLanguage('xl', __webpack_require__(438));
-	hljs.registerLanguage('xquery', __webpack_require__(439));
-	hljs.registerLanguage('yaml', __webpack_require__(440));
-	hljs.registerLanguage('zephir', __webpack_require__(441));
+	hljs.registerLanguage('1c', __webpack_require__(310));
+	hljs.registerLanguage('accesslog', __webpack_require__(311));
+	hljs.registerLanguage('actionscript', __webpack_require__(312));
+	hljs.registerLanguage('ada', __webpack_require__(313));
+	hljs.registerLanguage('apache', __webpack_require__(314));
+	hljs.registerLanguage('applescript', __webpack_require__(315));
+	hljs.registerLanguage('cpp', __webpack_require__(316));
+	hljs.registerLanguage('arduino', __webpack_require__(317));
+	hljs.registerLanguage('armasm', __webpack_require__(318));
+	hljs.registerLanguage('xml', __webpack_require__(319));
+	hljs.registerLanguage('asciidoc', __webpack_require__(320));
+	hljs.registerLanguage('aspectj', __webpack_require__(321));
+	hljs.registerLanguage('autohotkey', __webpack_require__(322));
+	hljs.registerLanguage('autoit', __webpack_require__(323));
+	hljs.registerLanguage('avrasm', __webpack_require__(324));
+	hljs.registerLanguage('axapta', __webpack_require__(325));
+	hljs.registerLanguage('bash', __webpack_require__(326));
+	hljs.registerLanguage('basic', __webpack_require__(327));
+	hljs.registerLanguage('bnf', __webpack_require__(328));
+	hljs.registerLanguage('brainfuck', __webpack_require__(329));
+	hljs.registerLanguage('cal', __webpack_require__(330));
+	hljs.registerLanguage('capnproto', __webpack_require__(331));
+	hljs.registerLanguage('ceylon', __webpack_require__(332));
+	hljs.registerLanguage('clojure', __webpack_require__(333));
+	hljs.registerLanguage('clojure-repl', __webpack_require__(334));
+	hljs.registerLanguage('cmake', __webpack_require__(335));
+	hljs.registerLanguage('coffeescript', __webpack_require__(336));
+	hljs.registerLanguage('cos', __webpack_require__(337));
+	hljs.registerLanguage('crmsh', __webpack_require__(338));
+	hljs.registerLanguage('crystal', __webpack_require__(339));
+	hljs.registerLanguage('cs', __webpack_require__(340));
+	hljs.registerLanguage('csp', __webpack_require__(341));
+	hljs.registerLanguage('css', __webpack_require__(342));
+	hljs.registerLanguage('d', __webpack_require__(343));
+	hljs.registerLanguage('markdown', __webpack_require__(344));
+	hljs.registerLanguage('dart', __webpack_require__(345));
+	hljs.registerLanguage('delphi', __webpack_require__(346));
+	hljs.registerLanguage('diff', __webpack_require__(347));
+	hljs.registerLanguage('django', __webpack_require__(348));
+	hljs.registerLanguage('dns', __webpack_require__(349));
+	hljs.registerLanguage('dockerfile', __webpack_require__(350));
+	hljs.registerLanguage('dos', __webpack_require__(351));
+	hljs.registerLanguage('dts', __webpack_require__(352));
+	hljs.registerLanguage('dust', __webpack_require__(353));
+	hljs.registerLanguage('elixir', __webpack_require__(354));
+	hljs.registerLanguage('elm', __webpack_require__(355));
+	hljs.registerLanguage('ruby', __webpack_require__(356));
+	hljs.registerLanguage('erb', __webpack_require__(357));
+	hljs.registerLanguage('erlang-repl', __webpack_require__(358));
+	hljs.registerLanguage('erlang', __webpack_require__(359));
+	hljs.registerLanguage('fix', __webpack_require__(360));
+	hljs.registerLanguage('fortran', __webpack_require__(361));
+	hljs.registerLanguage('fsharp', __webpack_require__(362));
+	hljs.registerLanguage('gams', __webpack_require__(363));
+	hljs.registerLanguage('gauss', __webpack_require__(364));
+	hljs.registerLanguage('gcode', __webpack_require__(365));
+	hljs.registerLanguage('gherkin', __webpack_require__(366));
+	hljs.registerLanguage('glsl', __webpack_require__(367));
+	hljs.registerLanguage('go', __webpack_require__(368));
+	hljs.registerLanguage('golo', __webpack_require__(369));
+	hljs.registerLanguage('gradle', __webpack_require__(370));
+	hljs.registerLanguage('groovy', __webpack_require__(371));
+	hljs.registerLanguage('haml', __webpack_require__(372));
+	hljs.registerLanguage('handlebars', __webpack_require__(373));
+	hljs.registerLanguage('haskell', __webpack_require__(374));
+	hljs.registerLanguage('haxe', __webpack_require__(375));
+	hljs.registerLanguage('hsp', __webpack_require__(376));
+	hljs.registerLanguage('htmlbars', __webpack_require__(377));
+	hljs.registerLanguage('http', __webpack_require__(378));
+	hljs.registerLanguage('inform7', __webpack_require__(379));
+	hljs.registerLanguage('ini', __webpack_require__(380));
+	hljs.registerLanguage('irpf90', __webpack_require__(381));
+	hljs.registerLanguage('java', __webpack_require__(382));
+	hljs.registerLanguage('javascript', __webpack_require__(383));
+	hljs.registerLanguage('json', __webpack_require__(384));
+	hljs.registerLanguage('julia', __webpack_require__(385));
+	hljs.registerLanguage('kotlin', __webpack_require__(386));
+	hljs.registerLanguage('lasso', __webpack_require__(387));
+	hljs.registerLanguage('less', __webpack_require__(388));
+	hljs.registerLanguage('lisp', __webpack_require__(389));
+	hljs.registerLanguage('livecodeserver', __webpack_require__(390));
+	hljs.registerLanguage('livescript', __webpack_require__(391));
+	hljs.registerLanguage('lua', __webpack_require__(392));
+	hljs.registerLanguage('makefile', __webpack_require__(393));
+	hljs.registerLanguage('mathematica', __webpack_require__(394));
+	hljs.registerLanguage('matlab', __webpack_require__(395));
+	hljs.registerLanguage('maxima', __webpack_require__(396));
+	hljs.registerLanguage('mel', __webpack_require__(397));
+	hljs.registerLanguage('mercury', __webpack_require__(398));
+	hljs.registerLanguage('mipsasm', __webpack_require__(399));
+	hljs.registerLanguage('mizar', __webpack_require__(400));
+	hljs.registerLanguage('perl', __webpack_require__(401));
+	hljs.registerLanguage('mojolicious', __webpack_require__(402));
+	hljs.registerLanguage('monkey', __webpack_require__(403));
+	hljs.registerLanguage('moonscript', __webpack_require__(404));
+	hljs.registerLanguage('nginx', __webpack_require__(405));
+	hljs.registerLanguage('nimrod', __webpack_require__(406));
+	hljs.registerLanguage('nix', __webpack_require__(407));
+	hljs.registerLanguage('nsis', __webpack_require__(408));
+	hljs.registerLanguage('objectivec', __webpack_require__(409));
+	hljs.registerLanguage('ocaml', __webpack_require__(410));
+	hljs.registerLanguage('openscad', __webpack_require__(411));
+	hljs.registerLanguage('oxygene', __webpack_require__(412));
+	hljs.registerLanguage('parser3', __webpack_require__(413));
+	hljs.registerLanguage('pf', __webpack_require__(414));
+	hljs.registerLanguage('php', __webpack_require__(415));
+	hljs.registerLanguage('powershell', __webpack_require__(416));
+	hljs.registerLanguage('processing', __webpack_require__(417));
+	hljs.registerLanguage('profile', __webpack_require__(418));
+	hljs.registerLanguage('prolog', __webpack_require__(419));
+	hljs.registerLanguage('protobuf', __webpack_require__(420));
+	hljs.registerLanguage('puppet', __webpack_require__(421));
+	hljs.registerLanguage('purebasic', __webpack_require__(422));
+	hljs.registerLanguage('python', __webpack_require__(423));
+	hljs.registerLanguage('q', __webpack_require__(424));
+	hljs.registerLanguage('qml', __webpack_require__(425));
+	hljs.registerLanguage('r', __webpack_require__(426));
+	hljs.registerLanguage('rib', __webpack_require__(427));
+	hljs.registerLanguage('roboconf', __webpack_require__(428));
+	hljs.registerLanguage('rsl', __webpack_require__(429));
+	hljs.registerLanguage('ruleslanguage', __webpack_require__(430));
+	hljs.registerLanguage('rust', __webpack_require__(431));
+	hljs.registerLanguage('scala', __webpack_require__(432));
+	hljs.registerLanguage('scheme', __webpack_require__(433));
+	hljs.registerLanguage('scilab', __webpack_require__(434));
+	hljs.registerLanguage('scss', __webpack_require__(435));
+	hljs.registerLanguage('smali', __webpack_require__(436));
+	hljs.registerLanguage('smalltalk', __webpack_require__(437));
+	hljs.registerLanguage('sml', __webpack_require__(438));
+	hljs.registerLanguage('sqf', __webpack_require__(439));
+	hljs.registerLanguage('sql', __webpack_require__(440));
+	hljs.registerLanguage('stan', __webpack_require__(441));
+	hljs.registerLanguage('stata', __webpack_require__(442));
+	hljs.registerLanguage('step21', __webpack_require__(443));
+	hljs.registerLanguage('stylus', __webpack_require__(444));
+	hljs.registerLanguage('swift', __webpack_require__(445));
+	hljs.registerLanguage('taggerscript', __webpack_require__(446));
+	hljs.registerLanguage('tcl', __webpack_require__(447));
+	hljs.registerLanguage('tex', __webpack_require__(448));
+	hljs.registerLanguage('thrift', __webpack_require__(449));
+	hljs.registerLanguage('tp', __webpack_require__(450));
+	hljs.registerLanguage('twig', __webpack_require__(451));
+	hljs.registerLanguage('typescript', __webpack_require__(452));
+	hljs.registerLanguage('vala', __webpack_require__(453));
+	hljs.registerLanguage('vbnet', __webpack_require__(454));
+	hljs.registerLanguage('vbscript', __webpack_require__(455));
+	hljs.registerLanguage('vbscript-html', __webpack_require__(456));
+	hljs.registerLanguage('verilog', __webpack_require__(457));
+	hljs.registerLanguage('vhdl', __webpack_require__(458));
+	hljs.registerLanguage('vim', __webpack_require__(459));
+	hljs.registerLanguage('x86asm', __webpack_require__(460));
+	hljs.registerLanguage('xl', __webpack_require__(461));
+	hljs.registerLanguage('xquery', __webpack_require__(462));
+	hljs.registerLanguage('yaml', __webpack_require__(463));
+	hljs.registerLanguage('zephir', __webpack_require__(464));
 
 	module.exports = hljs;
 
 /***/ },
-/* 286 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -46799,7 +50554,7 @@
 
 
 /***/ },
-/* 287 */
+/* 310 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -46882,7 +50637,7 @@
 	};
 
 /***/ },
-/* 288 */
+/* 311 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -46924,7 +50679,7 @@
 	};
 
 /***/ },
-/* 289 */
+/* 312 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -47002,7 +50757,7 @@
 	};
 
 /***/ },
-/* 290 */
+/* 313 */
 /***/ function(module, exports) {
 
 	module.exports = // We try to support full Ada2012
@@ -47179,7 +50934,7 @@
 	};
 
 /***/ },
-/* 291 */
+/* 314 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -47229,7 +50984,7 @@
 	};
 
 /***/ },
-/* 292 */
+/* 315 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -47319,7 +51074,7 @@
 	};
 
 /***/ },
-/* 293 */
+/* 316 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -47484,7 +51239,7 @@
 	};
 
 /***/ },
-/* 294 */
+/* 317 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -47588,7 +51343,7 @@
 	};
 
 /***/ },
-/* 295 */
+/* 318 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -47684,7 +51439,7 @@
 	};
 
 /***/ },
-/* 296 */
+/* 319 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -47791,7 +51546,7 @@
 	};
 
 /***/ },
-/* 297 */
+/* 320 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -47983,7 +51738,7 @@
 	};
 
 /***/ },
-/* 298 */
+/* 321 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -48131,7 +51886,7 @@
 	};
 
 /***/ },
-/* 299 */
+/* 322 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -48183,7 +51938,7 @@
 	};
 
 /***/ },
-/* 300 */
+/* 323 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -48323,7 +52078,7 @@
 	};
 
 /***/ },
-/* 301 */
+/* 324 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -48389,7 +52144,7 @@
 	};
 
 /***/ },
-/* 302 */
+/* 325 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -48424,7 +52179,7 @@
 	};
 
 /***/ },
-/* 303 */
+/* 326 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -48503,7 +52258,7 @@
 	};
 
 /***/ },
-/* 304 */
+/* 327 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -48558,7 +52313,7 @@
 	};
 
 /***/ },
-/* 305 */
+/* 328 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -48591,7 +52346,7 @@
 	};
 
 /***/ },
-/* 306 */
+/* 329 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -48632,7 +52387,7 @@
 	};
 
 /***/ },
-/* 307 */
+/* 330 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -48716,7 +52471,7 @@
 	};
 
 /***/ },
-/* 308 */
+/* 331 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -48769,7 +52524,7 @@
 	};
 
 /***/ },
-/* 309 */
+/* 332 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -48840,7 +52595,7 @@
 	};
 
 /***/ },
-/* 310 */
+/* 333 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -48939,7 +52694,7 @@
 	};
 
 /***/ },
-/* 311 */
+/* 334 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -48958,7 +52713,7 @@
 	};
 
 /***/ },
-/* 312 */
+/* 335 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -49000,7 +52755,7 @@
 	};
 
 /***/ },
-/* 313 */
+/* 336 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -49143,7 +52898,7 @@
 	};
 
 /***/ },
-/* 314 */
+/* 337 */
 /***/ function(module, exports) {
 
 	module.exports = function cos (hljs) {
@@ -49279,7 +53034,7 @@
 	};
 
 /***/ },
-/* 315 */
+/* 338 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -49377,7 +53132,7 @@
 	};
 
 /***/ },
-/* 316 */
+/* 339 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -49558,7 +53313,7 @@
 	};
 
 /***/ },
-/* 317 */
+/* 340 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -49729,7 +53484,7 @@
 	};
 
 /***/ },
-/* 318 */
+/* 341 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -49755,7 +53510,7 @@
 	};
 
 /***/ },
-/* 319 */
+/* 342 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -49864,7 +53619,7 @@
 	};
 
 /***/ },
-/* 320 */
+/* 343 */
 /***/ function(module, exports) {
 
 	module.exports = /**
@@ -50126,7 +53881,7 @@
 	};
 
 /***/ },
-/* 321 */
+/* 344 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50238,7 +53993,7 @@
 	};
 
 /***/ },
-/* 322 */
+/* 345 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -50343,7 +54098,7 @@
 	};
 
 /***/ },
-/* 323 */
+/* 346 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50415,7 +54170,7 @@
 	};
 
 /***/ },
-/* 324 */
+/* 347 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50459,7 +54214,7 @@
 	};
 
 /***/ },
-/* 325 */
+/* 348 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50527,7 +54282,7 @@
 	};
 
 /***/ },
-/* 326 */
+/* 349 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50560,7 +54315,7 @@
 	};
 
 /***/ },
-/* 327 */
+/* 350 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50593,7 +54348,7 @@
 	};
 
 /***/ },
-/* 328 */
+/* 351 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50649,7 +54404,7 @@
 	};
 
 /***/ },
-/* 329 */
+/* 352 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50777,7 +54532,7 @@
 	};
 
 /***/ },
-/* 330 */
+/* 353 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50813,7 +54568,7 @@
 	};
 
 /***/ },
-/* 331 */
+/* 354 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50914,7 +54669,7 @@
 	};
 
 /***/ },
-/* 332 */
+/* 355 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -51001,7 +54756,7 @@
 	};
 
 /***/ },
-/* 333 */
+/* 356 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -51178,7 +54933,7 @@
 	};
 
 /***/ },
-/* 334 */
+/* 357 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -51197,7 +54952,7 @@
 	};
 
 /***/ },
-/* 335 */
+/* 358 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -51247,7 +55002,7 @@
 	};
 
 /***/ },
-/* 336 */
+/* 359 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -51397,7 +55152,7 @@
 	};
 
 /***/ },
-/* 337 */
+/* 360 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -51430,7 +55185,7 @@
 	};
 
 /***/ },
-/* 338 */
+/* 361 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -51505,7 +55260,7 @@
 	};
 
 /***/ },
-/* 339 */
+/* 362 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -51568,7 +55323,7 @@
 	};
 
 /***/ },
-/* 340 */
+/* 363 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -51725,7 +55480,7 @@
 	};
 
 /***/ },
-/* 341 */
+/* 364 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -51951,7 +55706,7 @@
 	};
 
 /***/ },
-/* 342 */
+/* 365 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52022,7 +55777,7 @@
 	};
 
 /***/ },
-/* 343 */
+/* 366 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -52063,7 +55818,7 @@
 	};
 
 /***/ },
-/* 344 */
+/* 367 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52184,7 +55939,7 @@
 	};
 
 /***/ },
-/* 345 */
+/* 368 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52242,7 +55997,7 @@
 	};
 
 /***/ },
-/* 346 */
+/* 369 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52269,7 +56024,7 @@
 	};
 
 /***/ },
-/* 347 */
+/* 370 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52308,7 +56063,7 @@
 	};
 
 /***/ },
-/* 348 */
+/* 371 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52406,7 +56161,7 @@
 	};
 
 /***/ },
-/* 349 */
+/* 372 */
 /***/ function(module, exports) {
 
 	module.exports = // TODO support filter tags like :javascript, support inline HTML
@@ -52517,7 +56272,7 @@
 	};
 
 /***/ },
-/* 350 */
+/* 373 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52555,7 +56310,7 @@
 	};
 
 /***/ },
-/* 351 */
+/* 374 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52681,7 +56436,7 @@
 	};
 
 /***/ },
-/* 352 */
+/* 375 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52743,7 +56498,7 @@
 	};
 
 /***/ },
-/* 353 */
+/* 376 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52793,7 +56548,7 @@
 	};
 
 /***/ },
-/* 354 */
+/* 377 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52868,7 +56623,7 @@
 	};
 
 /***/ },
-/* 355 */
+/* 378 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52913,7 +56668,7 @@
 	};
 
 /***/ },
-/* 356 */
+/* 379 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52974,7 +56729,7 @@
 	};
 
 /***/ },
-/* 357 */
+/* 380 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53044,7 +56799,7 @@
 	};
 
 /***/ },
-/* 358 */
+/* 381 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53124,7 +56879,7 @@
 	};
 
 /***/ },
-/* 359 */
+/* 382 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53235,7 +56990,7 @@
 	};
 
 /***/ },
-/* 360 */
+/* 383 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53353,7 +57108,7 @@
 	};
 
 /***/ },
-/* 361 */
+/* 384 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53394,7 +57149,7 @@
 	};
 
 /***/ },
-/* 362 */
+/* 385 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53576,7 +57331,7 @@
 	};
 
 /***/ },
-/* 363 */
+/* 386 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -53754,7 +57509,7 @@
 	};
 
 /***/ },
-/* 364 */
+/* 387 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53926,7 +57681,7 @@
 	};
 
 /***/ },
-/* 365 */
+/* 388 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54070,7 +57825,7 @@
 	};
 
 /***/ },
-/* 366 */
+/* 389 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54177,7 +57932,7 @@
 	};
 
 /***/ },
-/* 367 */
+/* 390 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54338,7 +58093,7 @@
 	};
 
 /***/ },
-/* 368 */
+/* 391 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54491,7 +58246,7 @@
 	};
 
 /***/ },
-/* 369 */
+/* 392 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54551,7 +58306,7 @@
 	};
 
 /***/ },
-/* 370 */
+/* 393 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54600,7 +58355,7 @@
 	};
 
 /***/ },
-/* 371 */
+/* 394 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54662,7 +58417,7 @@
 	};
 
 /***/ },
-/* 372 */
+/* 395 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54754,7 +58509,7 @@
 	};
 
 /***/ },
-/* 373 */
+/* 396 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55164,7 +58919,7 @@
 	};
 
 /***/ },
-/* 374 */
+/* 397 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55393,7 +59148,7 @@
 	};
 
 /***/ },
-/* 375 */
+/* 398 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55479,7 +59234,7 @@
 	};
 
 /***/ },
-/* 376 */
+/* 399 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55569,7 +59324,7 @@
 	};
 
 /***/ },
-/* 377 */
+/* 400 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55592,7 +59347,7 @@
 	};
 
 /***/ },
-/* 378 */
+/* 401 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55753,7 +59508,7 @@
 	};
 
 /***/ },
-/* 379 */
+/* 402 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55782,7 +59537,7 @@
 	};
 
 /***/ },
-/* 380 */
+/* 403 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55861,7 +59616,7 @@
 	};
 
 /***/ },
-/* 381 */
+/* 404 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55977,7 +59732,7 @@
 	};
 
 /***/ },
-/* 382 */
+/* 405 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56074,7 +59829,7 @@
 	};
 
 /***/ },
-/* 383 */
+/* 406 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56133,7 +59888,7 @@
 	};
 
 /***/ },
-/* 384 */
+/* 407 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56186,7 +59941,7 @@
 	};
 
 /***/ },
-/* 385 */
+/* 408 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56276,7 +60031,7 @@
 	};
 
 /***/ },
-/* 386 */
+/* 409 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56358,7 +60113,7 @@
 	};
 
 /***/ },
-/* 387 */
+/* 410 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56433,7 +60188,7 @@
 	};
 
 /***/ },
-/* 388 */
+/* 411 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56494,7 +60249,7 @@
 	};
 
 /***/ },
-/* 389 */
+/* 412 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56568,7 +60323,7 @@
 	};
 
 /***/ },
-/* 390 */
+/* 413 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56620,7 +60375,7 @@
 	};
 
 /***/ },
-/* 391 */
+/* 414 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56676,7 +60431,7 @@
 	};
 
 /***/ },
-/* 392 */
+/* 415 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56807,7 +60562,7 @@
 	};
 
 /***/ },
-/* 393 */
+/* 416 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56892,7 +60647,7 @@
 	};
 
 /***/ },
-/* 394 */
+/* 417 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56944,7 +60699,7 @@
 	};
 
 /***/ },
-/* 395 */
+/* 418 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56978,7 +60733,7 @@
 	};
 
 /***/ },
-/* 396 */
+/* 419 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57070,7 +60825,7 @@
 	};
 
 /***/ },
-/* 397 */
+/* 420 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57110,7 +60865,7 @@
 	};
 
 /***/ },
-/* 398 */
+/* 421 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57229,7 +60984,7 @@
 	};
 
 /***/ },
-/* 399 */
+/* 422 */
 /***/ function(module, exports) {
 
 	module.exports = // Base deafult colors in PB IDE: background: #FFFFDF; foreground: #000000;
@@ -57291,7 +61046,7 @@
 	};
 
 /***/ },
-/* 400 */
+/* 423 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57387,7 +61142,7 @@
 	};
 
 /***/ },
-/* 401 */
+/* 424 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57414,7 +61169,7 @@
 	};
 
 /***/ },
-/* 402 */
+/* 425 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57587,7 +61342,7 @@
 	};
 
 /***/ },
-/* 403 */
+/* 426 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57661,7 +61416,7 @@
 	};
 
 /***/ },
-/* 404 */
+/* 427 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57692,7 +61447,7 @@
 	};
 
 /***/ },
-/* 405 */
+/* 428 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57763,7 +61518,7 @@
 	};
 
 /***/ },
-/* 406 */
+/* 429 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57803,7 +61558,7 @@
 	};
 
 /***/ },
-/* 407 */
+/* 430 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57868,7 +61623,7 @@
 	};
 
 /***/ },
-/* 408 */
+/* 431 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57983,7 +61738,7 @@
 	};
 
 /***/ },
-/* 409 */
+/* 432 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58102,7 +61857,7 @@
 	};
 
 /***/ },
-/* 410 */
+/* 433 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58247,7 +62002,7 @@
 	};
 
 /***/ },
-/* 411 */
+/* 434 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58305,7 +62060,7 @@
 	};
 
 /***/ },
-/* 412 */
+/* 435 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58407,7 +62162,7 @@
 	};
 
 /***/ },
-/* 413 */
+/* 436 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58467,7 +62222,7 @@
 	};
 
 /***/ },
-/* 414 */
+/* 437 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58521,7 +62276,7 @@
 	};
 
 /***/ },
-/* 415 */
+/* 438 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58591,7 +62346,7 @@
 	};
 
 /***/ },
-/* 416 */
+/* 439 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58692,7 +62447,7 @@
 	};
 
 /***/ },
-/* 417 */
+/* 440 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58856,7 +62611,7 @@
 	};
 
 /***/ },
-/* 418 */
+/* 441 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58943,7 +62698,7 @@
 	};
 
 /***/ },
-/* 419 */
+/* 442 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58985,7 +62740,7 @@
 	};
 
 /***/ },
-/* 420 */
+/* 443 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59036,7 +62791,7 @@
 	};
 
 /***/ },
-/* 421 */
+/* 444 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59494,7 +63249,7 @@
 	};
 
 /***/ },
-/* 422 */
+/* 445 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59615,7 +63370,7 @@
 	};
 
 /***/ },
-/* 423 */
+/* 446 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59663,7 +63418,7 @@
 	};
 
 /***/ },
-/* 424 */
+/* 447 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59728,7 +63483,7 @@
 	};
 
 /***/ },
-/* 425 */
+/* 448 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59794,7 +63549,7 @@
 	};
 
 /***/ },
-/* 426 */
+/* 449 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59833,7 +63588,7 @@
 	};
 
 /***/ },
-/* 427 */
+/* 450 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59921,7 +63676,7 @@
 	};
 
 /***/ },
-/* 428 */
+/* 451 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59991,7 +63746,7 @@
 	};
 
 /***/ },
-/* 429 */
+/* 452 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60099,7 +63854,7 @@
 	};
 
 /***/ },
-/* 430 */
+/* 453 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60153,7 +63908,7 @@
 	};
 
 /***/ },
-/* 431 */
+/* 454 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60213,7 +63968,7 @@
 	};
 
 /***/ },
-/* 432 */
+/* 455 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60256,7 +64011,7 @@
 	};
 
 /***/ },
-/* 433 */
+/* 456 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60272,7 +64027,7 @@
 	};
 
 /***/ },
-/* 434 */
+/* 457 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60375,7 +64130,7 @@
 	};
 
 /***/ },
-/* 435 */
+/* 458 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60435,7 +64190,7 @@
 	};
 
 /***/ },
-/* 436 */
+/* 459 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60545,7 +64300,7 @@
 	};
 
 /***/ },
-/* 437 */
+/* 460 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60685,7 +64440,7 @@
 	};
 
 /***/ },
-/* 438 */
+/* 461 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60762,7 +64517,7 @@
 	};
 
 /***/ },
-/* 439 */
+/* 462 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60837,7 +64592,7 @@
 	};
 
 /***/ },
-/* 440 */
+/* 463 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60925,7 +64680,7 @@
 	};
 
 /***/ },
-/* 441 */
+/* 464 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61036,31 +64791,182 @@
 	};
 
 /***/ },
-/* 442 */
-/***/ function(module, exports) {
+/* 465 */
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(466);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(233)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./ArticleMain.css", function() {
+				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./ArticleMain.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
-/* 443 */
-/***/ function(module, exports) {
+/* 466 */
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	exports = module.exports = __webpack_require__(232)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".ArticleMain .article-con{\n    min-height: 650px;\n}\n.ArticleMain .write-t{\n    float: right;\n}\n.ArticleMain blockquote{\n    border-left: 2px solid #4A90E2;\n    background: #F6F6B1;\n    color: #555;\n    font-size: 1em;\n    padding: 10px 20px;\n    margin: 10px 0;\n}\n.ArticleMain img{\n    display: block;\n}\n.ArticleMain strong{\n    color: #333;\n}\n.ArticleMain pre{\n    border-radius: 4px;\n    max-height: 500px;\n    overflow: auto;\n}\n.ArticleMain a{\n    color: #4A90E2;\n}", ""]);
+
+	// exports
+
 
 /***/ },
-/* 444 */
-/***/ function(module, exports) {
+/* 467 */
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(468);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(233)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../.npminstall/css-loader/0.23.1/css-loader/index.js!./../../.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./solarized-light.css", function() {
+				var newContent = require("!!./../../.npminstall/css-loader/0.23.1/css-loader/index.js!./../../.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./solarized-light.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
-/* 445 */,
-/* 446 */,
-/* 447 */,
-/* 448 */
-/***/ function(module, exports) {
+/* 468 */
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	exports = module.exports = __webpack_require__(232)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "/*\n\nOrginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmail.com>\n\n*/\n\n.hljs {\n  display: block;\n  overflow-x: auto;\n  padding: 0.5em;\n  background: #fdf6e3;\n  color: #657b83;\n}\n\n.hljs-comment, .hljs-quote {\n  color: #93a1a1;\n}\n\n/* Solarized Green */\n.hljs-keyword, .hljs-selector-tag, .hljs-addition {\n  color: #859900;\n}\n\n/* Solarized Cyan */\n.hljs-number, .hljs-string, .hljs-meta .hljs-meta-string, .hljs-literal, .hljs-doctag, .hljs-regexp {\n  color: #2aa198;\n}\n\n/* Solarized Blue */\n.hljs-title, .hljs-section, .hljs-name, .hljs-selector-id, .hljs-selector-class {\n  color: #268bd2;\n}\n\n/* Solarized Yellow */\n.hljs-attribute, .hljs-attr, .hljs-variable, .hljs-template-variable, .hljs-class .hljs-title, .hljs-type {\n  color: #b58900;\n}\n\n/* Solarized Orange */\n.hljs-symbol, .hljs-bullet, .hljs-subst, .hljs-meta, .hljs-meta .hljs-keyword, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-link {\n  color: #cb4b16;\n}\n\n/* Solarized Red */\n.hljs-built_in, .hljs-deletion {\n  color: #dc322f;\n}\n\n.hljs-formula {\n  background: #eee8d5;\n}\n\n.hljs-emphasis {\n  font-style: italic;\n}\n\n.hljs-strong {\n  font-weight: bold;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 469 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(470);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(233)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Common.css", function() {
+				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Common.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 470 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(232)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "@font-face{\r\n    font-family: mxFont;\r\n    src:url(" + __webpack_require__(471) + ");\r\n}\r\n@font-face{\r\n    font-family: Infinity;\r\n    src:url(" + __webpack_require__(472) + ");\r\n}\r\n@font-face{\r\n    font-family: lvdou;\r\n    src:url(" + __webpack_require__(473) + ");\r\n}\r\nhtml, body{\r\n    width:100%;\r\n    height: 100%;\r\n    color:#888;\r\n    font-family: mxFont;\r\n    font-weight: 200;\r\n    background: #f7f7f7;\r\n}\r\n#mx, #Root{\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.main-body{\r\n    margin-left: 256px;\r\n    position: relative; \r\n    font-family: mxFont,lvdou;\r\n}\r\n.container{\r\n    width: 70%;\r\n    margin: 0 auto;\r\n    padding: 30px 0;\r\n    position: relative;\r\n    overflow: hidden;\r\n}\r\n.container h1{\r\n    text-align: center;\r\n    padding-bottom: 10px;\r\n    position: relative;\r\n    font-size: 30px;\r\n    margin-bottom: 15px\r\n}\r\n.container h1:after{\r\n    content: '';\r\n    width: 128px;\r\n    height: 1px;\r\n    bottom: 0;\r\n    left: 50%;\r\n    margin-left: -64px;\r\n    background: #888;\r\n    position: absolute;\r\n    display: block;\r\n}\r\n.container p{\r\n    line-height: 30px;\r\n    word-break: break-all;\r\n    margin-top: 10px;\r\n}\r\n\r\n.blue{\r\n    color: #4A90E2;\r\n}\r\n\r\n.mask{\r\n    position: absolute;\r\n    top:0;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    background: rgba(0,0,0,0.5);\r\n}\r\n.fr{\r\n    float: right;\r\n}\r\n\r\n/*瀑布流*/\r\n.my-gallery-class{\r\n    margin-top: 20px;\r\n}\r\n.image-element-class{\r\n    width: 25%;\r\n    float: left;\r\n    padding: 0 5px;\r\n    box-sizing:border-box;\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    -webkit-transition: left 0.6s ease-in-out 0.1s,top 0.6s ease-in-out 0.1s;\r\n    transition: left 0.6s ease-in-out 0.1s,top 0.6s ease-in-out 0.1s;\r\n}\r\n.image-element-class .ele-wrap{\r\n    position: relative;\r\n    background: #fff;\r\n    padding: 5px;\r\n    margin-bottom: 10px;\r\n}\r\n.image-element-class img{\r\n    max-width: 100%;\r\n    min-height: 200px;\r\n}\r\n@media screen and (max-width: 1200px) {\r\n    .image-element-class{\r\n        width: 33.333%;\r\n    }\r\n}\r\n@media screen and (max-width: 980px) {\r\n    .image-element-class{\r\n        width: 50%;\r\n    }\r\n}\r\n@media screen and (max-width: 750px) {\r\n    .image-element-class{\r\n        width: 100%;\r\n    }\r\n}\r\n\r\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 471 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "d4fa09b8e3dc2b1b2d8b0458d10a776b.ttf";
+
+/***/ },
+/* 472 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "d1c4820ee5651f08dd1b34ccd8c113f4.ttf";
+
+/***/ },
+/* 473 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "6ff617a1190d43887d4e8411c665111d.otf";
+
+/***/ },
+/* 474 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(475);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(233)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Reset.css", function() {
+				var newContent = require("!!./../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../node_modules/.npminstall/postcss-loader/0.9.1/postcss-loader/index.js!./Reset.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 475 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(232)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\r\nbody, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { \r\n    padding: 0;\r\n    margin: 0;\r\n}\r\ninput{\r\n    border:none;\r\n    outline: none;\r\n}\r\na{\r\n\tcolor:#666;\r\n\ttext-decoration:none;\r\n\t}\r\nfieldset, img {\t\r\n    border: 0;\r\n}\r\ntable {\r\n    border-collapse: collapse;\r\n    border-spacing: 0;\r\n}\r\nol, ul {\r\n\tcolor:#666;\r\n\tlist-style: none;\r\n}\r\naddress, caption, cite, code, dfn, em, strong, th, var, i{\r\n    font-weight: normal;\r\n    font-style: normal;\r\n}\r\ncaption, th {\r\n    text-align: left;\r\n}\r\nh1, h2, h3, h4, h5, h6 {\r\n    font-weight: normal;\r\n}\r\nabbr, acronym { \r\n    border: 0;\r\n}\r\n/* html5 reset */\r\narticle, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {\r\n    display: block;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\ncode, kbd, pre, samp {\r\n    font-family: Source Code Pro,Consolas,Menlo,Monaco,Courier New,monospace;\r\n    font-size: 12px;\r\n}\r\na, button{\r\n    outline: none;\r\n}\r\nfigure{\r\n    -webkit-margin-before: 0 !important;\r\n    -webkit-margin-after: 0;\r\n}", ""]);
+
+	// exports
+
 
 /***/ }
 /******/ ]);

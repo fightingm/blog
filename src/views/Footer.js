@@ -6,7 +6,7 @@ export default class Footer extends React.Component{
 	render() {
 		return (
 			<footer className="footer">
-				<p>欢迎各路大神加群共同交流前端技术<span className="blue">227349034</span></p>
+				<p>本博客托管在github上，相关代码<a href="https://github.com/fightingm/blog" className="blue">戳这里</a></p>
 			</footer>
 		);
 	}

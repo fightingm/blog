@@ -1,47 +1,28 @@
 
 
 import React from 'react';
+
+var Gallery=require('./Gallery');
+
 import MainHeader from './MainHeader';
 import '../css/Photo.css';
 import  dataArr from './PhotoData';
 
+
 export default class PhotoMain extends React.Component{
+	constructor() {
+		super();
+	}
+	componentDidMount() {
+	}
 	render() {
 		return (
 			<main className="PhotoMain main-body">
 				<MainHeader {...this.props} />
-				<section>
-					<PictureWall />
-				</section>
 				<TimeBox />
+				<Gallery elements={dataArr} />
 			</main>
 			
-		);
-	}
-}
-class PictureWall extends React.Component{
-	constructor(props) {
-        super(props);
-        this.arr=dataArr;
-    }
-	render() {
-		var list=this.arr.map((key,index)=><Picture key={index} {...key} />);
-		return (
-			<div className="pictureWall">
-				{list}
-			</div>
-		);
-	}
-}
-class Picture extends React.Component{
-	render() {
-		return (
-			<figure className="photo">
-				<img src={this.props.src} />
-				<figcaption>
-					<span>{this.props.desc}</span>
-				</figcaption>
-			</figure>
 		);
 	}
 }

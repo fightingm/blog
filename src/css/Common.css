@@ -75,3 +75,43 @@ html,body{
     float: right;
 }
 
+/*瀑布流*/
+.my-gallery-class{
+    margin-top: 20px;
+}
+.image-element-class{
+    width: 25%;
+    float: left;
+    padding: 0 5px;
+    box-sizing:border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: left 0.6s ease-in-out 0.1s,top 0.6s ease-in-out 0.1s;
+    .ele-wrap{
+        position: relative;
+        background: #fff;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+}
+.image-element-class img{
+    width: 100%;
+    min-height: 200px;
+}
+@media screen and (max-width: 1200px) {
+    .image-element-class{
+        width: 33.333%;
+    }
+}
+@media screen and (max-width: 980px) {
+    .image-element-class{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 750px) {
+    .image-element-class{
+        width: 100%;
+    }
+}
+

@@ -23,12 +23,10 @@ export default class BlogMain extends React.Component{
 						<TimeLine />
 					</div>
 				</section>
-				
 			</main>
 		);
 	}
 }
-
 class TimeLine extends React.Component{
 	constructor() {
 		super();

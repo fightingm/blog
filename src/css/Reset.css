@@ -1,5 +1,4 @@
 
-
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { 
     padding: 0;
     margin: 0;
@@ -46,4 +45,11 @@ footer,header,hgroup,menu,nav,section {
 code, kbd, pre, samp {
     font-family: Source Code Pro,Consolas,Menlo,Monaco,Courier New,monospace;
     font-size: 12px;
+}
+a,button{
+    outline: none;
+}
+figure{
+    -webkit-margin-before: 0 !important;
+    -webkit-margin-end: 0 !important;
 }
